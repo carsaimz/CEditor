@@ -1,56 +1,70 @@
-# CEditor - Editor de Código
+# CEditor - Editor de Código 🚀
+
+[![Android Build](https://github.com/carsaimz/CEditor/actions/workflows/android_build.yml/badge.svg)](https://github.com/carsaimz/CEditor/actions/workflows/android_build.yml)
+[![Android Release](https://github.com/carsaimz/CEditor/actions/workflows/android_release.yml/badge.svg)](https://github.com/carsaimz/CEditor/actions/workflows/android_release.yml)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Platform](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com)
 
 **CEditor** é um editor de código e gerenciador de arquivos avançado para Android, projetado para oferecer uma experiência de desenvolvimento completa diretamente no seu dispositivo móvel.
 
+---
+
 ## ✨ Funcionalidades Principais
 
-- **Editor de Código Potente**: Baseado no SoraEditor, com suporte a realce de sintaxe para diversas linguagens.
-- **Gerenciador de Arquivos**: Navegação completa, suporte a armazenamento interno e externo (SAF).
-- **Ferramentas de Mídia**: Visualizador de imagens integrado, player de áudio e editor básico de imagens.
-- **Integração Git**: Clone repositórios diretamente para o seu dispositivo.
-- **Utilitários Avançados**: 
-  - Visualizador de HTML com execução em tempo real.
-  - Conversores de texto (Base64, Binary, HEX, Leetspeak).
-  - Terminal integrado.
-  - Visualizador de arquivos de arquivo (zip, etc).
-  - Cálculo de Checksum (Hash).
+- 💻 **Editor de Código Potente**: Baseado no SoraEditor, com suporte a realce de sintaxe para diversas linguagens.
+- 📂 **Gerenciador de Arquivos**: Navegação completa, suporte a armazenamento interno e externo (SAF).
+- 🖼️ **Ferramentas de Mídia**: Visualizador de imagens integrado, player de áudio e editor básico de imagens.
+- 🐙 **Integração Git**: Clone repositórios diretamente para o seu dispositivo.
+- 🛠️ **Utilitários Avançados**: 
+  - 🌐 Visualizador de HTML com execução em tempo real.
+  - 🔐 Conversores de texto (Base64, Binary, HEX, Leetspeak).
+  - 🐚 Terminal integrado.
+  - 📦 Visualizador de arquivos comprimidos (zip, etc).
+  - 🔢 Cálculo de Checksum (Hash).
+
+---
 
 ## 🌍 Idiomas Suportados
 
-- **Inglês** (Padrão)
-- **Português** (Brasil)
+O CEditor agora suporta troca dinâmica de idioma nas configurações:
+- 🇺🇸 **Inglês** (Padrão)
+- 🇧🇷 **Português** (Brasil)
+
+---
 
 ## 🛠️ Tecnologias Utilizadas
 
 - **Linguagem**: Java
-- **Plataforma**: Android
+- **Plataforma**: Android (SDK 21+)
 - **Bibliotecas Principais**:
   - [SoraEditor](https://github.com/Rosemoe/SoraEditor) - Núcleo do editor de código.
   - [JGit](https://www.eclipse.org/jgit/) - Operações Git.
   - [Glide](https://github.com/bumptech/glide) - Carregamento de imagens.
 
-## 🚀 Como Contribuir
+---
 
-1. Faça um fork do projeto.
-2. Crie uma branch para sua funcionalidade (`git checkout -b feature/nova-funcionalidade`).
-3. Faça o commit de suas alterações (`git commit -am 'Adiciona nova funcionalidade'`).
-4. Faça o push para a branch (`git push origin feature/nova-funcionalidade`).
-5. Abra um Pull Request.
-
-## 🛠️ Build e Release Automáticos
+## 🚀 Build e Release Automáticos
 
 Este projeto utiliza **GitHub Actions** para automatizar o processo de build e release.
 
 ### Workflows Disponíveis:
-- **Android Build**: Gera APK e AAB de depuração (debug). Pode ser disparado manualmente na aba "Actions".
-- **Android Release**: Gera APK e AAB assinados e cria um novo Release no GitHub.
+- **Android Build**: Gera APK e AAB de depuração (debug), cria um **Pré-release** automático e gera um **Changelog**.
+- **Android Release**: Gera APK e AAB assinados e cria um novo Release oficial no GitHub.
 
-### Configuração de Secrets:
-Para que o workflow de **Release** funcione corretamente, você deve configurar os seguintes Secrets no seu repositório:
-- `KEYSTORE_FILE`: O conteúdo do arquivo `.keystore` ou `.jks` codificado em **Base64**.
-- `KEYSTORE_PASSWORD`: Senha do arquivo keystore (padrão: `carsaidev`).
-- `KEY_ALIAS`: Alias da chave (padrão: `carsaidev`).
-- `KEY_PASSWORD`: Senha da chave (padrão: `carsaidev`).
+### 📥 Downloads
+Para baixar a versão mais recente, acesse a aba [Releases](https://github.com/carsaimz/CEditor/releases).
 
 ---
-Desenvolvido por [carsaimz](https://github.com/carsaimz)
+
+## 🤝 Como Contribuir
+
+Adotamos o padrão **Conventional Commits**:
+- `feat`: Novas funcionalidades.
+- `fix`: Correção de bugs.
+- `docs`: Alterações na documentação.
+- `style`: Alterações de formatação (espaços, vírgulas, etc).
+- `refactor`: Refatoração de código.
+- `chore`: Atualização de tarefas de build, pacotes, etc.
+
+---
+Desenvolvido com ❤️ por [carsaimz](https://github.com/carsaimz)
