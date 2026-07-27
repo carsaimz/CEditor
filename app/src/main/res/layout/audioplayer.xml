@@ -1,0 +1,104 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:id="@+id/layout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="4dp"
+		android:background="#111111"
+		android:orientation="vertical">
+		<LinearLayout
+			android:id="@+id/linear1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="4dp"
+			android:gravity="center_vertical"
+			android:orientation="horizontal">
+			<ImageView
+				android:id="@+id/close"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:padding="8dp"
+				android:src="@drawable/content_dismiss"
+				android:scaleType="fitCenter" />
+			<TextView
+				android:id="@+id/title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:text="file.mp3"
+				android:textSize="18sp"
+				android:textStyle="bold"
+				android:textColor="#FFFFFF"
+				android:singleLine="true"
+				android:ellipsize="marquee"
+				android:marqueeRepeatLimit="marquee_forever"
+				android:scrollHorizontally="true" />
+		</LinearLayout>
+		<FrameLayout
+			android:id="@+id/linear2"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingLeft="8dp"
+			android:paddingTop="8dp"
+			android:paddingRight="8dp"
+			android:orientation="vertical">
+			<TextView
+				android:id="@+id/error"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:padding="8dp"
+				android:gravity="center_horizontal|center_vertical"
+				android:textSize="18sp"
+				android:textColor="#FF0000" />
+			<SeekBar
+				android:id="@+id/seekbar1"
+				android:layout_width="match_parent"
+				android:layout_height="150dp"
+				android:padding="8dp"
+				android:alpha="0.0"
+				android:background="@drawable/ripple_null" />
+			<com.inflps.codexyz.WaveView
+				android:id="@+id/mWave"
+				android:layout_width="match_parent"
+				android:layout_height="150dp" />
+		</FrameLayout>
+		<LinearLayout
+			android:id="@+id/linear3"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="8dp"
+			android:gravity="center_vertical"
+			android:orientation="horizontal">
+			<TextView
+				android:id="@+id/duration"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:text="0:00 / 99:99"
+				android:textSize="12sp"
+				android:textColor="#FFFFFF"
+				android:layout_weight="1" />
+			<LinearLayout
+				android:id="@+id/play_pause"
+				android:layout_width="70dp"
+				android:layout_height="wrap_content"
+				android:layout_margin="8dp"
+				android:gravity="center_horizontal|center_vertical"
+				android:orientation="horizontal">
+				<ImageView
+					android:id="@+id/imageview1"
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:padding="8dp"
+					android:src="@drawable/content_pause"
+					android:scaleType="fitCenter" />
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>

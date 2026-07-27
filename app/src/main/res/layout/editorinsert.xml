@@ -1,0 +1,224 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:id="@+id/background"
+		android:layout_width="300dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp"
+		android:layout_marginRight="15dp"
+		android:paddingLeft="4dp"
+		android:paddingRight="4dp"
+		android:background="#111111"
+		android:orientation="vertical">
+		<ScrollView
+			android:id="@+id/scroll"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:fillViewport="true"
+			android:fadingEdgeLength="20dp"
+			android:requiresFadingEdge="vertical"
+			android:fadeScrollbars="false"
+			android:overScrollMode="never"
+			android:scrollbars="none">
+			<LinearLayout
+				android:id="@+id/container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingLeft="2dp"
+				android:paddingRight="2dp"
+				android:paddingBottom="30dp"
+				android:background="@android:color/transparent"
+				android:orientation="vertical"
+				android:animateLayoutChanges="true">
+				<LinearLayout
+					android:id="@+id/option1"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center_vertical"
+					android:orientation="horizontal">
+					<ImageView
+						android:id="@+id/option1_icon"
+						android:focusable="false"
+						android:layout_width="50dp"
+						android:layout_height="40dp"
+						android:padding="8dp"
+						android:src="@drawable/seditor_resimg_8"
+						android:scaleType="fitCenter" />
+					<TextView
+						android:id="@+id/option1_text"
+						android:focusable="false"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:text="Insert time (by local current time)"
+						android:textSize="14sp"
+						android:textColor="#FFFFFF" />
+				</LinearLayout>
+				<LinearLayout
+					android:id="@+id/option2"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="5dp"
+					android:gravity="center_vertical"
+					android:orientation="horizontal">
+					<ImageView
+						android:id="@+id/option2_icon"
+						android:focusable="false"
+						android:layout_width="50dp"
+						android:layout_height="40dp"
+						android:padding="8dp"
+						android:src="@drawable/content_hex_color"
+						android:scaleType="fitCenter" />
+					<TextView
+						android:id="@+id/option2_text"
+						android:focusable="false"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:text="Insert HEX color value"
+						android:textSize="14sp"
+						android:textColor="#FFFFFF" />
+				</LinearLayout>
+				<LinearLayout
+					android:id="@+id/option3"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="5dp"
+					android:gravity="center_vertical"
+					android:orientation="horizontal">
+					<ImageView
+						android:id="@+id/option3_icon"
+						android:focusable="false"
+						android:layout_width="50dp"
+						android:layout_height="40dp"
+						android:padding="8dp"
+						android:src="@drawable/content_html_player_window"
+						android:scaleType="fitCenter" />
+					<TextView
+						android:id="@+id/option3_text"
+						android:focusable="false"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:text="Get HTML Source code"
+						android:textSize="14sp"
+						android:textColor="#FFFFFF" />
+				</LinearLayout>
+				<LinearLayout
+					android:id="@+id/option4"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center_vertical"
+					android:orientation="horizontal">
+					<ImageView
+						android:id="@+id/option4_icon"
+						android:focusable="false"
+						android:layout_width="50dp"
+						android:layout_height="40dp"
+						android:padding="8dp"
+						android:src="@drawable/base_1"
+						android:scaleType="fitCenter" />
+					<TextView
+						android:id="@+id/option4_text"
+						android:focusable="false"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:text="Insert Base64 encoded text "
+						android:textSize="14sp"
+						android:textColor="#FFFFFF" />
+				</LinearLayout>
+				<LinearLayout
+					android:id="@+id/option5"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center_vertical"
+					android:orientation="horizontal">
+					<ImageView
+						android:id="@+id/option5_icon"
+						android:focusable="false"
+						android:layout_width="50dp"
+						android:layout_height="40dp"
+						android:padding="8dp"
+						android:src="@drawable/content_binary"
+						android:scaleType="fitCenter" />
+					<TextView
+						android:id="@+id/option5_text"
+						android:focusable="false"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:text="Insert Binary encoded text"
+						android:textSize="14sp"
+						android:textColor="#FFFFFF" />
+				</LinearLayout>
+				<LinearLayout
+					android:id="@+id/option6"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="5dp"
+					android:gravity="center_vertical"
+					android:orientation="horizontal">
+					<ImageView
+						android:id="@+id/option6_icon"
+						android:focusable="false"
+						android:layout_width="50dp"
+						android:layout_height="40dp"
+						android:padding="8dp"
+						android:src="@drawable/content_clipboard"
+						android:scaleType="fitCenter" />
+					<TextView
+						android:id="@+id/option6_text"
+						android:focusable="false"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:text="Insert last item from clipboard"
+						android:textSize="14sp"
+						android:textColor="#FFFFFF" />
+				</LinearLayout>
+				<LinearLayout
+					android:id="@+id/option7"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="5dp"
+					android:gravity="center_vertical"
+					android:orientation="horizontal">
+					<ImageView
+						android:id="@+id/option7_icon"
+						android:focusable="false"
+						android:layout_width="50dp"
+						android:layout_height="40dp"
+						android:padding="8dp"
+						android:src="@drawable/content_merge_files"
+						android:scaleType="fitCenter" />
+					<TextView
+						android:id="@+id/option7_text"
+						android:focusable="false"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:padding="8dp"
+						android:text="Merge a file"
+						android:textSize="14sp"
+						android:textColor="#FFFFFF" />
+				</LinearLayout>
+			</LinearLayout>
+		</ScrollView>
+		<TextView
+			android:id="@+id/appname"
+			android:focusable="false"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="8dp"
+			android:gravity="right"
+			android:text="CodeXYZ 6.0"
+			android:textSize="12sp"
+			android:textStyle="bold"
+			android:textColor="#616161" />
+	</LinearLayout>
+</LinearLayout>

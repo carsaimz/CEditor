@@ -1,0 +1,85 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 34
+    namespace "com.ceditor"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    useLibrary 'org.apache.http.legacy'
+    
+    defaultConfig {
+        applicationId "com.ceditor"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    
+    signingConfigs {
+        release {
+            storeFile file("release.keystore")
+            storePassword System.getenv("KEYSTORE_PASSWORD") ?: "carsaidev"
+            keyAlias System.getenv("KEY_ALIAS") ?: "carsaidev"
+            keyPassword System.getenv("KEY_PASSWORD") ?: "carsaidev"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+
+    // AndroidX
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.exifinterface:exifinterface:1.3.6'
+
+    // Imagens / Cropper
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+    implementation 'com.github.Zolad:ZoomInImageView:1.2.0'
+
+    // UI extras
+    implementation 'com.robinhood.ticker:ticker:2.0.2'
+    
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    // Sora Editor
+    implementation 'io.github.rosemoe:editor:0.24.4'
+    implementation 'io.github.rosemoe:language-textmate:0.24.4'
+    implementation 'io.github.rosemoe:language-java:0.24.4'
+
+    // TextMate / TM4E
+    implementation 'org.eclipse.tm4e:tm4e-core:0.4.4'
+    implementation 'org.eclipse.tm4e:tm4e-language:0.4.4'
+
+    // Git (JGit)
+    implementation 'org.eclipse.jgit:org.eclipse.jgit:5.13.0.202109080827-r'
+
+    // OkHttp (Java puro)
+    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.7'
+}

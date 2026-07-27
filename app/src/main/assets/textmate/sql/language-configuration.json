@@ -1,0 +1,29 @@
+{
+    "comments": {
+        "lineComment": "--",
+        "blockComment": ["/*", "*/"]
+    },
+    "brackets": [
+        ["(", ")"],
+        ["{", "}"],
+        ["[", "]"]
+    ],
+    "autoClosingPairs": [
+        ["(", ")"],
+        ["{", "}"],
+        ["[", "]"],
+        ["\"", "\""],
+        ["'", "'"]
+    ],
+    "surroundingPairs": [
+        ["\"", "\""],
+        ["'", "'"],
+        ["(", ")"],
+        ["{", "}"],
+        ["[", "]"]
+    ],
+    "indentationRules": {
+        "increaseIndentPattern": ".*\\b(?:select|insert|update|delete|create|alter|drop|truncate|begin|commit|rollback|grant|revoke|declare|set|if|else|while)\\b.*{.*$",
+        "decreaseIndentPattern": "^\\s*(end|commit|rollback)\\b.*$"
+    }
+}

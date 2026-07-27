@@ -1,0 +1,65 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:id="@+id/listItem"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp"
+		android:layout_marginBottom="1dp"
+		android:padding="8dp"
+		android:orientation="horizontal"
+		android:animateLayoutChanges="true">
+		<ImageView
+			android:id="@+id/itemIcon"
+			android:focusable="false"
+			android:layout_width="50dp"
+			android:layout_height="35dp"
+			android:layout_marginLeft="5dp"
+			android:layout_marginRight="5dp"
+			android:src="@drawable/folder"
+			android:scaleType="fitCenter" />
+		<LinearLayout
+			android:id="@+id/linear1"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:gravity="center_vertical"
+			android:orientation="vertical"
+			android:layout_weight="1">
+			<TextView
+				android:id="@+id/storageTitle"
+				android:focusable="false"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Internal storage"
+				android:textSize="16sp"
+				android:textColor="#FFFFFF"
+				android:singleLine="true"
+				android:layout_weight="1" />
+			<TextView
+				android:id="@+id/storagePath"
+				android:focusable="false"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="storage/emulated/0"
+				android:textSize="10sp"
+				android:textColor="#FFFFFF"
+				android:singleLine="true"
+				android:layout_weight="1" />
+		</LinearLayout>
+		<TextView
+			android:id="@+id/size"
+			android:focusable="false"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="8dp"
+			android:text="0 B"
+			android:textSize="12sp"
+			android:textColor="#FFFFFF"
+			android:visibility="gone" />
+	</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,74 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:id="@+id/LinearLayout1"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#111111"
+		android:gravity="left"
+		android:orientation="vertical">
+		<LinearLayout
+			android:id="@+id/linear6"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:gravity="center_horizontal|center_vertical"
+			android:orientation="vertical"
+			android:animateLayoutChanges="true">
+			<LinearLayout
+				android:id="@+id/LinearLayout8"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:orientation="horizontal"
+				android:layout_weight="1" />
+			<ImageView
+				android:id="@+id/imageview3"
+				android:layout_width="70dp"
+				android:layout_height="80dp"
+				android:padding="4dp"
+				android:src="@drawable/content_check"
+				android:scaleType="fitCenter" />
+			<TextView
+				android:id="@+id/textview3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:gravity="center_horizontal|center_vertical"
+				android:text="Storage permission granted!"
+				android:textSize="20sp"
+				android:textColor="#FFFFFF" />
+			<TextView
+				android:id="@+id/grand_permission_bttn"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:text="Grant permission"
+				android:textSize="16sp"
+				android:textStyle="bold"
+				android:textColor="#C60000" />
+			<LinearLayout
+				android:id="@+id/LinearLayout7"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:gravity="center_horizontal|bottom"
+				android:orientation="vertical"
+				android:layout_weight="1">
+				<TextView
+					android:id="@+id/TextView4"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="8dp"
+					android:gravity="center_horizontal|center_vertical"
+					android:text="If the grant button doesn't work, you need to check in the app's permission settings and grant storage permission"
+					android:textSize="10sp"
+					android:textColor="#9E9E9E" />
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>
