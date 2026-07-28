@@ -45,8 +45,6 @@ import androidx.fragment.app.FragmentManager;
 import com.android.view.materialrefreshlayout.*;
 import com.google.android.material.appbar.AppBarLayout;
 import com.robinhood.ticker.*;
-import com.theartofdev.edmodo.cropper.*;
-import com.zolad.zoominimageview.*;
 import io.github.rosemoe.sora.*;
 import io.github.rosemoe.sora.langs.textmate.*;
 import java.io.*;

@@ -123,14 +123,14 @@
 		android:orientation="vertical"
 		android:weightSum="1"
 		android:layout_weight="1">
-		<com.theartofdev.edmodo.cropper.CropImageView
-			android:id="@+id/cropImageView"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:padding="2dp"
-			android:orientation="vertical"
-			android:layout_gravity="center_horizontal|center_vertical"
-			android:layout_weight="1" />
+			<com.canhub.cropper.CropImageView
+				android:id="@+id/cropImageView"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="2dp"
+				android:orientation="vertical"
+				android:layout_gravity="center_horizontal|center_vertical"
+				android:layout_weight="1" />
 		<FrameLayout
 			android:id="@+id/linear7"
 			android:layout_width="wrap_content"

@@ -34,8 +34,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import com.android.view.materialrefreshlayout.*;
 import com.robinhood.ticker.*;
-import com.theartofdev.edmodo.cropper.*;
-import com.zolad.zoominimageview.*;
+// import com.canhub.cropper.*;
+// ZoomInImageView removed
 import io.github.rosemoe.sora.*;
 import io.github.rosemoe.sora.langs.textmate.*;
 import java.io.*;
@@ -107,7 +107,7 @@ public class EditimageActivity extends AppCompatActivity {
 	private ImageView download;
 	private TextView title;
 	private TextView subtitle;
-	private CropImageView cropImageView;
+	private // CropImageView cropImageView;
 	private FrameLayout linear7;
 	private LinearLayout image;
 	private LinearLayout drawView;
@@ -750,11 +750,11 @@ public class EditimageActivity extends AppCompatActivity {
 		if (imageFileName != null && imageFileName.contains(".")) {
 			substringExt = imageFileName.substring(0, imageFileName.lastIndexOf('.'));
 		}
-		CropImageView cropImageView = (CropImageView) findViewById(R.id.cropImageView);
+		// CropImageView cropImageView = (// CropImageView) findViewById(R.id.cropImageView);
 		cropImageView.setFixedAspectRatio(false);
-		cropImageView.setGuidelines(CropImageView.Guidelines.ON); 
-		cropImageView.setCropShape(CropImageView.CropShape.RECTANGLE);
-		cropImageView.setScaleType(CropImageView.ScaleType.FIT_CENTER);
+		cropImageView.setGuidelines(// CropImageView.Guidelines.ON); 
+		cropImageView.setCropShape(// CropImageView.CropShape.RECTANGLE);
+		cropImageView.setScaleType(// CropImageView.ScaleType.FIT_CENTER);
 		cropImageView.setAutoZoomEnabled(true);
 		cropImageView.setShowProgressBar(true);
 		cropImageView.setCropRect(new Rect(0, 0, 800, 500));
