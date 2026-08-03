@@ -36,8 +36,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import com.android.view.materialrefreshlayout.*;
 import com.robinhood.ticker.*;
-// import com.canhub.cropper.*;
-// import com.github.chrisbanes.photoview.// PhotoViewAttacher;
 import io.github.rosemoe.sora.*;
 import io.github.rosemoe.sora.langs.textmate.*;
 import java.io.*;
@@ -47,8 +45,6 @@ import java.util.*;
 import java.util.regex.*;
 import org.json.*;
 import com.bumptech.glide.Glide;
-
-
 
 public class PreviewImageFileActivity extends AppCompatActivity {
 	
@@ -148,7 +144,6 @@ public class PreviewImageFileActivity extends AppCompatActivity {
 		path = getIntent().getStringExtra("path");
 		textview1.setText(Uri.parse(path).getLastPathSegment());
 		_setImageFromFile(imageview1, path);
-			// PhotoViewAttacher mIvAttacter = new // PhotoViewAttacher(imageview1);
 		_convertToBottomSheet();
 		_ripple(imageview2);
 		action.setBackground(new GradientDrawable() { public GradientDrawable getIns(int a, int b, int c, int d) { this.setCornerRadius(a); this.setStroke(b, c); this.setColor(d); return this; } }.getIns((int)15, (int)1, 0xFFE0E0E0, 0xCA161616));
@@ -208,7 +203,11 @@ public class PreviewImageFileActivity extends AppCompatActivity {
 	
 	@Override
 	public void finish(){
-			com.google.android.material.bottomsheet.BottomSheetBehavior.from(mCoordinatorLayout.getChildAt(0)).setState(com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_COLLAPSED);
+        if (mCoordinatorLayout != null && mCoordinatorLayout.getChildCount() > 0) {
+            com.google.android.material.bottomsheet.BottomSheetBehavior.from(mCoordinatorLayout.getChildAt(0)).setState(com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_COLLAPSED);
+        } else {
+            superFinish();
+        }
 	}
 	
 	
@@ -222,7 +221,6 @@ public class PreviewImageFileActivity extends AppCompatActivity {
 			if(mCoordinatorLayout == null){
 					overridePendingTransition(0,0);
 					mCoordinatorLayout = new androidx.coordinatorlayout.widget.CoordinatorLayout(this);
-					// DEPRECATED: makeActivityTransparent();
 					mCoordinatorLayout.setBackgroundColor(0x00000000);
 					mCoordinatorLayout.setOnClickListener(new View.OnClickListener(){
 							
@@ -265,79 +263,11 @@ public class PreviewImageFileActivity extends AppCompatActivity {
 					public void run() {
 							behavior.setState(com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED);
 					}});
-		/* @Deprecated in api 35!
-}
-
-
-private void makeActivityTransparent(){
-getWindow().setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(0));
-	try {
-		java.lang.reflect.Method getActivityOptions = Activity.class.getDeclaredMethod("getActivityOptions"); 
-		getActivityOptions.setAccessible(true);
-		Object options = getActivityOptions.invoke(this);
-		Class<?>[] classes = Activity.class.getDeclaredClasses();
-		Class<?> translucentConversionListenerClazz = null;
-		for (Class clazz : classes) { 
-			if (clazz.getSimpleName().contains("TranslucentConversionListener")) { 
-				translucentConversionListenerClazz = clazz;
-			} 
-		} 
-		java.lang.reflect.Method convertToTranslucent = Activity.class.getDeclaredMethod("convertToTranslucent", translucentConversionListenerClazz, ActivityOptions.class); 
-		convertToTranslucent.setAccessible(true); 
-		convertToTranslucent.invoke(this, null, options); 
-	} catch (Throwable t) {
-	}*/
 	}
 	
 	
 	@Deprecated
 	public void showMessage(String _s) {
 		Toast.makeText(getApplicationContext(), _s, Toast.LENGTH_SHORT).show();
-	}
-	
-	@Deprecated
-	public int getLocationX(View _v) {
-		int _location[] = new int[2];
-		_v.getLocationInWindow(_location);
-		return _location[0];
-	}
-	
-	@Deprecated
-	public int getLocationY(View _v) {
-		int _location[] = new int[2];
-		_v.getLocationInWindow(_location);
-		return _location[1];
-	}
-	
-	@Deprecated
-	public int getRandom(int _min, int _max) {
-		Random random = new Random();
-		return random.nextInt(_max - _min + 1) + _min;
-	}
-	
-	@Deprecated
-	public ArrayList<Double> getCheckedItemPositionsToArray(ListView _list) {
-		ArrayList<Double> _result = new ArrayList<Double>();
-		SparseBooleanArray _arr = _list.getCheckedItemPositions();
-		for (int _iIdx = 0; _iIdx < _arr.size(); _iIdx++) {
-			if (_arr.valueAt(_iIdx))
-			_result.add((double)_arr.keyAt(_iIdx));
-		}
-		return _result;
-	}
-	
-	@Deprecated
-	public float getDip(int _input) {
-		return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, _input, getResources().getDisplayMetrics());
-	}
-	
-	@Deprecated
-	public int getDisplayWidthPixels() {
-		return getResources().getDisplayMetrics().widthPixels;
-	}
-	
-	@Deprecated
-	public int getDisplayHeightPixels() {
-		return getResources().getDisplayMetrics().heightPixels;
 	}
 }
