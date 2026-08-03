@@ -39,7 +39,6 @@ import androidx.exifinterface.*;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import com.android.view.materialrefreshlayout.*;
 import com.robinhood.ticker.*;
 import io.github.rosemoe.sora.*;
 import io.github.rosemoe.sora.langs.textmate.*;
@@ -358,7 +357,7 @@ public class NewFileActivity extends AppCompatActivity {
 		if (path == null || path.equals("")) {
 			nfolder.setEnabled(false);
 			nfolder.setAlpha((float)(0.3d));
-			path = "/storage/emulated/0/CodeXYZ";
+			path = "/storage/emulated/0/CEditor";
 			File dir = new File(path);
 			if (!dir.exists()) {
 				dir.mkdirs();

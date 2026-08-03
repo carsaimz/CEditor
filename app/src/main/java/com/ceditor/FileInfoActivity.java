@@ -39,7 +39,6 @@ import androidx.exifinterface.*;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import com.android.view.materialrefreshlayout.*;
 import com.robinhood.ticker.*;
 import io.github.rosemoe.sora.*;
 import io.github.rosemoe.sora.langs.textmate.*;
@@ -1125,7 +1124,7 @@ _img.setImageBitmap(thumb);
 								_imageview.setAlpha((float)(1));
 							}
 							else {
-								if (_path.equals("CodeXYZ")) {
+								if (_path.equals("CEditor")) {
 									_imageview.setImageResource(R.drawable.codexyz_folder);
 									_imageview.setAlpha((float)(1));
 								}

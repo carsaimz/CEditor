@@ -29,7 +29,6 @@ import androidx.exifinterface.*;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import com.android.view.materialrefreshlayout.*;
 import com.robinhood.ticker.*;
 import io.github.rosemoe.sora.*;
 import io.github.rosemoe.sora.langs.textmate.*;
@@ -1817,7 +1816,7 @@ public class TerminalActivity extends AppCompatActivity {
 			        stup.append("You may encounter bugs and incomplete features.\n\n");
 			        stup.append("License            : Apache 2.0 License\n");
 			        stup.append("Support            : inflps.official@gmail.com\n");
-			        stup.append("Report issues at   : https://github.com/InfiniteLoops87/CodeXYZ/issues\n\n");
+			        stup.append("Report issues at   : https://github.com/InfiniteLoops87/CEditor/issues\n\n");
 			        stup.append("\nTip: Pinch and zoom to resize the console.\n");
 			
 			    } catch (PackageManager.NameNotFoundException e) {

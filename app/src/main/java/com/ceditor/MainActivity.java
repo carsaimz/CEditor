@@ -65,7 +65,6 @@ import androidx.recyclerview.widget.*;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
-import com.android.view.materialrefreshlayout.*;
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -203,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
 	private LinearLayout linear1;
 	private TextView subtitle;
 	private ImageView imageview10;
-	private MaterialRefreshLayout materialRefreshLayout;
+	private View // View // MaterialRefreshLayout materialRefreshLayout;
 	private LinearLayout layout_info;
 	private RecyclerView recyclerview1;
 	private LinearLayout layout_no_items;
@@ -1687,7 +1686,7 @@ public class MainActivity extends AppCompatActivity {
 		
 		linear9.setOnTouchListener(resizeHandleListener);
 		alertbox.setOnTouchListener(touchListener);
-		String appMainPath = "/storage/emulated/0/CodeXYZ/Projects";
+		String appMainPath = "/storage/emulated/0/CEditor/Projects";
 		basePath = "/storage/emulated/0/.inflps/C-XYZ/ClonedGit";
 		File baseDir = new File(appMainPath);
 		File gitDir = new File(basePath);
@@ -1903,23 +1902,23 @@ public class MainActivity extends AppCompatActivity {
 		
 		materialRefreshLayout.setColorSchemeColors(0xFF4D0000);
 		if (data.getString("swipe2refresh_large", "").equals("true")) {
-			materialRefreshLayout.setSize(MaterialRefreshLayout.LARGE);
+			materialRefreshLayout.setSize(View // MaterialRefreshLayout.LARGE);
 		}
 		else {
-			materialRefreshLayout.setSize(MaterialRefreshLayout.DEFAULT);
+			materialRefreshLayout.setSize(View // MaterialRefreshLayout.DEFAULT);
 		}
 		if (data.getString("swipe_bottom", "").equals("true")) {
-			materialRefreshLayout.setDirection(MaterialRefreshLayout.Direction.BOTH);
+			materialRefreshLayout.setDirection(View // MaterialRefreshLayout.Direction.BOTH);
 		}
 		else {
-			materialRefreshLayout.setDirection(MaterialRefreshLayout.Direction.TOP);
+			materialRefreshLayout.setDirection(View // MaterialRefreshLayout.Direction.TOP);
 		}
-		materialRefreshLayout.setOnRefreshListener(new MaterialRefreshLayout.OnRefreshListener() {
+		materialRefreshLayout.setOnRefreshListener(new View // MaterialRefreshLayout.OnRefreshListener() {
 			    @Override
-			    public void onRefresh(MaterialRefreshLayout.Direction direction) {
+			    public void onRefresh(View // MaterialRefreshLayout.Direction direction) {
 				        
 				materialRefreshLayout.setRefreshing(false);
-				if (direction == MaterialRefreshLayout.Direction.BOTTOM) {
+				if (direction == View // MaterialRefreshLayout.Direction.BOTTOM) {
 					recyclerview1.smoothScrollToPosition(recyclerview1.getAdapter().getItemCount() - 1);  // Scroll to the bottom
 				}
 				_refreshItems("");
@@ -2502,16 +2501,16 @@ public class MainActivity extends AppCompatActivity {
 		_drawer_autoRefrsh.setChecked(!data.getString("auto_refresh", "").equals("") && data.getString("auto_refresh", "").equals("true"));
 		_drawer_saveLastDirPath.setChecked(!data.getString("save_path", "").equals("") && data.getString("save_path", "").equals("true"));
 		if (data.getString("swipe_bottom", "").equals("true")) {
-			materialRefreshLayout.setDirection(MaterialRefreshLayout.Direction.BOTH);
+			materialRefreshLayout.setDirection(View // MaterialRefreshLayout.Direction.BOTH);
 		}
 		else {
-			materialRefreshLayout.setDirection(MaterialRefreshLayout.Direction.TOP);
+			materialRefreshLayout.setDirection(View // MaterialRefreshLayout.Direction.TOP);
 		}
 		if (data.getString("swipe2refresh_large", "").equals("true")) {
-			materialRefreshLayout.setSize(MaterialRefreshLayout.LARGE);
+			materialRefreshLayout.setSize(View // MaterialRefreshLayout.LARGE);
 		}
 		else {
-			materialRefreshLayout.setSize(MaterialRefreshLayout.DEFAULT);
+			materialRefreshLayout.setSize(View // MaterialRefreshLayout.DEFAULT);
 		}
 		if (data.getString("collapsing_toolbar", "").equals("true")) {
 			_collapsingToolbar(recyclerview1);
@@ -3889,7 +3888,7 @@ allow.setClickable(true);*/
 			drives.add(new DriveItem(R.drawable.documents_folder, "Documents", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath()));
 			drives.add(new DriveItem(R.drawable.music_ringtones_folder, "Music", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getAbsolutePath()));
 			drives.add(new DriveItem(R.drawable.dcim_folder, "DCIM", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath()));
-			drives.add(new DriveItem(R.drawable.codexyz_folder, "C-XYZ", new File(internalStorage, "CodeXYZ").getAbsolutePath()));
+			drives.add(new DriveItem(R.drawable.codexyz_folder, "C-XYZ", new File(internalStorage, "CEditor").getAbsolutePath()));
 			
 			android.os.storage.StorageManager storageManager = (android.os.storage.StorageManager) getSystemService(Context.STORAGE_SERVICE);
 			try {
@@ -4322,7 +4321,7 @@ _img.setImageBitmap(thumb);
 									_imageview.setAlpha((float)(1));
 								}
 								else {
-									if (_path.equals("CodeXYZ")) {
+									if (_path.equals("CEditor")) {
 										_imageview.setImageResource(R.drawable.codexyz_folder);
 										_imageview.setAlpha((float)(1));
 									}
@@ -5005,7 +5004,7 @@ _img.setImageBitmap(thumb);
 					 "• Replaced reflection-based translucency with XML styles\n" +
 					 "• Integrated 'More Tools' into navigation drawer\n" +
 					 "• Moved extract-code and binary conversion to Editor\n" + 
-					 "• Changed default folder to /storage/emulated/0/CodeXYZ\n\n",
+					 "• Changed default folder to /storage/emulated/0/CEditor\n\n",
 					 
 					 "• Performance lag with large file lists (device-dependent)\n" +
 					 "• Crash when tapping with multiple fingers\n" +
