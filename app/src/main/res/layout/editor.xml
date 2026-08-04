@@ -71,7 +71,7 @@
 					android:id="@+id/path"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:text="...0/CodeXYZ/Projects"
+					android:text="...0/CEditor/Projects"
 					android:textSize="12sp"
 					android:textColor="#FFFFFF"
 					android:singleLine="true"

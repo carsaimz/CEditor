@@ -297,7 +297,7 @@
 			android:layout_height="wrap_content"
 			android:padding="8dp"
 			android:gravity="right"
-			android:text="CodeXYZ 6.0"
+			android:text="CEditor 6.0"
 			android:textSize="12sp"
 			android:textStyle="bold"
 			android:textColor="#616161" />
