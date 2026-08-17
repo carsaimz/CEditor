@@ -45,6 +45,8 @@ O CEditor agora suporta troca dinâmica de idioma nas configurações:
 
 ## 🚀 Build e Release Automáticos
 
+O CEditor agora possui um pipeline de CI/CD **100% funcional**. O projeto foi recuperado de um estado de compilação quebrado, com a restauração de layouts ausentes e correção de dependências.
+
 Este projeto utiliza **GitHub Actions** para automatizar o processo de build e release.
 
 ### Workflows Disponíveis:
