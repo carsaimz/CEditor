@@ -1370,29 +1370,31 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 		
-// 		alertbox_webview.setWebViewClient(new WebViewClient() {
-			@Override
-			public void onPageStarted(WebView _param1, String _param2, Bitmap _param3) {
-				final String _url = _param2;
+/*
+	 		alertbox_webview.setWebViewClient(new WebViewClient() {
+				@Override
+				public void onPageStarted(WebView _param1, String _param2, Bitmap _param3) {
+					final String _url = _param2;
+					
+					super.onPageStarted(_param1, _param2, _param3);
+				}
 				
-				super.onPageStarted(_param1, _param2, _param3);
-			}
-			
-			@Override
-			public void onPageFinished(WebView _param1, String _param2) {
-				final String _url = _param2;
-				
-				super.onPageFinished(_param1, _param2);
-			}
-		});
-		
-// 		alertbox_button.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View _view) {
-				openstring.edit().putString("eula", "t").commit();
-				_EULA();
-			}
-		});
+				@Override
+				public void onPageFinished(WebView _param1, String _param2) {
+					final String _url = _param2;
+					
+					super.onPageFinished(_param1, _param2);
+				}
+			});
+
+	 		alertbox_button.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View _view) {
+					openstring.edit().putString("eula", "t").commit();
+					_EULA();
+				}
+			});
+			*/
 		
 		_fab.setOnClickListener(new View.OnClickListener() {
 			@Override
