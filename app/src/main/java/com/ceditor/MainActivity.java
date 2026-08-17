@@ -1714,57 +1714,57 @@ public class MainActivity extends AppCompatActivity {
 			}
 			*/
 			
-			Calendar calendar = Calendar.getInstance();
-			int currentMonth = calendar.get(Calendar.MONTH) + 1;
-			int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
-			int currentYear = calendar.get(Calendar.YEAR);
-			
-			String birthMessage = "Happy Birthday!";
-			if (birthDay != -1 && birthMonth != -1 && birthYear != -1) {
-					boolean isBirthday = (birthMonth == currentMonth && birthDay == currentDay);
-					
-					if (isBirthday) {
-							int age = currentYear - birthYear;
-							if (currentMonth < birthMonth || (currentMonth == birthMonth && currentDay < birthDay)) {
-									age--;
-							}
-							
-							birthMessage = "Happy " + age + (getOrdinalSuffix(age)) + " Birthday!";
-							List<Integer> birthdayColors = Arrays.asList(
-							Color.RED, 
-							Color.BLUE, 
-							Color.GREEN, 
-							Color.YELLOW, 
-							Color.CYAN, 
-							Color.MAGENTA, 
-							Color.parseColor("#FF6347"),
-							Color.parseColor("#FFD700"),
-							Color.parseColor("#32CD32"),
-							Color.parseColor("#FF1493"),
-							Color.parseColor("#FF4500"),
-							Color.parseColor("#8A2BE2"),
-							Color.parseColor("#20B2AA"),
-							Color.parseColor("#FF69B4"),
-							Color.parseColor("#00FA9A"),
-							Color.parseColor("#D2691E"),
-							Color.parseColor("#A52A2A"),
-							Color.parseColor("#800080"),
-							Color.parseColor("#98FB98"),
-							Color.parseColor("#FFC0CB"),
-							Color.parseColor("#4682B4"),
-							Color.parseColor("#ADFF2F"),
-							Color.parseColor("#F0E68C"),
-							Color.parseColor("#FF00FF")
-							);
-							
-							fallingView.setEffectType(FallingEffect.EffectType.BIRTHDAY);
-							fallingView.setThemeColors(birthdayColors);
-							fallingView.setBirthdayMessage(birthMessage);
-							fallingView.post(fallingView::startEffect);
-					}
-			}
-			
-		}
+/*
+				Calendar calendar = Calendar.getInstance();
+				int currentMonth = calendar.get(Calendar.MONTH) + 1;
+				int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+				int currentYear = calendar.get(Calendar.YEAR);
+				
+				String birthMessage = "Happy Birthday!";
+				if (birthDay != -1 && birthMonth != -1 && birthYear != -1) {
+						boolean isBirthday = (birthMonth == currentMonth && birthDay == currentDay);
+						
+						if (isBirthday) {
+								int age = currentYear - birthYear;
+								if (currentMonth < birthMonth || (currentMonth == birthMonth && currentDay < birthDay)) {
+										age--;
+								}
+								
+								birthMessage = "Happy " + age + (getOrdinalSuffix(age)) + " Birthday!";
+								List<Integer> birthdayColors = Arrays.asList(
+								Color.RED, 
+								Color.BLUE, 
+								Color.GREEN, 
+								Color.YELLOW, 
+								Color.CYAN, 
+								Color.MAGENTA, 
+								Color.parseColor("#FF6347"),
+								Color.parseColor("#FFD700"),
+								Color.parseColor("#32CD32"),
+								Color.parseColor("#FF1493"),
+								Color.parseColor("#FF4500"),
+								Color.parseColor("#8A2BE2"),
+								Color.parseColor("#20B2AA"),
+								Color.parseColor("#FF69B4"),
+								Color.parseColor("#00FA9A"),
+								Color.parseColor("#D2691E"),
+								Color.parseColor("#A52A2A"),
+								Color.parseColor("#800080"),
+								Color.parseColor("#98FB98"),
+								Color.parseColor("#FFC0CB"),
+								Color.parseColor("#4682B4"),
+								Color.parseColor("#ADFF2F"),
+								Color.parseColor("#F0E68C"),
+								Color.parseColor("#FF00FF")
+								);
+								
+								// fallingView.setEffectType(FallingEffect.EffectType.BIRTHDAY);
+								// fallingView.setThemeColors(birthdayColors);
+								// fallingView.setBirthdayMessage(birthMessage);
+								// fallingView.post(fallingView::startEffect);
+						}
+				}
+				*/
 		_blank();
 		_drawer_main_ui();
 		toolbar1_progressbar.setVisibility(View.GONE);
