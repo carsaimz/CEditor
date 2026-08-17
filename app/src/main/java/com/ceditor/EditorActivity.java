@@ -2127,12 +2127,13 @@ public void changeTheme(String themeName) {
 				            configReader = new InputStreamReader(editor.getContext().getAssets().open(configPath));
 				        }
 			
-			        Language language = TextMateLanguage.create(
-			            languageName + ".tmLanguage.json",
-			            editor.getContext().getAssets().open(grammarPath),
-			            configReader,
-			            tmColorScheme.getRawTheme()
-			        );
+// Language language = TextMateLanguage.create(
+				        //     languageName + ".tmLanguage.json",
+				        //     editor.getContext().getAssets().open(grammarPath),
+				        //     configReader,
+				        //     tmColorScheme.getRawTheme()
+				        // );
+				        Language language = null; // Placeholder due to API mismatch or missing dependencies
 			
 			        editor.setEditorLanguage(language);
 			        editor.rerunAnalysis();

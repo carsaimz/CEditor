@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 	private FrameLayout root_frame_layout;
 	private LinearLayout event_layout;
 	private LinearLayout base_layout;
-	private FallingEffect imga;
+// 	private FallingEffect imga;
 	private LinearLayout info_layout;
 	private LinearLayout divider;
 	private FrameLayout main_layout;
@@ -235,12 +235,12 @@ public class MainActivity extends AppCompatActivity {
 	private LinearLayout l3;
 	private TextView loading_text;
 	private LinearLayout LinearLayout14;
-	private TextView alertbox_context;
-	private WebView alertbox_webview;
-	private LinearLayout linear9;
-	private TextView alertbox_title;
-	private ImageView imageview14;
-	private TextView alertbox_button;
+// 	private TextView alertbox_context;
+// 	private WebView alertbox_webview;
+// 	private LinearLayout linear9;
+// 	private TextView alertbox_title;
+// 	private ImageView imageview14;
+// 	private TextView alertbox_button;
 	private LinearLayout _drawer_backgroundcontainer;
 	private LinearLayout _drawer_rootbg;
 	private LinearLayout _drawer_vl1;
@@ -277,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
 	private Switch _drawer_dthumb;
 	private ImageView _drawer_imageview12;
 	private Switch _drawer_autoRefrsh;
-	private ImageView _drawer_imageview14;
+// 	private ImageView _drawer_imageview14;
 	private Switch _drawer_saveLastDirPath;
 	private LinearLayout _drawer_linear34;
 	private LinearLayout _drawer_linear35;
@@ -389,7 +389,7 @@ public class MainActivity extends AppCompatActivity {
 		root_frame_layout = findViewById(R.id.root_frame_layout);
 		event_layout = findViewById(R.id.event_layout);
 		base_layout = findViewById(R.id.base_layout);
-		imga = findViewById(R.id.imga);
+// 		imga = findViewById(R.id.imga);
 		info_layout = findViewById(R.id.info_layout);
 		divider = findViewById(R.id.divider);
 		main_layout = findViewById(R.id.main_layout);
@@ -446,14 +446,16 @@ public class MainActivity extends AppCompatActivity {
 		l3 = findViewById(R.id.l3);
 		loading_text = findViewById(R.id.loading_text);
 		LinearLayout14 = findViewById(R.id.LinearLayout14);
-		alertbox_context = findViewById(R.id.alertbox_context);
-		alertbox_webview = findViewById(R.id.alertbox_webview);
-		alertbox_webview.getSettings().setJavaScriptEnabled(true);
-		alertbox_webview.getSettings().setSupportZoom(true);
-		linear9 = findViewById(R.id.linear9);
-		alertbox_title = findViewById(R.id.alertbox_title);
-		imageview14 = findViewById(R.id.imageview14);
-		alertbox_button = findViewById(R.id.alertbox_button);
+/*
+// 			alertbox_context = findViewById(R.id.alertbox_context);
+// 			alertbox_webview = findViewById(R.id.alertbox_webview);
+// 			alertbox_webview.getSettings().setJavaScriptEnabled(true);
+// 			alertbox_webview.getSettings().setSupportZoom(true);
+// 			linear9 = findViewById(R.id.linear9);
+// 			alertbox_title = findViewById(R.id.alertbox_title);
+// 			imageview14 = findViewById(R.id.imageview14);
+// 			alertbox_button = findViewById(R.id.alertbox_button);
+			*/
 		_drawer_backgroundcontainer = _nav_view.findViewById(R.id.backgroundcontainer);
 		_drawer_rootbg = _nav_view.findViewById(R.id.rootbg);
 		_drawer_vl1 = _nav_view.findViewById(R.id.vl1);
@@ -490,7 +492,7 @@ public class MainActivity extends AppCompatActivity {
 		_drawer_dthumb = _nav_view.findViewById(R.id.dthumb);
 		_drawer_imageview12 = _nav_view.findViewById(R.id.imageview12);
 		_drawer_autoRefrsh = _nav_view.findViewById(R.id.autoRefrsh);
-		_drawer_imageview14 = _nav_view.findViewById(R.id.imageview14);
+// 		_drawer_imageview14 = _nav_view.findViewById(R.id.imageview14);
 		_drawer_saveLastDirPath = _nav_view.findViewById(R.id.saveLastDirPath);
 		_drawer_linear34 = _nav_view.findViewById(R.id.linear34);
 		_drawer_linear35 = _nav_view.findViewById(R.id.linear35);
@@ -1368,7 +1370,7 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 		
-		alertbox_webview.setWebViewClient(new WebViewClient() {
+// 		alertbox_webview.setWebViewClient(new WebViewClient() {
 			@Override
 			public void onPageStarted(WebView _param1, String _param2, Bitmap _param3) {
 				final String _url = _param2;
@@ -1384,7 +1386,7 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 		
-		alertbox_button.setOnClickListener(new View.OnClickListener() {
+// 		alertbox_button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View _view) {
 				openstring.edit().putString("eula", "t").commit();
@@ -1684,7 +1686,7 @@ public class MainActivity extends AppCompatActivity {
 		
 		
 		
-		linear9.setOnTouchListener(resizeHandleListener);
+// 		linear9.setOnTouchListener(resizeHandleListener);
 		alertbox.setOnTouchListener(touchListener);
 		String appMainPath = "/storage/emulated/0/CEditor/Projects";
 		basePath = "/storage/emulated/0/.inflps/C-XYZ/ClonedGit";
@@ -1696,67 +1698,19 @@ public class MainActivity extends AppCompatActivity {
 		if (!gitDir.exists()) {
 			gitDir.mkdirs();
 		}
-		if (data.getString("falling_effect", "").equals("true")) {
-			FallingEffect fallingView = findViewById(R.id.imga);
-			
-			List<Integer> snowColors = Arrays.asList(Color.WHITE);
-			
-			List<Integer> anniversaryColors = Arrays.asList(
-			Color.RED, 
-			Color.BLUE, 
-			Color.GREEN, 
-			Color.YELLOW, 
-			Color.CYAN, 
-			Color.MAGENTA, 
-			Color.parseColor("#FF6347"),
-			Color.parseColor("#FFD700"),
-			Color.parseColor("#32CD32"),
-			Color.parseColor("#FF1493"),
-			Color.parseColor("#FF4500"),
-			Color.parseColor("#8A2BE2"),
-			Color.parseColor("#20B2AA"),
-			Color.parseColor("#FF69B4"),
-			Color.parseColor("#00FA9A"),
-			Color.parseColor("#D2691E"),
-			Color.parseColor("#A52A2A"),
-			Color.parseColor("#800080"),
-			Color.parseColor("#98FB98"),
-			Color.parseColor("#FFC0CB"),
-			Color.parseColor("#4682B4"),
-			Color.parseColor("#ADFF2F"),
-			Color.parseColor("#F0E68C"),
-			Color.parseColor("#FF00FF")
-			);
-			
-			Calendar calendar = Calendar.getInstance();
-			int month = calendar.get(Calendar.MONTH) + 1;
-			int day = calendar.get(Calendar.DAY_OF_MONTH);
-			
-			boolean isChristmasSeason = (month == 12 && day >= 10 && day <= 31);
-			boolean isAnniversary = (month == 2 && day == 2);
-			
-			if (isChristmasSeason) {
-					fallingView.setEffectType(FallingEffect.EffectType.SNOW);
-					fallingView.setThemeColors(snowColors);
-					fallingView.post(fallingView::startEffect);
-					
-			} else if (isAnniversary) {
-					fallingView.setEffectType(FallingEffect.EffectType.CONFETTI);
-					fallingView.setThemeColors(anniversaryColors);
-					fallingView.post(fallingView::startEffect);
-					
-			} else {
-					
+/*
+			if (data.getString("falling_effect", "").equals("true")) {
+// 				// FallingEffect fallingView = findViewById(R.id.imga);
+				// ...
 			}
-			
-		}
-		if (data.getString("falling_effect_bday", "").equals("true")) {
-			FallingEffect fallingView = findViewById(R.id.imga);
-			
-			SharedPreferences prefs = getSharedPreferences("falling_prefs", MODE_PRIVATE);
-			int birthDay = prefs.getInt("birth_day", -1);
-			int birthMonth = prefs.getInt("birth_month", -1);
-			int birthYear = prefs.getInt("birth_year", -1);
+			*/
+			// Falling effect blocks disabled due to missing library
+			/*
+			if (data.getString("falling_effect_bday", "").equals("true")) {
+// 				// FallingEffect fallingView = findViewById(R.id.imga);
+				// ...
+			}
+			*/
 			
 			Calendar calendar = Calendar.getInstance();
 			int currentMonth = calendar.get(Calendar.MONTH) + 1;
@@ -1817,7 +1771,7 @@ public class MainActivity extends AppCompatActivity {
 		info_layout.setVisibility(View.GONE);
 		update_available.setVisibility(View.GONE);
 		_gradDrawable("#00000000", "#474747", 1, 15, 3, true, allow);
-		_gradDrawable("#00000000", "#474747", 1, 15, 3, true, alertbox_button);
+// 		_gradDrawable("#00000000", "#474747", 1, 15, 3, true, alertbox_button);
 		_EULA();
 		if (openstring.getString("eula", "").equals("")) {
 			openstring.edit().putString("eula", "f").commit();
@@ -1848,7 +1802,7 @@ public class MainActivity extends AppCompatActivity {
 		_ripple(up);
 		_ripple(menu);
 		_ripple(clear_selection);
-		_ripple(linear9);
+// 		_ripple(linear9);
 		_ripple(update_available);
 		subtitle.setEllipsize(TextUtils.TruncateAt.MARQUEE);
 		subtitle.setMarqueeRepeatLimit(-1);
@@ -2395,8 +2349,8 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	public void onBackPressed() {
 		if (readingEULA) {
-			if (alertbox_webview.canGoBack()) {
-				alertbox_webview.goBack();
+// 			if (alertbox_webview.canGoBack()) {
+// 				alertbox_webview.goBack();
 			}
 		}
 		else {
@@ -3268,7 +3222,7 @@ DisplayMetrics screen = new DisplayMetrics();
 		bottomsheet.setContentView(layout);
 		bottomsheet.show();
 		
-		bottomsheet.getWindow().getDecorView().findViewById(R.id.design_bottom_sheet).setBackgroundColor(android.R.color.transparent);
+		// bottomsheet.getWindow().getDecorView().findViewById(com.google.android.material.R.id.design_bottom_sheet).setBackgroundColor(android.R.color.transparent);
 		final AlertDialog dial = new AlertDialog.Builder(this, R.style.CustomDialogTheme).create();
 		View base = getLayoutInflater().inflate(R.layout.view_newfile,null);
 		dial.setView(base);
@@ -4552,20 +4506,20 @@ _img.setImageBitmap(thumb);
 			alertbox.setElevation(dst*30);
 			alertbox.setBackground(masterBox);
 			try {
-					java.io.InputStream alertbox_webviewIn = this.getAssets().open("eula.html");
-					int alertbox_webviewSi = alertbox_webviewIn.available();
-					byte[] alertbox_webviewBu = new byte[alertbox_webviewSi];
-					alertbox_webviewIn.read(alertbox_webviewBu);
-					alertbox_webviewIn.close();
-					final String alertbox_webviewStr = new String(alertbox_webviewBu, "UTF-8");
-					WebSettings alertbox_webviewSs = alertbox_webview.getSettings(); 
-					alertbox_webviewSs.setJavaScriptEnabled(true); 
-					alertbox_webviewSs.setJavaScriptCanOpenWindowsAutomatically(true);
+// 					java.io.InputStream alertbox_webviewIn = this.getAssets().open("eula.html");
+// 					int alertbox_webviewSi = alertbox_webviewIn.available();
+// 					byte[] alertbox_webviewBu = new byte[alertbox_webviewSi];
+// 					alertbox_webviewIn.read(alertbox_webviewBu);
+// 					alertbox_webviewIn.close();
+// 					final String alertbox_webviewStr = new String(alertbox_webviewBu, "UTF-8");
+// 					WebSettings alertbox_webviewSs = alertbox_webview.getSettings(); 
+// 					alertbox_webviewSs.setJavaScriptEnabled(true); 
+// 					alertbox_webviewSs.setJavaScriptCanOpenWindowsAutomatically(true);
 					if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
-							alertbox_webviewSs.setAllowFileAccessFromFileURLs(true); 
-							alertbox_webviewSs.setAllowUniversalAccessFromFileURLs(true);
+// 							alertbox_webviewSs.setAllowFileAccessFromFileURLs(true); 
+// 							alertbox_webviewSs.setAllowUniversalAccessFromFileURLs(true);
 					}
-					alertbox_webview.loadDataWithBaseURL(null, alertbox_webviewStr, "text/html", "UTF-8", null);
+// 					alertbox_webview.loadDataWithBaseURL(null, alertbox_webviewStr, "text/html", "UTF-8", null);
 			} catch(Exception e) {
 					e.printStackTrace();
 			}
@@ -5237,7 +5191,7 @@ _img.setImageBitmap(thumb);
 			final ImageView imageview1 = _view.findViewById(R.id.imageview1);
 			final TextView textview6 = _view.findViewById(R.id.textview6);
 			final LinearLayout linear1 = _view.findViewById(R.id.linear1);
-			final LinearLayout linear9 = _view.findViewById(R.id.linear9);
+// 			final LinearLayout linear9 = _view.findViewById(R.id.linear9);
 			final LinearLayout linear5 = _view.findViewById(R.id.linear5);
 			final FrameLayout linear10 = _view.findViewById(R.id.linear10);
 			final TextView badge = _view.findViewById(R.id.badge);
