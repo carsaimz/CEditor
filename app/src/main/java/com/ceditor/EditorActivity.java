@@ -52,7 +52,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.robinhood.ticker.*;
 import io.github.rosemoe.sora.*;
-import io.github.rosemoe.sora.langs.textmate.*;
+// import io.github.rosemoe.sora.langs.textmate.*; // Commented out due to missing language-textmate library
 import java.io.*;
 import java.io.InputStream;
 import java.text.*;
@@ -96,8 +96,8 @@ import java.util.List;
 import java.util.Stack;
 
 import io.github.rosemoe.sora.lang.Language;
-import io.github.rosemoe.sora.langs.textmate.TextMateLanguage;
-import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme;
+// import io.github.rosemoe.sora.langs.textmate.TextMateLanguage; // Commented out due to missing language-textmate library
+// import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme; // Commented out due to missing language-textmate library
 import io.github.rosemoe.sora.widget.CodeEditor;
 import io.github.rosemoe.sora.widget.schemes.EditorColorScheme;
 // import org.eclipse.tm4e.core.internal.theme.reader.ThemeReader;
@@ -2106,14 +2106,8 @@ public void changeTheme(String themeName) {
 		}
 	
 	
-	public void configureEditor(CodeEditor editor, String languageName) {
-		    if (!(editor.getColorScheme() instanceof TextMateColorScheme)) {
-			        Log.e("EditorSetup", "Color scheme is not a TextMateColorScheme!");
-			        return;
-			    }
-		
-		    try {
-			        TextMateColorScheme tmColorScheme = (TextMateColorScheme) editor.getColorScheme();
+		public void configureEditor(CodeEditor editor, String languageName) {
+			    try {
 			        String grammarPath = "textmate/" + languageName + "/syntaxes/" + languageName + ".tmLanguage.json";
 			        String configPath = "textmate/" + languageName + "/language-configuration.json";
 			
