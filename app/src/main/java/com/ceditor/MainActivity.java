@@ -2350,11 +2350,9 @@ public class MainActivity extends AppCompatActivity {
 	
 	@Override
 	public void onBackPressed() {
-		if (readingEULA) {
-// 			if (alertbox_webview.canGoBack()) {
-// 				alertbox_webview.goBack();
+			if (readingEULA) {
+				// WebView back navigation disabled due to removed webview
 			}
-		}
 		else {
 			if (select) {
 				if (amountOfBackPressed == 0) {
