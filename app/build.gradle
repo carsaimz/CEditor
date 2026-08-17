@@ -64,7 +64,7 @@ dependencies {
 
     // Sora Editor
     implementation 'io.github.rosemoe:editor:0.24.4'
-    implementation 'io.github.rosemoe:language-textmate:0.24.4'
+    // implementation 'io.github.rosemoe:language-textmate:0.24.4' // Removed due to dexing errors
     implementation 'io.github.rosemoe:language-java:0.24.4'
 
     // TextMate / TM4E
