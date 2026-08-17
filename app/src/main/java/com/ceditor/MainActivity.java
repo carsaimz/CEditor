@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
 	private LinearLayout linear1;
 	private TextView subtitle;
 	private ImageView imageview10;
-	private View // View // MaterialRefreshLayout materialRefreshLayout;
+	// private View materialRefreshLayout;
 	private LinearLayout layout_info;
 	private RecyclerView recyclerview1;
 	private LinearLayout layout_no_items;
@@ -413,7 +413,7 @@ public class MainActivity extends AppCompatActivity {
 		linear1 = findViewById(R.id.linear1);
 		subtitle = findViewById(R.id.subtitle);
 		imageview10 = findViewById(R.id.imageview10);
-		materialRefreshLayout = findViewById(R.id.materialRefreshLayout);
+		// materialRefreshLayout = findViewById(R.id.materialRefreshLayout);
 		layout_info = findViewById(R.id.layout_info);
 		recyclerview1 = findViewById(R.id.recyclerview1);
 		layout_no_items = findViewById(R.id.layout_no_items);
@@ -1885,14 +1885,14 @@ public class MainActivity extends AppCompatActivity {
 					                isHorizontal = dx > dy;
 					
 					                if (isHorizontal) {
-						                    materialRefreshLayout.setEnabled(false);
+						                    // materialRefreshLayout.setEnabled(false);
 						                } else {
-						                    materialRefreshLayout.setEnabled(true);
+						                    // materialRefreshLayout.setEnabled(true);
 						                }
 					                break;
 					            case MotionEvent.ACTION_UP:
 					            case MotionEvent.ACTION_CANCEL:
-					                materialRefreshLayout.setEnabled(true);
+					                // materialRefreshLayout.setEnabled(true);
 					                break;
 					        }
 				        return false;
@@ -1900,30 +1900,29 @@ public class MainActivity extends AppCompatActivity {
 		});
 		
 		
-		materialRefreshLayout.setColorSchemeColors(0xFF4D0000);
-		if (data.getString("swipe2refresh_large", "").equals("true")) {
-			materialRefreshLayout.setSize(View // MaterialRefreshLayout.LARGE);
-		}
-		else {
-			materialRefreshLayout.setSize(View // MaterialRefreshLayout.DEFAULT);
-		}
-		if (data.getString("swipe_bottom", "").equals("true")) {
-			materialRefreshLayout.setDirection(View // MaterialRefreshLayout.Direction.BOTH);
-		}
-		else {
-			materialRefreshLayout.setDirection(View // MaterialRefreshLayout.Direction.TOP);
-		}
-		materialRefreshLayout.setOnRefreshListener(new View // MaterialRefreshLayout.OnRefreshListener() {
-			    @Override
-			    public void onRefresh(View // MaterialRefreshLayout.Direction direction) {
-				        
-				materialRefreshLayout.setRefreshing(false);
-				if (direction == View // MaterialRefreshLayout.Direction.BOTTOM) {
-					recyclerview1.smoothScrollToPosition(recyclerview1.getAdapter().getItemCount() - 1);  // Scroll to the bottom
-				}
-				_refreshItems("");
-				    }
-		});
+/*
+			materialRefreshLayout.setColorSchemeColors(0xFF4D0000);
+			if (data.getString("swipe2refresh_large", "").equals("true")) {
+				// materialRefreshLayout.setSize(MaterialRefreshLayout.LARGE);
+			}
+			else {
+				// materialRefreshLayout.setSize(MaterialRefreshLayout.DEFAULT);
+			}
+			if (data.getString("swipe_bottom", "").equals("true")) {
+				// materialRefreshLayout.setDirection(MaterialRefreshLayout.Direction.BOTH);
+			}
+			else {
+				// materialRefreshLayout.setDirection(MaterialRefreshLayout.Direction.TOP);
+			}
+			materialRefreshLayout.setOnRefreshListener(new Object() {
+				    // @Override
+				    public void onRefresh(Object direction) {
+					        
+					// materialRefreshLayout.setRefreshing(false);
+					_refreshItems("");
+					    }
+			});
+			*/
 		((ViewGroup)toolbar1.getParent()).removeView(toolbar1);
 		_toolbar.addView(toolbar1);
 		int progressColor = 0xFF474747;
@@ -2500,18 +2499,20 @@ public class MainActivity extends AppCompatActivity {
 		_drawer_dthumb.setChecked(!data.getString("disable_thumbnail", "").equals("") && data.getString("disable_thumbnail", "").equals("true"));
 		_drawer_autoRefrsh.setChecked(!data.getString("auto_refresh", "").equals("") && data.getString("auto_refresh", "").equals("true"));
 		_drawer_saveLastDirPath.setChecked(!data.getString("save_path", "").equals("") && data.getString("save_path", "").equals("true"));
-		if (data.getString("swipe_bottom", "").equals("true")) {
-			materialRefreshLayout.setDirection(View // MaterialRefreshLayout.Direction.BOTH);
-		}
-		else {
-			materialRefreshLayout.setDirection(View // MaterialRefreshLayout.Direction.TOP);
-		}
-		if (data.getString("swipe2refresh_large", "").equals("true")) {
-			materialRefreshLayout.setSize(View // MaterialRefreshLayout.LARGE);
-		}
-		else {
-			materialRefreshLayout.setSize(View // MaterialRefreshLayout.DEFAULT);
-		}
+/*
+			if (data.getString("swipe_bottom", "").equals("true")) {
+				materialRefreshLayout.setDirection(MaterialRefreshLayout.Direction.BOTH);
+			}
+			else {
+				materialRefreshLayout.setDirection(MaterialRefreshLayout.Direction.TOP);
+			}
+			if (data.getString("swipe2refresh_large", "").equals("true")) {
+				materialRefreshLayout.setSize(MaterialRefreshLayout.LARGE);
+			}
+			else {
+				materialRefreshLayout.setSize(MaterialRefreshLayout.DEFAULT);
+			}
+			*/
 		if (data.getString("collapsing_toolbar", "").equals("true")) {
 			_collapsingToolbar(recyclerview1);
 		}
@@ -2826,7 +2827,7 @@ DisplayMetrics screen = new DisplayMetrics();
 				}
 				paste.setVisibility(!select && list_of_selected_items.size() > 0 && new java.io.File(_path).canWrite() ? View.VISIBLE : View.GONE);
 				cancel.setVisibility(!select && list_of_selected_items.size() > 0 ? View.VISIBLE : View.GONE);
-				materialRefreshLayout.setVisibility(filelist.size() == 0 ? View.GONE : View.VISIBLE);
+				// materialRefreshLayout.setVisibility(filelist.size() == 0 ? View.GONE : View.VISIBLE);
 				recyclerview1.setVisibility(filelist.size() == 0 ? View.GONE : View.VISIBLE);
 				layout_info.setVisibility(filelist.size() == 0 ? View.VISIBLE : View.GONE);
 				
@@ -2893,7 +2894,7 @@ DisplayMetrics screen = new DisplayMetrics();
 			dirAccessState = 0;
 			paste.setVisibility(!select && list_of_selected_items.size() > 0 ? View.VISIBLE : View.GONE);
 			cancel.setVisibility(!select && list_of_selected_items.size() > 0 ? View.VISIBLE : View.GONE);
-			materialRefreshLayout.setVisibility(filelist.size() == 0 ? View.GONE : View.VISIBLE);
+			// materialRefreshLayout.setVisibility(filelist.size() == 0 ? View.GONE : View.VISIBLE);
 			recyclerview1.setVisibility(filelist.size() == 0 ? View.GONE : View.VISIBLE);
 			layout_info.setVisibility(filelist.size() == 0 ? View.VISIBLE : View.GONE);
 			

@@ -100,8 +100,8 @@ import io.github.rosemoe.sora.langs.textmate.TextMateLanguage;
 import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme;
 import io.github.rosemoe.sora.widget.CodeEditor;
 import io.github.rosemoe.sora.widget.schemes.EditorColorScheme;
-import org.eclipse.tm4e.core.internal.theme.reader.ThemeReader;
-import org.eclipse.tm4e.core.theme.IRawTheme;
+// import org.eclipse.tm4e.core.internal.theme.reader.ThemeReader;
+// import org.eclipse.tm4e.core.theme.IRawTheme;
 import io.github.rosemoe.sora.widget.SymbolInputView;
 import io.github.rosemoe.sora.widget.CodeEditor;
 import io.github.rosemoe.sora.text.Content;
@@ -2095,15 +2095,15 @@ public class EditorActivity extends AppCompatActivity {
 	}
 	
 	
-	public void changeTheme(String themeName) {
-		    try {
-			        IRawTheme iRawTheme = ThemeReader.readThemeSync(themeName, getAssets().open("textmate/" + themeName));
-			        colorScheme = TextMateColorScheme.create(iRawTheme);
-			        editor.setColorScheme(colorScheme);
-			    } catch (Exception e) {
-			        e.printStackTrace();
-			    }
-	}
+public void changeTheme(String themeName) {
+			    try {
+				        // IRawTheme iRawTheme = ThemeReader.readThemeSync(themeName, getAssets().open("textmate/" + themeName));
+				        // colorScheme = TextMateColorScheme.create(iRawTheme);
+				        // editor.setColorScheme(colorScheme);
+				    } catch (Exception e) {
+				        e.printStackTrace();
+				    }
+		}
 	
 	
 	public void configureEditor(CodeEditor editor, String languageName) {
