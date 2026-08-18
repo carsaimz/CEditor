@@ -21,6 +21,30 @@
   - 🐚 Terminal integrado.
   - 📦 Visualizador de arquivos comprimidos (zip, etc).
   - 🔢 Cálculo de Checksum (Hash).
+- 🤖 **Assistente de IA Multiprovedor**: Assistente de IA integrado ao editor, com suporte a múltiplos provedores (gratuitos, free-tier e premium) para auxiliar na programação, refatoração, debugging e geração de código.
+
+---
+
+## 🤖 Assistente de IA Multiprovedor
+
+O CEditor possui um assistente de IA integrado diretamente no editor de código. Para usar:
+
+1. Acesse **Configurações → AI Providers** e adicione sua chave API para o provedor desejado
+2. No editor, abra o menu e selecione **"AI Assistant"**
+3. Faça perguntas sobre seu código, peça refatorações, debugging ou explicações
+
+### Provedores Suportados:
+
+| Provedor | Tipo | Free-Tier | API Key Necessária |
+|----------|------|-----------|--------------------|
+| **Google Gemini** | Gratuito/Premium | ✅ Sim | ✅ |
+| **Groq** | Free-Tier | ✅ Sim | ✅ |
+| **OpenAI (ChatGPT)** | Premium | ❌ Não | ✅ |
+| **Anthropic (Claude)** | Premium | ❌ Não | ✅ |
+| **Mistral AI** | Free-Tier/Premium | ✅ Sim | ✅ |
+| **Ollama** | Gratuito (Local) | ✅ Sim | ❌ Não |
+
+O assistente envia o código atual do editor como contexto para que a IA possa fornecer respostas relevantes.
 
 ---
 
