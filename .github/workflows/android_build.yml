@@ -42,18 +42,19 @@ jobs:
             echo "VERSION=${{ github.event.inputs.version_name }}" >> $GITHUB_ENV
             echo "CODE=${{ github.event.inputs.version_code }}" >> $GITHUB_ENV
           else
-            # Auto-increment version on push
-            LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
-            BASE_VERSION=${LATEST_TAG#v}
-            # Extract minor version and bump
-            MINOR=$(echo $BASE_VERSION | cut -d. -f2)
-            PATCH=$(echo $BASE_VERSION | cut -d. -f3)
-            NEW_PATCH=$((PATCH + 1))
-            MAJOR=$(echo $BASE_VERSION | cut -d. -f1)
-            MINOR=$((MINOR + 1))
-            echo "VERSION=${MAJOR}.${MINOR}.${NEW_PATCH}" >> $GITHUB_ENV
-            # Use current unix timestamp as version code
-            echo "CODE=$(date +%s)" >> $GITHUB_ENV
+          # Auto-increment version on push
+          LATEST_TAG=$(git tag -l 'v*' --sort=-version:refname | head -1 | sed 's/^v//' 2>/dev/null || echo "0.0.0")
+          if [ -z "$LATEST_TAG" ] || ! echo "$LATEST_TAG" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            LATEST_TAG="0.0.0"
+          fi
+          # Extract version parts and bump minor
+          MAJOR=$(echo $LATEST_TAG | cut -d. -f1)
+          MINOR=$(echo $LATEST_TAG | cut -d. -f2)
+          PATCH=$(echo $LATEST_TAG | cut -d. -f3)
+          NEW_MINOR=$((MINOR + 1))
+          echo "VERSION=${MAJOR}.${NEW_MINOR}.${PATCH}" >> $GITHUB_ENV
+          # Use current unix timestamp as version code
+          echo "CODE=$(date +%s)" >> $GITHUB_ENV
           fi
 
       - name: Update version in build.gradle
