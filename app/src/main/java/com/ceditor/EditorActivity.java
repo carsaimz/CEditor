@@ -16,14 +16,12 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.ceditor.ai.AIChatHelper;
 import com.ceditor.ai.AIProviderManager;
-import com.google.android.material.appbar.AppBarLayout;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -36,14 +34,17 @@ import java.util.Locale;
 
 import io.github.rosemoe.sora.langs.java.JavaLanguage;
 import io.github.rosemoe.sora.widget.CodeEditor;
-import io.github.rosemoe.sora.widget.schemes.EditorColorScheme;
-import io.github.rosemoe.sora.widget.schemes.SchemeDarcula;
+import io.github.rosemoe.sora.widget.EditorSearcher;
 
+/**
+ * EditorActivity - Code editor with Sora Editor, preview support, and AI integration.
+ * Inspired by Acode/VSCode design.
+ */
 public class EditorActivity extends AppCompatActivity {
 
     private CodeEditor editor;
     private Toolbar toolbar;
-    private ImageView btnUndo, btnRedo, btnSave, btnSearch, btnAi;
+    private ImageView btnUndo, btnRedo, btnSave, btnSearch, btnAi, btnPreview;
     private LinearLayout aiPanel;
     private TextView aiTitle, aiResponse;
     private EditText aiInput;
@@ -58,21 +59,8 @@ public class EditorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // Apply language preference
-        applyLanguage();
-
-        setContentView(R.layout.editor);
-
-        initViews();
-        setupToolbar();
-        setupEditor();
-        setupAiPanel();
-        loadFile();
-    }
-
-    private void applyLanguage() {
-        SharedPreferences data = getSharedPreferences("data", MODE_PRIVATE);
+        SharedPreferences data = getSharedPreferences("ceditor_prefs", MODE_PRIVATE);
         String langCode = data.getString("app_lang", "en");
         Locale locale = new Locale(langCode);
         Locale.setDefault(locale);
@@ -80,15 +68,24 @@ public class EditorActivity extends AppCompatActivity {
         Configuration config = new Configuration(res.getConfiguration());
         config.setLocale(locale);
         res.updateConfiguration(config, res.getDisplayMetrics());
+
+        setContentView(R.layout.editor);
+        initViews();
+        setupToolbar();
+        setupEditorButtons();
+        setupAiPanel();
+        handleIntent();
     }
 
     private void initViews() {
+        editor = findViewById(R.id.editor);
         toolbar = findViewById(R.id.toolbar);
         btnUndo = findViewById(R.id.btn_undo);
         btnRedo = findViewById(R.id.btn_redo);
         btnSave = findViewById(R.id.btn_save);
         btnSearch = findViewById(R.id.btn_search);
         btnAi = findViewById(R.id.btn_ai);
+        btnPreview = findViewById(R.id.btn_preview);
         aiPanel = findViewById(R.id.ai_panel);
         aiTitle = findViewById(R.id.ai_title);
         aiResponse = findViewById(R.id.ai_response);
@@ -104,148 +101,41 @@ public class EditorActivity extends AppCompatActivity {
             getSupportActionBar().setHomeButtonEnabled(true);
         }
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
+    }
 
+    private void setupEditorButtons() {
         btnUndo.setOnClickListener(v -> editor.undo());
         btnRedo.setOnClickListener(v -> editor.redo());
         btnSave.setOnClickListener(v -> saveFile());
         btnSearch.setOnClickListener(v -> showSearchDialog());
         btnAi.setOnClickListener(v -> toggleAiPanel());
-    }
-
-    private void setupEditor() {
-        editor = findViewById(R.id.editor);
-
-        // Set color scheme
-        EditorColorScheme scheme = new SchemeDarcula();
-        editor.setColorScheme(scheme);
-
-        // Enable features
-        editor.setLineNumberEnabled(true);
-        editor.setWordwrap(true);
-        editor.setHighlightCurrentLine(true);
-        editor.setPinLineNumber(true);
-        editor.setHighlightBracketPair(true);
-
-        // Set text change listener using Content's listener
-        editor.getText().addContentListener(new io.github.rosemoe.sora.text.ContentListener() {
-            @Override
-            public void beforeReplace(io.github.rosemoe.sora.text.Content text) {
-            }
-
-            @Override
-            public void afterInsert(io.github.rosemoe.sora.text.Content text, int startLine, int startColumn, int endLine, int endColumn, CharSequence inserted) {
-                isModified = true;
-                updateTitle();
-            }
-
-            @Override
-            public void afterDelete(io.github.rosemoe.sora.text.Content text, int startLine, int startColumn, int endLine, int endColumn, CharSequence deleted) {
-                isModified = true;
-                updateTitle();
-            }
-        });
+        btnPreview.setOnClickListener(v -> openPreview());
     }
 
     private void setupAiPanel() {
-        aiSend.setOnClickListener(v -> sendAiMessage());
-        aiInput.setOnEditorActionListener((v, actionId, event) -> {
-            sendAiMessage();
-            return true;
-        });
-    }
-
-    private void toggleAiPanel() {
-        if (aiPanel.getVisibility() == View.VISIBLE) {
-            aiPanel.setVisibility(View.GONE);
-        } else {
-            aiPanel.setVisibility(View.VISIBLE);
-            aiInput.requestFocus();
-        }
-    }
-
-    private void sendAiMessage() {
-        String message = aiInput.getText().toString().trim();
-        if (message.isEmpty()) return;
-
-        aiInput.setText("");
-        aiResponse.append("You: " + message + "\n\n");
-        aiResponse.append("AI: " + getString(R.string.ai_thinking) + "\n\n");
-        aiScroll.post(() -> aiScroll.fullScroll(ScrollView.FOCUS_DOWN));
-
-        // Get current code for context
-        String code = editor.getText().toString();
-
-        // Initialize AI helper if needed
-        if (aiChatHelper == null) {
-            AIProviderManager providerManager = new AIProviderManager(this);
-            aiChatHelper = new AIChatHelper(this, providerManager);
-        }
-
-        final String thinkingMarker = getString(R.string.ai_thinking);
-
-        // Send message asynchronously
-        aiChatHelper.sendMessage(message, code, new AIChatHelper.AIResponseListener() {
-            @Override
-            public void onResponse(String response) {
-                runOnUiThread(() -> {
-                    String currentText = aiResponse.getText().toString();
-                    int thinkingIndex = currentText.lastIndexOf(thinkingMarker);
-                    if (thinkingIndex >= 0) {
-                        String beforeThinking = currentText.substring(0, thinkingIndex);
-                        aiResponse.setText(beforeThinking + "AI: " + response + "\n\n");
-                    } else {
-                        aiResponse.append("AI: " + response + "\n\n");
-                    }
-                    aiScroll.post(() -> aiScroll.fullScroll(ScrollView.FOCUS_DOWN));
-                });
-            }
-
-            @Override
-            public void onError(String error) {
-                runOnUiThread(() -> {
-                    String currentText = aiResponse.getText().toString();
-                    int thinkingIndex = currentText.lastIndexOf(thinkingMarker);
-                    if (thinkingIndex >= 0) {
-                        String beforeThinking = currentText.substring(0, thinkingIndex);
-                        aiResponse.setText(beforeThinking + "AI: Error: " + error + "\n\n");
-                    } else {
-                        aiResponse.append("AI: Error: " + error + "\n\n");
-                    }
-                    aiScroll.post(() -> aiScroll.fullScroll(ScrollView.FOCUS_DOWN));
-                });
+        aiChatHelper = new AIChatHelper(this, new AIProviderManager(this));
+        aiSend.setOnClickListener(v -> {
+            String message = aiInput.getText().toString().trim();
+            if (!message.isEmpty()) {
+                sendMessageToAI(message);
+                aiInput.setText("");
             }
         });
     }
 
-    private void loadFile() {
+    private void handleIntent() {
         Intent intent = getIntent();
-        if (intent != null && intent.hasExtra("file_path")) {
+        if (intent.hasExtra("file_path")) {
             filePath = intent.getStringExtra("file_path");
-        }
-
-        if (filePath != null) {
             File file = new File(filePath);
             fileName = file.getName();
-
-            // Set language highlighting based on extension
-            setLanguageHighlighting(fileName);
-
-            // Load file content
+            editor.setEditorLanguage(new JavaLanguage());
             loadFileContent(file);
-
             updateTitle();
         } else {
             fileName = "untitled.txt";
+            editor.setEditorLanguage(new JavaLanguage());
             updateTitle();
-        }
-    }
-
-    private void setLanguageHighlighting(String fileName) {
-        String lowerName = fileName.toLowerCase();
-        if (lowerName.endsWith(".java") || lowerName.endsWith(".kt")) {
-            editor.setEditorLanguage(new JavaLanguage());
-        } else {
-            editor.setEditorLanguage(new JavaLanguage());
         }
     }
 
@@ -261,8 +151,29 @@ public class EditorActivity extends AppCompatActivity {
             reader.close();
             editor.setText(sb.toString());
             isModified = false;
+            if (isPreviewableFile(fileName)) {
+                btnPreview.setVisibility(View.VISIBLE);
+            }
         } catch (IOException e) {
-            Toast.makeText(this, "Error loading file: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error loading: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private boolean isPreviewableFile(String name) {
+        if (name == null) return false;
+        String lower = name.toLowerCase();
+        return lower.endsWith(".html") || lower.endsWith(".htm") ||
+                lower.endsWith(".css") || lower.endsWith(".js") ||
+                lower.endsWith(".md") || lower.endsWith(".markdown");
+    }
+
+    private void openPreview() {
+        if (filePath != null && isPreviewableFile(fileName)) {
+            Intent previewIntent = new Intent(this, PreviewActivity.class);
+            previewIntent.putExtra("file_path", filePath);
+            startActivity(previewIntent);
+        } else {
+            Toast.makeText(this, R.string.preview_error, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -279,8 +190,6 @@ public class EditorActivity extends AppCompatActivity {
             } catch (IOException e) {
                 Toast.makeText(this, "Error saving: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
-        } else {
-            Toast.makeText(this, "No file path set", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -288,15 +197,14 @@ public class EditorActivity extends AppCompatActivity {
         EditText searchInput = new EditText(this);
         searchInput.setHint("Search...");
         searchInput.setPadding(48, 24, 48, 24);
-
         new AlertDialog.Builder(this)
                 .setTitle("Search")
                 .setView(searchInput)
                 .setPositiveButton("Search", (dialog, which) -> {
                     String query = searchInput.getText().toString();
                     if (!query.isEmpty()) {
-                        io.github.rosemoe.sora.widget.EditorSearcher.SearchOptions options =
-                                new io.github.rosemoe.sora.widget.EditorSearcher.SearchOptions(false, false);
+                        EditorSearcher.SearchOptions options =
+                                new EditorSearcher.SearchOptions(false, false);
                         editor.getSearcher().search(query, options);
                     }
                 })
@@ -307,11 +215,33 @@ public class EditorActivity extends AppCompatActivity {
     private void updateTitle() {
         if (getSupportActionBar() != null) {
             String title = fileName != null ? fileName : "Editor";
-            if (isModified) {
-                title += " *";
-            }
+            if (isModified) title += " *";
             getSupportActionBar().setTitle(title);
         }
+    }
+
+    private void toggleAiPanel() {
+        if (aiPanel.getVisibility() == View.VISIBLE) {
+            aiPanel.setVisibility(View.GONE);
+        } else {
+            aiPanel.setVisibility(View.VISIBLE);
+            aiInput.requestFocus();
+        }
+    }
+
+    private void sendMessageToAI(String message) {
+        aiResponse.setText(R.string.ai_thinking);
+        String codeContext = editor.getText().toString();
+        aiChatHelper.sendMessage(message, codeContext, new AIChatHelper.AIResponseListener() {
+            @Override
+            public void onResponse(String response) {
+                aiResponse.setText(response);
+            }
+            @Override
+            public void onError(String error) {
+                aiResponse.setText("Error: " + error);
+            }
+        });
     }
 
     @Override
@@ -329,6 +259,9 @@ public class EditorActivity extends AppCompatActivity {
         } else if (id == R.id.action_indent) {
             editor.setTabWidth(Math.min(editor.getTabWidth() + 1, 8));
             return true;
+        } else if (id == R.id.action_preview) {
+            openPreview();
+            return true;
         } else if (id == R.id.action_info) {
             showFileInfo();
             return true;
@@ -340,8 +273,8 @@ public class EditorActivity extends AppCompatActivity {
         String text = editor.getText().toString();
         int lines = text.split("\n").length;
         int chars = text.length();
-        String info = String.format("Lines: %d\nCharacters: %d\nFile: %s", lines, chars, fileName != null ? fileName : "New file");
-
+        String info = String.format("Lines: %d\nCharacters: %d\nFile: %s",
+                lines, chars, fileName != null ? fileName : "New file");
         new AlertDialog.Builder(this)
                 .setTitle("File Info")
                 .setMessage(info)

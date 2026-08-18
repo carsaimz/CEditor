@@ -22,27 +22,27 @@
         <LinearLayout
             android:id="@+id/editor_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="#1E1E1E"
+            android:layout_height="44dp"
+            android:background="@color/surfaceColor"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp">
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
 
             <ImageView
                 android:id="@+id/btn_undo"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:padding="4dp"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:padding="6dp"
                 android:src="@drawable/content_undo"
                 android:scaleType="fitCenter"
                 android:contentDescription="Undo" />
 
             <ImageView
                 android:id="@+id/btn_redo"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:padding="4dp"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:padding="6dp"
                 android:src="@drawable/content_redo"
                 android:scaleType="fitCenter"
                 android:contentDescription="Redo" />
@@ -53,34 +53,42 @@
                 android:layout_weight="1" />
 
             <ImageView
+                android:id="@+id/btn_preview"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:padding="6dp"
+                android:src="@drawable/content_web"
+                android:scaleType="fitCenter"
+                android:visibility="gone"
+                android:contentDescription="Preview" />
+
+            <ImageView
                 android:id="@+id/btn_save"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:padding="4dp"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:padding="6dp"
                 android:src="@drawable/content_save"
                 android:scaleType="fitCenter"
                 android:contentDescription="Save" />
 
             <ImageView
                 android:id="@+id/btn_search"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:padding="4dp"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:padding="6dp"
                 android:src="@drawable/content_search"
                 android:scaleType="fitCenter"
                 android:contentDescription="Search" />
 
             <ImageView
                 android:id="@+id/btn_ai"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:padding="4dp"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:padding="6dp"
                 android:src="@drawable/smart_toy"
                 android:scaleType="fitCenter"
                 android:contentDescription="AI Assistant" />
-
         </LinearLayout>
-
     </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout
@@ -93,14 +101,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+        <!-- AI Panel (bottom sheet style) -->
         <LinearLayout
             android:id="@+id/ai_panel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="#2D2D2D"
+            android:background="@color/surfaceColor"
+            android:elevation="8dp"
             android:orientation="vertical"
-            android:padding="8dp"
+            android:padding="12dp"
             android:visibility="gone">
 
             <TextView
@@ -108,24 +118,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ai_chat_title"
-                android:textColor="#FFFFFF"
+                android:textColor="?android:attr/textColorPrimary"
                 android:textSize="14sp"
-                android:layout_marginBottom="4dp" />
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
 
             <ScrollView
                 android:id="@+id/ai_scroll"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginBottom="8dp">
-
+                android:layout_marginBottom="8dp"
+                android:background="@color/backgroundColor"
+                android:padding="8dp">
                 <TextView
                     android:id="@+id/ai_response"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#E0E0E0"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:textSize="13sp"
-                    android:padding="8dp" />
-
+                    android:lineSpacingExtra="4dp" />
             </ScrollView>
 
             <LinearLayout
@@ -140,11 +151,12 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="@string/ai_chat_hint"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#888888"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textColorHint="@color/textColorSecondary"
                     android:textSize="14sp"
-                    android:background="@android:drawable/edit_text"
-                    android:padding="8dp" />
+                    android:background="@color/dividerColor"
+                    android:padding="10dp"
+                    android:maxLines="3" />
 
                 <ImageButton
                     android:id="@+id/ai_send"
@@ -155,11 +167,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:layout_marginStart="8dp"
                     android:contentDescription="Send" />
-
             </LinearLayout>
-
         </LinearLayout>
-
     </FrameLayout>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

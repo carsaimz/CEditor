@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <item
         android:id="@+id/action_wrap"
-        android:title="@string/wrap_text"
+        android:title="@string/editor_word_wrap"
         app:showAsAction="never" />
-
     <item
         android:id="@+id/action_indent"
-        android:title="@string/symbol_tabs"
+        android:title="@string/editor_tab_size"
         app:showAsAction="never" />
-
+    <item
+        android:id="@+id/action_preview"
+        android:title="@string/preview_html"
+        android:icon="@drawable/content_web"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_info"
         android:title="@string/file_info"
         app:showAsAction="never" />
-
 </menu>

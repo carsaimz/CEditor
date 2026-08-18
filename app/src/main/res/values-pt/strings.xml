@@ -1,153 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CEditor</string>
-    
-    <!-- Configurações Gerais -->
-    <string name="general">Geral</string>
-    <string name="always_clear_cache">Sempre limpar cache ao fechar o app</string>
-    <string name="collapsing_toolbar">Barra de ferramentas colapsável</string>
-    <string name="must_restart_app">É necessário reiniciar o app para aplicar</string>
-    <string name="swipe_up_refresh">Deslizar para cima para atualizar</string>
-    <string name="large_refresh_indicator">Indicador de atualização grande</string>
-    <string name="fab_size_auto">Tamanho do FAB automático</string>
-    <string name="falling_particles">Partículas caindo em eventos especiais</string>
-    <string name="disturb_turn_off">Se isso te incomodar, você pode desativar</string>
-    <string name="birthday_confetti">Confetes de aniversário</string>
-    <string name="whats_your_birthday">Qual é o seu aniversário?</string>
-    
-    <!-- Configurações da Lista de Arquivos -->
-    <string name="file_list">Lista de arquivos</string>
-    <string name="disable_thumbnail">Desativar geração de miniaturas</string>
-    <string name="disable_img_thumbnail">Desativar miniaturas de imagens</string>
-    <string name="disable_vid_thumbnail">Desativar miniaturas de vídeos</string>
-    <string name="disable_msc_thumbnail">Desativar capas de músicas</string>
-    <string name="disable_pdf_thumbnail">Desativar capas de PDF</string>
-    <string name="disable_apk_thumbnail">Desativar miniaturas de APK</string>
-    
-    <!-- Preferências de Navegação -->
-    <string name="nav_pref">Preferências de navegação</string>
-    <string name="auto_refresh">Atualizar automaticamente ao retomar o app</string>
-    <string name="save_last_path">Manter o caminho atual ao sair do app</string>
-    
-    <!-- Configurações do Editor -->
-    <string name="editor">Editor</string>
-    <string name="wrap_text">Quebra de linha</string>
-    <string name="number_divider">Divisor de números e linhas</string>
-    <string name="ligature">Ligaduras</string>
-    <string name="highlight_bracket">Destacar par de colchetes</string>
-    <string name="fast_scroll">Barra de rolagem rápida</string>
-    <string name="pin_number_divider">Fixar número da linha</string>
-    <string name="symbol_tabs">Abas com símbolos</string>
-    
-    <!-- Permissões -->
-    <string name="permissions">Permissões</string>
-    <string name="clipboard_permission">Área de transferência</string>
-    
-    <!-- Recursos Instáveis -->
-    <string name="unstable_features">Recursos instáveis</string>
-    <string name="allow_walk_dir">Permitir copiar diretórios</string>
-    
-    <!-- Privacidade -->
-    <string name="privacy">Privacidade</string>
-    <string name="allow_iso_code">Permitir que o código ISO do país no log de depuração (ISO 3166-1 alpha-2)</string>
-    <string name="confirmation">Confirmação:</string>
-    <string name="clear_data_msg">Você está prestes a excluir os dados do seu aplicativo. O que isso significa? Você excluirá as configurações que alterou e elas retornarão às configurações padrão.\n\nTem certeza de que deseja realizar esta ação? Esta ação não pode ser cancelada!\n\nApós a confirmação, todas as atividades ativas do aplicativo serão destruídas (sair do aplicativo).</string>
-    <string name="package_str">Pacote: </string>
-    <string name="version_code_str">Código da Versão: </string>
-    <string name="installed_str">Instalado: </string>
-    <string name="app_size_str">Tamanho do App: </string>
-    <string name="update_duration_str">Duração da Atualização: 05 Jun 2024 – 01 Mai 2025</string>
-    <string name="developer_str">Desenvolvedor: InfLps (Ware)</string>
-    <string name="license_str">Licença: Apache License 2.0</string>
-    <string name="copyright_str">© C-XYZ 2021–2025</string>
-    <string name="statistics_desc">Isso não coletará outras informações, como seu endereço IP, geolocalização ou dados sensíveis. O propósito é apenas para estatísticas e não impactará sua privacidade. Você pode desativar isso se preferir não contribuir.</string>
-    
-    <!-- Sobre -->
-    <string name="about">Sobre</string>
-    <string name="about_the_app">Sobre o aplicativo</string>
-    <string name="acknowledgement">Agradecimentos</string>
-    
-    <!-- Zona de Perigo -->
-    <string name="danger_zone">Zona de perigo</string>
-    <string name="clear_app_data">Limpar dados do app</string>
-    <string name="uninstall_app">Desinstalar app</string>
-    
-    <!-- Ações Comuns -->
-    <string name="copy">Copiar</string>
-    <string name="cut">Recortar</string>
-    <string name="delete">Excluir</string>
-    <string name="rename">Renomear</string>
-    <string name="details">Detalhes</string>
-    <string name="select">Selecionar</string>
-    <string name="select_all">Selecionar tudo</string>
-    <string name="clear_selection">Limpar seleção</string>
-    <string name="refresh">Atualizar</string>
-    <string name="settings">Configurações</string>
-    <string name="share">Compartilhar</string>
-    <string name="apply">Aplicar</string>
-    <string name="cancel">Cancelar</string>
-    <string name="dismiss">Descartar</string>
-    <string name="close">Fechar</string>
-    <string name="create">Criar</string>
-    <string name="new_str">Novo</string>
-    <string name="edit">Editar</string>
-    <string name="preview">Visualizar</string>
-    <string name="change_theme">Alterar tema</string>
-    <string name="change_lang_syntaxes">Alterar sintaxe de ling.</string>
-    <string name="mini_html_player">Mini janela player HTML</string>
-    <string name="auto_backup">Auto-backup (.recov)</string>
-    <string name="read_only">Somente leitura</string>
-    <string name="statistics">Estatísticas</string>
-    <string name="quit">Sair</string>
-    <string name="pick_color">Escolher cor:</string>
-    <string name="insert">Inserir</string>
-    <string name="or">ou</string>
-    <string name="type_file_name_hint">por favor, digite o nome do arquivo</string>
-    <string name="type_file_ext_hint">por favor, digite a extensão do arquivo</string>
-    <string name="miscellaneous">Diversos</string>
-    <string name="hidden">Oculto</string>
-    <string name="alpha">Alfa:</string>
-    <string name="red">Vermelho:</string>
-    <string name="green">Verde:</string>
-    <string name="blue">Azul:</string>
-    <string name="hex_hash">#</string>
-    <string name="zero">0</string>
-    <string name="plus">+</string>
-    <string name="minus">-</string>
-    <string name="dot">.</string>
-    <string name="terminal_hint">$</string>
-    
-    <!-- Operações de Arquivo -->
-    <string name="file">Arquivo</string>
-    <string name="folder">Pasta</string>
-    <string name="file_name">Nome do arquivo</string>
-    <string name="type_file_name">Digite o nome do arquivo...</string>
-    <string name="type_file_ext">Digite a extensão do arquivo...</string>
-    <string name="go_to_path">Ir para o caminho</string>
-    
-    <!-- Idioma -->
-    <string name="language">Idioma</string>
-    <string name="change_language">Alterar Idioma</string>
-    <string name="english">Inglês</string>
-    <string name="portuguese">Português</string>
-
-    <!-- Assistente de IA -->
-    <string name="ai_assistant">Assistente de IA</string>
-    <string name="ai_providers_title">Provedores de IA</string>
-    <string name="ai_providers_desc">Configurar e gerenciar provedores de IA</string>
-    <string name="ai_api_key_hint">Chave de API</string>
-    <string name="ai_model_hint">Modelo (opcional)</string>
-    <string name="ai_baseurl_hint">URL Base (opcional)</string>
-    <string name="ai_no_providers">Nenhum provedor de IA configurado. Adicione chaves de API para ativar recursos de IA.</string>
-    <string name="ai_chat_title">Assistente de IA</string>
-    <string name="ai_chat_hint">Pergunte à IA sobre seu código...</string>
-    <string name="ai_send">Enviar</string>
-    <string name="ai_thinking">Pensando...</string>
-    <string name="ai_free_tier">Gratuito</string>
-    <string name="ai_premium">Premium</string>
-    <string name="active">Ativo</string>
-
-
-<!-- Added for rewrite -->
+<string name="app_name">CEditor</string>
+<string name="general">Geral</string>
+<string name="always_clear_cache">Sempre limpar cache ao fechar o app</string>
+<string name="collapsing_toolbar">Barra de ferramentas colapsável</string>
+<string name="must_restart_app">É necessário reiniciar o app para aplicar</string>
+<string name="swipe_up_refresh">Deslizar para cima para atualizar</string>
+<string name="large_refresh_indicator">Indicador de atualização grande</string>
+<string name="fab_size_auto">Tamanho do FAB automático</string>
+<string name="falling_particles">Partículas caindo em eventos especiais</string>
+<string name="disturb_turn_off">Se isso te incomodar, você pode desativar</string>
+<string name="birthday_confetti">Confetes de aniversário</string>
+<string name="whats_your_birthday">Qual é o seu aniversário?</string>
+<string name="file_list">Lista de arquivos</string>
+<string name="disable_thumbnail">Desativar geração de miniaturas</string>
+<string name="disable_img_thumbnail">Desativar miniaturas de imagens</string>
+<string name="disable_vid_thumbnail">Desativar miniaturas de vídeos</string>
+<string name="disable_msc_thumbnail">Desativar capas de músicas</string>
+<string name="disable_pdf_thumbnail">Desativar capas de PDF</string>
+<string name="disable_apk_thumbnail">Desativar miniaturas de APK</string>
+<string name="nav_pref">Preferências de navegação</string>
+<string name="auto_refresh">Atualizar automaticamente ao retomar o app</string>
+<string name="save_last_path">Manter o caminho atual ao sair do app</string>
+<string name="editor">Editor</string>
+<string name="wrap_text">Quebra de linha</string>
+<string name="number_divider">Divisor de números e linhas</string>
+<string name="ligature">Ligaduras</string>
+<string name="highlight_bracket">Destacar par de colchetes</string>
+<string name="fast_scroll">Barra de rolagem rápida</string>
+<string name="pin_number_divider">Fixar número da linha</string>
+<string name="symbol_tabs">Abas com símbolos</string>
+<string name="permissions">Permissões</string>
+<string name="clipboard_permission">Área de transferência</string>
+<string name="unstable_features">Recursos instáveis</string>
+<string name="allow_walk_dir">Permitir copiar diretórios</string>
+<string name="privacy">Privacidade</string>
+<string name="allow_iso_code">Permitir que o código ISO do país no log de depuração (ISO 3166-1 alpha-2)</string>
+<string name="confirmation">Confirmação:</string>
+<string name="clear_data_msg">Você está prestes a excluir os dados do seu aplicativo. O que isso significa? Você excluirá as configurações que alterou e elas retornarão às configurações padrão.\n\nTem certeza de que deseja realizar esta ação? Esta ação não pode ser cancelada!\n\nApós a confirmação, todas as atividades ativas do aplicativo serão destruídas (sair do aplicativo).</string>
+<string name="package_str">Pacote: </string>
+<string name="version_code_str">Código da Versão: </string>
+<string name="installed_str">Instalado: </string>
+<string name="app_size_str">Tamanho do App: </string>
+<string name="update_duration_str">Duração da Atualização: 05 Jun 2024 – 01 Mai 2025</string>
+<string name="developer_str">Desenvolvedor: InfLps (Ware)</string>
+<string name="license_str">Licença: Apache License 2.0</string>
+<string name="copyright_str">© C-XYZ 2021–2025</string>
+<string name="statistics_desc">Isso não coletará outras informações, como seu endereço IP, geolocalização ou dados sensíveis. O propósito é apenas para estatísticas e não impactará sua privacidade. Você pode desativar isso se preferir não contribuir.</string>
+<string name="about">Sobre</string>
+<string name="about_the_app">Sobre o aplicativo</string>
+<string name="acknowledgement">Agradecimentos</string>
+<string name="danger_zone">Zona de perigo</string>
+<string name="clear_app_data">Limpar dados do app</string>
+<string name="uninstall_app">Desinstalar app</string>
+<string name="copy">Copiar</string>
+<string name="cut">Recortar</string>
+<string name="delete">Excluir</string>
+<string name="rename">Renomear</string>
+<string name="details">Detalhes</string>
+<string name="select">Selecionar</string>
+<string name="select_all">Selecionar tudo</string>
+<string name="clear_selection">Limpar seleção</string>
+<string name="refresh">Atualizar</string>
+<string name="settings">Configurações</string>
+<string name="share">Compartilhar</string>
+<string name="apply">Aplicar</string>
+<string name="cancel">Cancelar</string>
+<string name="dismiss">Descartar</string>
+<string name="close">Fechar</string>
+<string name="create">Criar</string>
+<string name="new_str">Novo</string>
+<string name="edit">Editar</string>
+<string name="preview">Visualizar</string>
+<string name="change_theme">Alterar tema</string>
+<string name="change_lang_syntaxes">Alterar sintaxe de ling.</string>
+<string name="mini_html_player">Mini janela player HTML</string>
+<string name="auto_backup">Auto-backup (.recov)</string>
+<string name="read_only">Somente leitura</string>
+<string name="statistics">Estatísticas</string>
+<string name="quit">Sair</string>
+<string name="pick_color">Escolher cor:</string>
+<string name="insert">Inserir</string>
+<string name="or">ou</string>
+<string name="type_file_name_hint">por favor, digite o nome do arquivo</string>
+<string name="type_file_ext_hint">por favor, digite a extensão do arquivo</string>
+<string name="miscellaneous">Diversos</string>
+<string name="hidden">Oculto</string>
+<string name="alpha">Alfa:</string>
+<string name="red">Vermelho:</string>
+<string name="green">Verde:</string>
+<string name="blue">Azul:</string>
+<string name="hex_hash">#</string>
+<string name="zero">0</string>
+<string name="plus">+</string>
+<string name="minus">-</string>
+<string name="dot">.</string>
+<string name="terminal_hint">$</string>
+<string name="file">Arquivo</string>
+<string name="folder">Pasta</string>
+<string name="file_name">Nome do arquivo</string>
+<string name="type_file_name">Digite o nome do arquivo...</string>
+<string name="type_file_ext">Digite a extensão do arquivo...</string>
+<string name="go_to_path">Ir para o caminho</string>
+<string name="language">Idioma</string>
+<string name="change_language">Alterar Idioma</string>
+<string name="english">Inglês</string>
+<string name="portuguese">Português</string>
+<string name="ai_assistant">Assistente de IA</string>
+<string name="ai_providers_title">Provedores de IA</string>
+<string name="ai_providers_desc">Configurar e gerenciar provedores de IA</string>
+<string name="ai_api_key_hint">Chave de API</string>
+<string name="ai_model_hint">Modelo (opcional)</string>
+<string name="ai_baseurl_hint">URL Base (opcional)</string>
+<string name="ai_no_providers">Nenhum provedor de IA configurado. Adicione chaves de API para ativar recursos de IA.</string>
+<string name="ai_chat_title">Assistente de IA</string>
+<string name="ai_chat_hint">Pergunte à IA sobre seu código...</string>
+<string name="ai_send">Enviar</string>
+<string name="ai_thinking">Pensando...</string>
+<string name="ai_free_tier">Gratuito</string>
+<string name="ai_premium">Premium</string>
+<string name="active">Ativo</string>
 <string name="internal_storage">Armazenamento Interno</string>
 <string name="home">Início</string>
 <string name="downloads">Downloads</string>
@@ -190,4 +162,51 @@
 <string name="sort_by_date">Ordenar por data</string>
 <string name="sort_by_size">Ordenar por tamanho</string>
 <string name="show_hidden">Mostrar ficheiros ocultos</string>
+<string name="welcome_title">Bem-vindo ao CEditor</string>
+<string name="welcome_subtitle">Seu poderoso editor de código</string>
+<string name="welcome_intro_en">CEditor is a modern code editor for Android. Here\'s how to get started:</string>
+<string name="welcome_intro_pt">CEditor é um editor de código moderno para Android. Aqui está como começar:</string>
+<string name="welcome_tip1_title">📁 Navegar Arquivos</string>
+<string name="welcome_tip1_desc_en">Tap on files to open them in the editor. Supports Java, Kotlin, HTML, CSS, JS, Python, PHP, and more.</string>
+<string name="welcome_tip1_desc_pt">Toque nos arquivos para abri-los no editor. Suporta Java, Kotlin, HTML, CSS, JS, Python, PHP e mais.</string>
+<string name="welcome_tip2_title">🤖 Assistente IA</string>
+<string name="welcome_tip2_desc_en">Configure AI providers in Settings to get code help, explanations, and generation.</string>
+<string name="welcome_tip2_desc_pt">Configure provedores de IA nas Configurações para obter ajuda com código.</string>
+<string name="welcome_tip3_title">🖥️ Terminal</string>
+<string name="welcome_tip3_desc_en">Use the built-in terminal to run commands on your device.</string>
+<string name="welcome_tip3_desc_pt">Use o terminal integrado para executar comandos no seu dispositivo.</string>
+<string name="welcome_tip4_title">👁️ Pré-visualizar</string>
+<string name="welcome_tip4_desc_en">Preview HTML, CSS, JS, and Markdown files directly in the app.</string>
+<string name="welcome_tip4_desc_pt">Visualize arquivos HTML, CSS, JS e Markdown diretamente no app.</string>
+<string name="welcome_start">Começar a Navegar</string>
+<string name="welcome_create_project">Criar Novo Projeto</string>
+<string name="welcome_open_recent">Abrir Recente</string>
+<string name="welcome_open_terminal">Abrir Terminal</string>
+<string name="welcome_settings">Configurações</string>
+<string name="project_mode">Modo Projeto</string>
+<string name="project_mode_android">App Android</string>
+<string name="project_mode_web">Web / Geral</string>
+<string name="project_mode_desc_android">Java, Kotlin, Gradle, XML</string>
+<string name="project_mode_desc_web">HTML, CSS, JS, MD, PHP, Python</string>
+<string name="terminal">Terminal</string>
+<string name="terminal_prompt">$</string>
+<string name="terminal_run">Executar</string>
+<string name="terminal_clear">Limpar</string>
+<string name="terminal_error">Erro ao executar comando</string>
+<string name="preview_html">Visualizar HTML</string>
+<string name="preview_md">Visualizar Markdown</string>
+<string name="preview_title">Pré-visualização</string>
+<string name="preview_error">Não é possível visualizar este arquivo</string>
+<string name="theme_light">Claro</string>
+<string name="theme_dark">Escuro</string>
+<string name="theme_system">Sistema</string>
+<string name="editor_font_size">Tamanho da Fonte</string>
+<string name="editor_word_wrap">Quebra de Linha</string>
+<string name="editor_show_line_numbers">Números de Linha</string>
+<string name="editor_tab_size">Tamanho Tab</string>
+<string name="dark_mode">Modo Escuro</string>    <string name="permission_title">Permissão de Armazenamento</string>
+    <string name="permission_desc">O CEditor precisa de acesso ao seu armazenamento para ler e escrever ficheiros.</string>
+    <string name="permission_grant">Conceder Permissão</string>
+    <string name="permission_hint">Se o botão não funcionar, verifique nas definições de permissões da aplicação e conceda a permissão de armazenamento manualmente.</string>
+    <string name="theme">Tema</string>
 </resources>

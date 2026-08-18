@@ -102,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textSize="14sp"
-                    android:textColor="#888888"
+                    android:textColor="?android:attr/textColorSecondary"
                     android:text="@string/no_items" />
 
             </LinearLayout>
@@ -127,7 +127,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:orientation="vertical"
-        android:background="#131313">
+        android:background="?attr/colorSurface">
 
         <!-- Header -->
         <LinearLayout
@@ -136,7 +136,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:padding="16dp"
-            android:background="#111111">
+            android:background="?attr/colorPrimary">
 
             <ImageView
                 android:id="@+id/nav_app_icon"
@@ -152,14 +152,14 @@
                 android:layout_marginStart="12dp"
                 android:text="CEditor"
                 android:textSize="18sp"
-                android:textColor="#FFFFFF" />
+                android:textColor="?android:attr/textColorPrimary" />
 
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#474747" />
+            android:background="?attr/colorOnSurface" />
 
         <!-- Drawer items -->
         <ScrollView
@@ -193,7 +193,7 @@
                         android:layout_marginStart="16dp"
                         android:text="@string/internal_storage"
                         android:textSize="14sp"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="?android:attr/textColorPrimary" />
 
                 </LinearLayout>
 
@@ -218,7 +218,7 @@
                         android:layout_marginStart="16dp"
                         android:text="@string/home"
                         android:textSize="14sp"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="?android:attr/textColorPrimary" />
 
                 </LinearLayout>
 
@@ -243,7 +243,7 @@
                         android:layout_marginStart="16dp"
                         android:text="@string/downloads"
                         android:textSize="14sp"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="?android:attr/textColorPrimary" />
 
                 </LinearLayout>
 
@@ -268,7 +268,7 @@
                         android:layout_marginStart="16dp"
                         android:text="@string/documents"
                         android:textSize="14sp"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="?android:attr/textColorPrimary" />
 
                 </LinearLayout>
 
@@ -293,7 +293,7 @@
                         android:layout_marginStart="16dp"
                         android:text="@string/pictures"
                         android:textSize="14sp"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="?android:attr/textColorPrimary" />
 
                 </LinearLayout>
 
@@ -318,7 +318,7 @@
                         android:layout_marginStart="16dp"
                         android:text="@string/music"
                         android:textSize="14sp"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="?android:attr/textColorPrimary" />
 
                 </LinearLayout>
 
@@ -343,7 +343,7 @@
                         android:layout_marginStart="16dp"
                         android:text="@string/movies"
                         android:textSize="14sp"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="?android:attr/textColorPrimary" />
 
                 </LinearLayout>
 
@@ -375,7 +375,7 @@
                         android:layout_marginStart="16dp"
                         android:text="@string/settings"
                         android:textSize="14sp"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="?android:attr/textColorPrimary" />
 
                 </LinearLayout>
 
@@ -386,7 +386,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#474747" />
+            android:background="?attr/colorOnSurface" />
 
         <TextView
             android:layout_width="wrap_content"

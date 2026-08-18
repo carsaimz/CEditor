@@ -1,7 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<color name="colorPrimary">#111111</color>
-	<color name="colorPrimaryDark">#111111</color>
-	<color name="colorAccent">#FF0000</color>
-	<color name="colorControlHighlight">#FF5252</color>
-	<color name="colorControlNormal">#D50000</color>
+    <!-- Light Theme (default) - VSCode-like -->
+    <color name="colorPrimary">#0078D4</color>
+    <color name="colorPrimaryDark">#005A9E</color>
+    <color name="colorAccent">#0078D4</color>
+    <color name="colorControlHighlight">#1A0078D4</color>
+    <color name="colorControlNormal">#666666</color>
+    <color name="backgroundColor">#FFFFFF</color>
+    <color name="surfaceColor">#F3F3F3</color>
+    <color name="textColorPrimary">#1E1E1E</color>
+    <color name="textColorSecondary">#666666</color>
+    <color name="editorBackground">#FFFFFF</color>
+    <color name="editorLineNumber">#237893</color>
+    <color name="editorSelection">#ADD6FF</color>
+    <color name="editorCurrentLine">#F0F0F0</color>
+    <color name="sidebarColor">#F3F3F3</color>
+    <color name="tabBarColor">#ECECEC</color>
+    <color name="statusBarColor">#007ACC</color>
+    <color name="dividerColor">#E0E0E0</color>
+    <color name="cardBackground">#FFFFFF</color>
+    <color name="welcomeBackground">#F6F8FA</color>
+    <color name="welcomeAccent">#0969DA</color>
+    <color name="welcomeBorder">#D0D7DE</color>
+    <color name="terminalBackground">#1E1E1E</color>
+    <color name="terminalText">#00FF41</color>
 </resources>

@@ -1,126 +1,116 @@
 package com.ceditor;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import java.util.Locale;
+
+/**
+ * PermissionActivity - Launcher activity that requests storage permissions.
+ */
 public class PermissionActivity extends AppCompatActivity {
 
-    private static final int PERMISSION_REQUEST = 1001;
-
-    private TextView grantButton;
-    private TextView statusText;
-    private ImageView statusIcon;
+    private static final int PERMISSION_REQUEST_CODE = 100;
+    private Button btnGrant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Apply language preference
+        SharedPreferences data = getSharedPreferences("ceditor_prefs", MODE_PRIVATE);
+        String langCode = data.getString("app_lang", "en");
+        Locale locale = new Locale(langCode);
+        Locale.setDefault(locale);
+        Resources res = getResources();
+        Configuration config = new Configuration(res.getConfiguration());
+        config.setLocale(locale);
+        res.updateConfiguration(config, res.getDisplayMetrics());
+
         setContentView(R.layout.permission);
+        setupViews();
+    }
 
-        grantButton = findViewById(R.id.grand_permission_bttn);
-        statusText = findViewById(R.id.textview3);
-        statusIcon = findViewById(R.id.imageview3);
-
-        // Check if permission already granted
-        if (hasPermission()) {
-            showGranted();
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
+    private void setupViews() {
+        if (hasStoragePermission()) {
+            startWelcome();
             return;
         }
-
-        // Set up grant button
-        grantButton.setOnClickListener(v -> requestPermission());
+        btnGrant = findViewById(R.id.btn_grant);
+        btnGrant.setOnClickListener(v -> requestPermissions());
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // Re-check permission when returning (e.g., after user grants in settings)
-        if (hasPermission()) {
-            showGranted();
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
-        }
-    }
-
-    private boolean hasPermission() {
+    private boolean hasStoragePermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            // Android 11+
-            return Environment.isExternalStorageManager() ||
-                    ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+            return Environment.isExternalStorageManager();
         } else {
-            // Android 10 and below
-            return ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+            int read = ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE);
+            int write = ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            return read == PackageManager.PERMISSION_GRANTED &&
+                    write == PackageManager.PERMISSION_GRANTED;
         }
     }
 
-    private void requestPermission() {
+    private void requestPermissions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            // Android 11+ - request all files access
             try {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
-                intent.setData(Uri.parse("package:" + getPackageName()));
+                Uri uri = Uri.fromParts("package", getPackageName(), null);
+                intent.setData(uri);
                 startActivity(intent);
             } catch (Exception e) {
-                // Fallback
-                try {
-                    Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
-                    startActivity(intent);
-                } catch (Exception e2) {
-                    Toast.makeText(this, "Please grant storage permission in Settings", Toast.LENGTH_LONG).show();
-                }
+                Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+                startActivity(intent);
             }
         } else {
-            // Android 10 and below - request runtime permissions
             ActivityCompat.requestPermissions(this,
                     new String[]{
                             Manifest.permission.READ_EXTERNAL_STORAGE,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE
                     },
-                    PERMISSION_REQUEST);
+                    PERMISSION_REQUEST_CODE);
         }
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == PERMISSION_REQUEST) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                showGranted();
-                startActivity(new Intent(this, MainActivity.class));
-                finish();
-            } else {
-                showDenied();
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (hasStoragePermission()) {
+                startWelcome();
             }
         }
     }
 
-    private void showGranted() {
-        statusText.setText(R.string.permission_granted);
-        statusText.setTextColor(0xFF4CAF50); // Green
-        statusIcon.setImageResource(R.drawable.content_check);
-        grantButton.setVisibility(View.GONE);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (hasStoragePermission()) {
+            startWelcome();
+        }
     }
 
-    private void showDenied() {
-        statusText.setText(R.string.permission_denied);
-        statusText.setTextColor(0xFFF44336); // Red
-        statusIcon.setImageResource(R.drawable.content_dismiss);
+    private void startWelcome() {
+        startActivity(new Intent(this, WelcomeActivity.class));
+        finish();
     }
 }

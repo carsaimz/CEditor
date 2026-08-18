@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <item
         android:id="@+id/action_sort"
         android:title="@string/sort_by_name"
         android:icon="@drawable/content_sort"
         app:showAsAction="never" />
-
     <item
         android:id="@+id/action_hidden"
         android:title="@string/show_hidden"
         android:icon="@drawable/content_hidden"
         app:showAsAction="never" />
-
     <item
         android:id="@+id/action_paste"
         android:title="@string/paste"
         android:icon="@drawable/content_clipboard"
         app:showAsAction="never" />
-
+    <item
+        android:id="@+id/action_terminal"
+        android:title="@string/terminal"
+        android:icon="@drawable/content_terminal"
+        app:showAsAction="never" />
 </menu>

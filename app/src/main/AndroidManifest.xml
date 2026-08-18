@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,19 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:requestLegacyExternalStorage="true">
-
+        <activity
+            android:name=".WelcomeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout"
+            android:hardwareAccelerated="true"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|screenLayout"
             android:hardwareAccelerated="true"
             android:theme="@style/AppTheme" />
-
         <activity
             android:name=".SettingsActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|screenLayout"
             android:hardwareAccelerated="true"
             android:theme="@style/AppTheme" />
-
         <activity
             android:name=".EditorActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|screenLayout"
@@ -37,7 +35,17 @@
             android:screenOrientation="unspecified"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize" />
-
+        <activity
+            android:name=".TerminalActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout"
+            android:hardwareAccelerated="true"
+            android:theme="@style/TerminalTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".PreviewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout"
+            android:hardwareAccelerated="true"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".PermissionActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|screenLayout"
@@ -50,8 +58,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".ai.AIProvidersActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|screenLayout"
@@ -66,10 +72,8 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
     </application>
-
 </manifest>

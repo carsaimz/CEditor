@@ -1,153 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CEditor</string>
-    
-    <!-- General Settings -->
-    <string name="general">General</string>
-    <string name="always_clear_cache">Always clear cache after closing the app</string>
-    <string name="collapsing_toolbar">Collapsing toolbar</string>
-    <string name="must_restart_app">Must restart the app for this to be applied</string>
-    <string name="swipe_up_refresh">Swipe up from the bottom to refresh</string>
-    <string name="large_refresh_indicator">Large refresh indicator size</string>
-    <string name="fab_size_auto">FAB size automatically</string>
-    <string name="falling_particles">Trigger falling particles for special events</string>
-    <string name="disturb_turn_off">If it disturbs you, you can turn this off</string>
-    <string name="birthday_confetti">Birthday confetti</string>
-    <string name="whats_your_birthday">What\'s your birthday?</string>
-    
-    <!-- File List Settings -->
-    <string name="file_list">File list</string>
-    <string name="disable_thumbnail">Disable thumbnail generation</string>
-    <string name="disable_img_thumbnail">Disable image thumbnails</string>
-    <string name="disable_vid_thumbnail">Disable video thumbnails</string>
-    <string name="disable_msc_thumbnail">Disable music cover thumbnails</string>
-    <string name="disable_pdf_thumbnail">Disable PDF cover thumbnails</string>
-    <string name="disable_apk_thumbnail">Disable APK thumbnails</string>
-    
-    <!-- Navigation Preferences -->
-    <string name="nav_pref">Navigation preferences</string>
-    <string name="auto_refresh">Automatically refresh when resuming the app</string>
-    <string name="save_last_path">Keep the current directory path when exiting the app</string>
-    
-    <!-- Editor Settings -->
-    <string name="editor">Editor</string>
-    <string name="wrap_text">Wrap text</string>
-    <string name="number_divider">Number and line divider</string>
-    <string name="ligature">Ligature</string>
-    <string name="highlight_bracket">Highlight Bracket Pair</string>
-    <string name="fast_scroll">ScrollBar (Fast scroll)</string>
-    <string name="pin_number_divider">Pin line number</string>
-    <string name="symbol_tabs">Tab with symbols</string>
-    
-    <!-- Permissions -->
-    <string name="permissions">Permissions</string>
-    <string name="clipboard_permission">Clipboard</string>
-    
-    <!-- Unstable Features -->
-    <string name="unstable_features">Unstable features</string>
-    <string name="allow_walk_dir">Allow to copy directories</string>
-    
-    <!-- Privacy -->
-    <string name="privacy">Privacy</string>
-    <string name="allow_iso_code">Allow the debug log to include your country\'s ISO code (ISO 3166-1 alpha-2)</string>
-    <string name="confirmation">Confirmation:</string>
-    <string name="clear_data_msg">You are about to delete your app data. What does this mean? You will delete the settings you have changed, and then they will revert to the default settings.\n\nAre you sure you want to peform this action? This action cannot be canceled!\n\nAfter confirmation, all active app activities are destroyed (exit app).</string>
-    <string name="package_str">Package: </string>
-    <string name="version_code_str">Version Code: </string>
-    <string name="installed_str">Installed: </string>
-    <string name="app_size_str">App Size: </string>
-    <string name="update_duration_str">Update Duration: 05 Jun 2024 – 01 May 2025</string>
-    <string name="developer_str">Developer: InfLps (Ware)</string>
-    <string name="license_str">License: Apache License 2.0</string>
-    <string name="copyright_str">© C-XYZ 2021–2025</string>
-    <string name="statistics_desc">This will not collect other information, such as your IP address, geolocation, or any sensitive data. The purpose is solely for statistics and will not impact your privacy. You can disable this if you prefer not to contribute to our statistics.</string>
-    
-    <!-- About -->
-    <string name="about">About</string>
-    <string name="about_the_app">About the app</string>
-    <string name="acknowledgement">Acknowledgement</string>
-    
-    <!-- Danger Zone -->
-    <string name="danger_zone">Danger zone</string>
-    <string name="clear_app_data">Clear app data</string>
-    <string name="uninstall_app">Uninstall app</string>
-    
-    <!-- Common Actions -->
-    <string name="copy">Copy</string>
-    <string name="cut">Cut</string>
-    <string name="delete">Delete</string>
-    <string name="rename">Rename</string>
-    <string name="details">Details</string>
-    <string name="select">Select</string>
-    <string name="select_all">Select All</string>
-    <string name="clear_selection">Clear selection</string>
-    <string name="refresh">Refresh</string>
-    <string name="settings">Settings</string>
-    <string name="share">Share</string>
-    <string name="apply">Apply</string>
-    <string name="cancel">Cancel</string>
-    <string name="dismiss">Dismiss</string>
-    <string name="close">Close</string>
-    <string name="create">Create</string>
-    <string name="new_str">New</string>
-    <string name="edit">Edit</string>
-    <string name="preview">Preview</string>
-    <string name="change_theme">Change theme</string>
-    <string name="change_lang_syntaxes">Change lang. syntaxes</string>
-    <string name="mini_html_player">Mini HTML player window</string>
-    <string name="auto_backup">Auto-backup (.recov)</string>
-    <string name="read_only">Read-only</string>
-    <string name="statistics">Statistics</string>
-    <string name="quit">Quit</string>
-    <string name="pick_color">Pick color:</string>
-    <string name="insert">Insert</string>
-    <string name="or">or</string>
-    <string name="type_file_name_hint">please type the filename</string>
-    <string name="type_file_ext_hint">please type the file extension</string>
-    <string name="miscellaneous">Miscellaneous</string>
-    <string name="hidden">Hidden</string>
-    <string name="alpha">Alpha:</string>
-    <string name="red">Red:</string>
-    <string name="green">Green:</string>
-    <string name="blue">Blue:</string>
-    <string name="hex_hash">#</string>
-    <string name="zero">0</string>
-    <string name="plus">+</string>
-    <string name="minus">-</string>
-    <string name="dot">.</string>
-    <string name="terminal_hint">$</string>
-    
-    <!-- File Operations -->
-    <string name="file">File</string>
-    <string name="folder">Folder</string>
-    <string name="file_name">File name</string>
-    <string name="type_file_name">Type file name...</string>
-    <string name="type_file_ext">Type file extension...</string>
-    <string name="go_to_path">Go to path</string>
-    
-    <!-- Language -->
-    <string name="language">Language</string>
-    <string name="change_language">Change Language</string>
-    <string name="english">English</string>
-    <string name="portuguese">Portuguese</string>
-
-    <!-- AI Assistant -->
-    <string name="ai_assistant">AI Assistant</string>
-    <string name="ai_providers_title">AI Providers</string>
-    <string name="ai_providers_desc">Configure and manage AI providers</string>
-    <string name="ai_api_key_hint">API Key</string>
-    <string name="ai_model_hint">Model (optional)</string>
-    <string name="ai_baseurl_hint">Base URL (optional)</string>
-    <string name="ai_no_providers">No AI providers configured. Add API keys to enable AI features.</string>
-    <string name="ai_chat_title">AI Assistant</string>
-    <string name="ai_chat_hint">Ask AI about your code...</string>
-    <string name="ai_send">Send</string>
-    <string name="ai_thinking">Thinking...</string>
-    <string name="ai_free_tier">Free Tier</string>
-    <string name="ai_premium">Premium</string>
-    <string name="active">Active</string>
-
-
-<!-- Added for rewrite -->
+<string name="app_name">CEditor</string>
+<string name="general">General</string>
+<string name="always_clear_cache">Always clear cache after closing the app</string>
+<string name="collapsing_toolbar">Collapsing toolbar</string>
+<string name="must_restart_app">Must restart the app for this to be applied</string>
+<string name="swipe_up_refresh">Swipe up from the bottom to refresh</string>
+<string name="large_refresh_indicator">Large refresh indicator size</string>
+<string name="fab_size_auto">FAB size automatically</string>
+<string name="falling_particles">Trigger falling particles for special events</string>
+<string name="disturb_turn_off">If it disturbs you, you can turn this off</string>
+<string name="birthday_confetti">Birthday confetti</string>
+<string name="whats_your_birthday">What\'s your birthday?</string>
+<string name="file_list">File list</string>
+<string name="disable_thumbnail">Disable thumbnail generation</string>
+<string name="disable_img_thumbnail">Disable image thumbnails</string>
+<string name="disable_vid_thumbnail">Disable video thumbnails</string>
+<string name="disable_msc_thumbnail">Disable music cover thumbnails</string>
+<string name="disable_pdf_thumbnail">Disable PDF cover thumbnails</string>
+<string name="disable_apk_thumbnail">Disable APK thumbnails</string>
+<string name="nav_pref">Navigation preferences</string>
+<string name="auto_refresh">Automatically refresh when resuming the app</string>
+<string name="save_last_path">Keep the current directory path when exiting the app</string>
+<string name="editor">Editor</string>
+<string name="wrap_text">Wrap text</string>
+<string name="number_divider">Number and line divider</string>
+<string name="ligature">Ligature</string>
+<string name="highlight_bracket">Highlight Bracket Pair</string>
+<string name="fast_scroll">ScrollBar (Fast scroll)</string>
+<string name="pin_number_divider">Pin line number</string>
+<string name="symbol_tabs">Tab with symbols</string>
+<string name="permissions">Permissions</string>
+<string name="clipboard_permission">Clipboard</string>
+<string name="unstable_features">Unstable features</string>
+<string name="allow_walk_dir">Allow to copy directories</string>
+<string name="privacy">Privacy</string>
+<string name="allow_iso_code">Allow the debug log to include your country\'s ISO code (ISO 3166-1 alpha-2)</string>
+<string name="confirmation">Confirmation:</string>
+<string name="clear_data_msg">You are about to delete your app data. What does this mean? You will delete the settings you have changed, and then they will revert to the default settings.\n\nAre you sure you want to peform this action? This action cannot be canceled!\n\nAfter confirmation, all active app activities are destroyed (exit app).</string>
+<string name="package_str">Package: </string>
+<string name="version_code_str">Version Code: </string>
+<string name="installed_str">Installed: </string>
+<string name="app_size_str">App Size: </string>
+<string name="update_duration_str">Update Duration: 05 Jun 2024 – 01 May 2025</string>
+<string name="developer_str">Developer: InfLps (Ware)</string>
+<string name="license_str">License: Apache License 2.0</string>
+<string name="copyright_str">© C-XYZ 2021–2025</string>
+<string name="statistics_desc">This will not collect other information, such as your IP address, geolocation, or any sensitive data. The purpose is solely for statistics and will not impact your privacy. You can disable this if you prefer not to contribute to our statistics.</string>
+<string name="about">About</string>
+<string name="about_the_app">About the app</string>
+<string name="acknowledgement">Acknowledgement</string>
+<string name="danger_zone">Danger zone</string>
+<string name="clear_app_data">Clear app data</string>
+<string name="uninstall_app">Uninstall app</string>
+<string name="copy">Copy</string>
+<string name="cut">Cut</string>
+<string name="delete">Delete</string>
+<string name="rename">Rename</string>
+<string name="details">Details</string>
+<string name="select">Select</string>
+<string name="select_all">Select All</string>
+<string name="clear_selection">Clear selection</string>
+<string name="refresh">Refresh</string>
+<string name="settings">Settings</string>
+<string name="share">Share</string>
+<string name="apply">Apply</string>
+<string name="cancel">Cancel</string>
+<string name="dismiss">Dismiss</string>
+<string name="close">Close</string>
+<string name="create">Create</string>
+<string name="new_str">New</string>
+<string name="edit">Edit</string>
+<string name="preview">Preview</string>
+<string name="change_theme">Change theme</string>
+<string name="change_lang_syntaxes">Change lang. syntaxes</string>
+<string name="mini_html_player">Mini HTML player window</string>
+<string name="auto_backup">Auto-backup (.recov)</string>
+<string name="read_only">Read-only</string>
+<string name="statistics">Statistics</string>
+<string name="quit">Quit</string>
+<string name="pick_color">Pick color:</string>
+<string name="insert">Insert</string>
+<string name="or">or</string>
+<string name="type_file_name_hint">please type the filename</string>
+<string name="type_file_ext_hint">please type the file extension</string>
+<string name="miscellaneous">Miscellaneous</string>
+<string name="hidden">Hidden</string>
+<string name="alpha">Alpha:</string>
+<string name="red">Red:</string>
+<string name="green">Green:</string>
+<string name="blue">Blue:</string>
+<string name="hex_hash">#</string>
+<string name="zero">0</string>
+<string name="plus">+</string>
+<string name="minus">-</string>
+<string name="dot">.</string>
+<string name="terminal_hint">$</string>
+<string name="file">File</string>
+<string name="folder">Folder</string>
+<string name="file_name">File name</string>
+<string name="type_file_name">Type file name...</string>
+<string name="type_file_ext">Type file extension...</string>
+<string name="go_to_path">Go to path</string>
+<string name="language">Language</string>
+<string name="change_language">Change Language</string>
+<string name="english">English</string>
+<string name="portuguese">Portuguese</string>
+<string name="ai_assistant">AI Assistant</string>
+<string name="ai_providers_title">AI Providers</string>
+<string name="ai_providers_desc">Configure and manage AI providers</string>
+<string name="ai_api_key_hint">API Key</string>
+<string name="ai_model_hint">Model (optional)</string>
+<string name="ai_baseurl_hint">Base URL (optional)</string>
+<string name="ai_no_providers">No AI providers configured. Add API keys to enable AI features.</string>
+<string name="ai_chat_title">AI Assistant</string>
+<string name="ai_chat_hint">Ask AI about your code...</string>
+<string name="ai_send">Send</string>
+<string name="ai_thinking">Thinking...</string>
+<string name="ai_free_tier">Free Tier</string>
+<string name="ai_premium">Premium</string>
+<string name="active">Active</string>
 <string name="internal_storage">Internal Storage</string>
 <string name="home">Home</string>
 <string name="downloads">Downloads</string>
@@ -190,4 +162,51 @@
 <string name="sort_by_date">Sort by date</string>
 <string name="sort_by_size">Sort by size</string>
 <string name="show_hidden">Show hidden files</string>
+<string name="welcome_title">Welcome to CEditor</string>
+<string name="welcome_subtitle">Your powerful code editor</string>
+<string name="welcome_intro_en">CEditor is a modern code editor for Android. Here\'s how to get started:</string>
+<string name="welcome_intro_pt">CEditor é um editor de código moderno para Android. Aqui está como começar:</string>
+<string name="welcome_tip1_title">📁 Browse Files</string>
+<string name="welcome_tip1_desc_en">Tap on files to open them in the editor. Supports Java, Kotlin, HTML, CSS, JS, Python, PHP, and more.</string>
+<string name="welcome_tip1_desc_pt">Toque nos arquivos para abri-los no editor. Suporta Java, Kotlin, HTML, CSS, JS, Python, PHP e mais.</string>
+<string name="welcome_tip2_title">🤖 AI Assistant</string>
+<string name="welcome_tip2_desc_en">Configure AI providers in Settings to get code help, explanations, and generation.</string>
+<string name="welcome_tip2_desc_pt">Configure provedores de IA nas Configurações para obter ajuda com código.</string>
+<string name="welcome_tip3_title">🖥️ Terminal</string>
+<string name="welcome_tip3_desc_en">Use the built-in terminal to run commands on your device.</string>
+<string name="welcome_tip3_desc_pt">Use o terminal integrado para executar comandos no seu dispositivo.</string>
+<string name="welcome_tip4_title">👁️ Preview</string>
+<string name="welcome_tip4_desc_en">Preview HTML, CSS, JS, and Markdown files directly in the app.</string>
+<string name="welcome_tip4_desc_pt">Visualize arquivos HTML, CSS, JS e Markdown diretamente no app.</string>
+<string name="welcome_start">Start Browsing</string>
+<string name="welcome_create_project">Create New Project</string>
+<string name="welcome_open_recent">Open Recent</string>
+<string name="welcome_open_terminal">Open Terminal</string>
+<string name="welcome_settings">Settings</string>
+<string name="project_mode">Project Mode</string>
+<string name="project_mode_android">Android App</string>
+<string name="project_mode_web">Web / General</string>
+<string name="project_mode_desc_android">Java, Kotlin, Gradle, XML</string>
+<string name="project_mode_desc_web">HTML, CSS, JS, MD, PHP, Python</string>
+<string name="terminal">Terminal</string>
+<string name="terminal_prompt">$</string>
+<string name="terminal_run">Run</string>
+<string name="terminal_clear">Clear</string>
+<string name="terminal_error">Error executing command</string>
+<string name="preview_html">Preview HTML</string>
+<string name="preview_md">Preview Markdown</string>
+<string name="preview_title">Preview</string>
+<string name="preview_error">Cannot preview this file</string>
+<string name="theme_light">Light</string>
+<string name="theme_dark">Dark</string>
+<string name="theme_system">System</string>
+<string name="editor_font_size">Font Size</string>
+<string name="editor_word_wrap">Word Wrap</string>
+<string name="editor_show_line_numbers">Line Numbers</string>
+<string name="editor_tab_size">Tab Size</string>
+<string name="dark_mode">Dark Mode</string>    <string name="permission_title">Storage Permission</string>
+    <string name="permission_desc">CEditor needs access to your storage to read and write files.</string>
+    <string name="permission_grant">Grant Permission</string>
+    <string name="permission_hint">If the grant button doesn\'t work, please check in the app\'s permission settings and grant storage permission manually.</string>
+    <string name="theme">Theme</string>
 </resources>
