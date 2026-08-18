@@ -32,257 +32,381 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
-            
-            <!-- Stubbing all other IDs -->
-            <LinearLayout android:id="@+id/ContainerLoader" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/LinearLayout10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/LinearLayout11" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/LinearLayout12" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/LinearLayout13" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/LinearLayout14" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/LinearLayout2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/LinearLayout3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/LinearLayout4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/LinearLayout5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/LinearLayout6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/LinearLayout7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/LinearLayout8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/TextView30" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/TextView39" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/action" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/alertbox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <Button android:id="@+id/alertbox_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/alertbox_context" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/alertbox_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/alertbox_webview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/allow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/annotation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/appic" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/appname" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/archive" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <androidx.appcompat.widget.SwitchCompat android:id="@+id/autoRefrsh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/b1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/b2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/background" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/background1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/backgroundcontainer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/badge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/base1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/base_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/bottom_line" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/c1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/c2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/cancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/cb_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <CheckBox android:id="@+id/checkbox1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/clear_selection" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/clone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/close" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/copy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/copyMode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/copy_id" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/create" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/currentFocusedView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/cut" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/cutMode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/delete" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/deleteMode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/details" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/detailsMode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/divider" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <androidx.appcompat.widget.SwitchCompat android:id="@+id/dthumb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/edit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/edit_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/event_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/framelayout1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/goBottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/goTop" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/gotopath" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/i4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/ic1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/ic2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview11" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview12" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview13" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview14" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview20" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview21" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview22" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview23" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview26" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview27" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview28" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/imageview9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/imga" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/info_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/itemIcon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/l1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/l15" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/l2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/l3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/l4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/layout_info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/layout_main" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="visible" />
-            <LinearLayout android:id="@+id/layout_no_items" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/length" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/line1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear11" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear24" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear26" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear29" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear30" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear33" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear34" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear35" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear36" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/linear9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ListView android:id="@+id/listView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ListView android:id="@+id/listview1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ListView android:id="@+id/listview2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/loading" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/loading_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/main_fore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/main_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="visible" />
-            <LinearLayout android:id="@+id/materialRefreshLayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/menu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/more" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/moreMode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/no_file_folder" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/o1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/o2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/o3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/o4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/o5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/o6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/o7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/o8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/o9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/og1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/og2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/og3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/op1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/op2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/open_as" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/open_as_html" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/open_external" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option10_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/option10_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option1_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/option1_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option2_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/option2_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option3_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/option3_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option4_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/option4_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option5_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/option5_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option6_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/option6_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option7_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/option7_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option8_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/option8_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/option9_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/option9_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/paste" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/picture" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/preview_archive" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ProgressBar android:id="@+id/prog" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ProgressBar android:id="@+id/progbar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <Button android:id="@+id/radiobutton1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <Button android:id="@+id/radiobutton2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <Button android:id="@+id/radiobutton3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <Button android:id="@+id/radiobutton4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <Button android:id="@+id/radiobutton5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <RadioGroup android:id="@+id/radiogroup1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <RadioGroup android:id="@+id/radiogroup2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerview1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="visible" />
-            <View android:id="@+id/rename" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/root_frame_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/rootbg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <androidx.appcompat.widget.SwitchCompat android:id="@+id/saveLastDirPath" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ScrollView android:id="@+id/scroll" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/scrollcontainer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ProgressBar android:id="@+id/scrollprogressbar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/sec" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/selectMode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/separator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/settings_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/share" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/storagePath" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/storageTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/swipe_reveal1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview11" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview13" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview16" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview26" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview29" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview31" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview33" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview36" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview37" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview38" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/textview9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/tg2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/tg3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/tl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/toolbar1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/toolbar1_info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/toolbar1_inner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ProgressBar android:id="@+id/toolbar1_progressbar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <TextView android:id="@+id/toolbar1_progressbar_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/top_line" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ImageView android:id="@+id/up" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <LinearLayout android:id="@+id/update_available" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/vl1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <View android:id="@+id/vline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ScrollView android:id="@+id/vscroll1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
-            <ScrollView android:id="@+id/vscroll2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
+
+            <!-- Top progress bar -->
+            <ProgressBar
+                android:id="@+id/prog"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:indeterminate="true"
+                android:visibility="gone"
+                style="?android:attr/progressBarStyleHorizontal" />
+
+            <!-- Top line -->
+            <LinearLayout
+                android:id="@+id/top_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#474747"
+                android:orientation="horizontal" />
+
+            <!-- Root frame layout -->
+            <FrameLayout
+                android:id="@+id/root_frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- Main frame layout (content area) -->
+                <FrameLayout
+                    android:id="@+id/main_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- Layout main (file list) -->
+                    <LinearLayout
+                        android:id="@+id/layout_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <!-- Toolbar inner -->
+                        <LinearLayout
+                            android:id="@+id/toolbar1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            android:visibility="visible">
+
+                            <LinearLayout
+                                android:id="@+id/toolbar1_inner"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <com.robinhood.ticker.TickerView
+                                    android:id="@+id/title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:textColor="#FFFFFF" />
+
+                                <TextView
+                                    android:id="@+id/subtitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="8dp"
+                                    android:textSize="11sp"
+                                    android:textColor="#AAAAAA"
+                                    android:singleLine="true" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/toolbar1_progressbar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:visibility="gone">
+
+                                <ProgressBar
+                                    android:id="@+id/progbar"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp" />
+
+                                <TextView
+                                    android:id="@+id/toolbar1_progressbar_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="4dp"
+                                    android:textSize="11sp"
+                                    android:textColor="#AAAAAA" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/toolbar1_info"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <ImageView
+                                    android:id="@+id/imageview10"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:visibility="gone" />
+
+                                <ImageView
+                                    android:id="@+id/paste"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:padding="4dp"
+                                    android:visibility="gone" />
+
+                                <ImageView
+                                    android:id="@+id/cancel"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:padding="4dp"
+                                    android:visibility="gone" />
+
+                                <ImageView
+                                    android:id="@+id/clear_selection"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:padding="4dp"
+                                    android:visibility="gone" />
+
+                                <ImageView
+                                    android:id="@+id/up"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:padding="4dp" />
+
+                                <ImageView
+                                    android:id="@+id/menu"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:padding="4dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Selection bar -->
+                        <LinearLayout
+                            android:id="@+id/allow"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="8dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/textview4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:textColor="#FFFFFF" />
+
+                        </LinearLayout>
+
+                        <!-- Update available -->
+                        <ImageView
+                            android:id="@+id/update_available"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="end"
+                            android:layout_margin="8dp"
+                            android:visibility="gone" />
+
+                        <!-- Info layout -->
+                        <LinearLayout
+                            android:id="@+id/layout_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:id="@+id/goTop"
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:layout_marginRight="4dp" />
+
+                            <LinearLayout
+                                android:id="@+id/linear10"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textview3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="12sp"
+                                    android:textColor="#AAAAAA" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/goBottom"
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:layout_marginLeft="4dp" />
+
+                        </LinearLayout>
+
+                        <!-- Divider -->
+                        <LinearLayout
+                            android:id="@+id/divider"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#333333" />
+
+                        <!-- Linear frame for list -->
+                        <FrameLayout
+                            android:id="@+id/linear4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <!-- RecyclerView (file list) -->
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerview1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clipToPadding="false" />
+
+                            <!-- List view (legacy) -->
+                    <ListView
+                        android:id="@+id/listView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone" />
+
+                    <!-- L4 (animation target) -->
+                    <LinearLayout
+                        android:id="@+id/l4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="gone" />
+
+                    <!-- LinearLayout14 -->
+                    <LinearLayout
+                        android:id="@+id/LinearLayout14"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="gone" />
+
+                    <!-- Alert box -->
+                    <LinearLayout
+                        android:id="@+id/alertbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone" />
+
+                    <!-- No items layout -->
+                            <LinearLayout
+                                android:id="@+id/layout_no_items"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:id="@+id/no_file_folder"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:scaleType="centerInside" />
+
+                                <TextView
+                                    android:id="@+id/textview3_placeholder"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:textSize="14sp"
+                                    android:textColor="#888888" />
+
+                            </LinearLayout>
+
+                            <!-- Scroll progress -->
+                            <ProgressBar
+                                android:id="@+id/scrollprogressbar"
+                                android:layout_width="match_parent"
+                                android:layout_height="3dp"
+                                android:layout_gravity="bottom"
+                                android:indeterminate="true"
+                                android:visibility="invisible"
+                                style="?android:attr/progressBarStyleHorizontal" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <!-- Event layout -->
+                    <LinearLayout
+                        android:id="@+id/event_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="gone" />
+
+                    <!-- Base layout -->
+                    <LinearLayout
+                        android:id="@+id/base_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="gone" />
+
+                    <!-- Info layout (secondary) -->
+                    <LinearLayout
+                        android:id="@+id/info_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="gone" />
+
+                </FrameLayout>
+
+                <!-- Container loader (loading overlay) -->
+                <FrameLayout
+                    android:id="@+id/ContainerLoader"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/loading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="20dp">
+
+                        <ProgressBar
+                            android:layout_width="40dp"
+                            android:layout_height="40dp" />
+
+                        <TextView
+                            android:id="@+id/loading_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:textSize="12sp"
+                            android:textColor="#AAAAAA" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </FrameLayout>
+
+            <!-- Bottom line -->
+            <LinearLayout
+                android:id="@+id/bottom_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#474747" />
 
         </LinearLayout>
 
+        <!-- Floating action button -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/_fab"
             android:layout_width="wrap_content"
@@ -293,14 +417,17 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+    <!-- Navigation drawer -->
     <LinearLayout
         android:id="@+id/_nav_view"
         android:layout_width="320dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:orientation="vertical">
-        
+        android:orientation="vertical"
+        android:background="#131313">
+
         <include layout="@layout/_drawer_main" />
+
     </LinearLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
