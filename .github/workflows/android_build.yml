@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       version_name:
-        description: 'Version Name (e.g. 1.0.0-debug)'
+        description: 'Version Name (e.g. 1.0.0)'
         required: true
-        default: '1.0.0-debug'
+        default: '1.0.0'
       version_code:
         description: 'Version Code (e.g. 1)'
         required: true
@@ -35,6 +35,32 @@ jobs:
         with:
           gradle-version: 8.7
 
+      - name: Determine version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "VERSION=${{ github.event.inputs.version_name }}" >> $GITHUB_ENV
+            echo "CODE=${{ github.event.inputs.version_code }}" >> $GITHUB_ENV
+          else
+            # Auto-increment version on push
+            LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+            BASE_VERSION=${LATEST_TAG#v}
+            # Extract minor version and bump
+            MINOR=$(echo $BASE_VERSION | cut -d. -f2)
+            PATCH=$(echo $BASE_VERSION | cut -d. -f3)
+            NEW_PATCH=$((PATCH + 1))
+            MAJOR=$(echo $BASE_VERSION | cut -d. -f1)
+            MINOR=$((MINOR + 1))
+            echo "VERSION=${MAJOR}.${MINOR}.${NEW_PATCH}" >> $GITHUB_ENV
+            # Use current unix timestamp as version code
+            echo "CODE=$(date +%s)" >> $GITHUB_ENV
+          fi
+
+      - name: Update version in build.gradle
+        run: |
+          sed -i "s/versionCode .*/versionCode ${{ env.CODE }}/" app/build.gradle
+          sed -i "s/versionName .*/versionName \"${{ env.VERSION }}\"/" app/build.gradle
+
       - name: Build Debug APK
         run: gradle assembleDebug
 
@@ -49,13 +75,21 @@ jobs:
           echo "" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
+      - name: Create Git Tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "v${{ env.VERSION }}" -m "Debug build v${{ env.VERSION }}"
+          git push origin "v${{ env.VERSION }}"
+
       - name: Create Pre-Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: debug-${{ github.event.inputs.version_name }}-${{ github.run_id }}
-          name: Debug Build v${{ github.event.inputs.version_name }}
+          tag_name: v${{ env.VERSION }}
+          name: Debug v${{ env.VERSION }}
           body: |
-            ### 🛠️ Debug Build Info
+            ### 🛠️ Debug Build
+            - **Version**: ${{ env.VERSION }}
             - **Run ID**: ${{ github.run_id }}
             - **Commit**: ${{ github.sha }}
             
@@ -63,7 +97,7 @@ jobs:
             ${{ env.CHANGELOG }}
             
             ### 📥 Downloads
-            [![Download APK](https://img.shields.io/badge/Download-APK-green?style=for-the-badge&logo=android)](https://github.com/${{ github.repository }}/releases/download/debug-${{ github.event.inputs.version_name }}-${{ github.run_id }}/app-debug.apk)
+            [![Download APK](https://img.shields.io/badge/Download-APK-green?style=for-the-badge&logo=android)](https://github.com/${{ github.repository }}/releases/download/v${{ env.VERSION }}/app-debug.apk)
           prerelease: true
           files: |
             app/build/outputs/apk/debug/*.apk
@@ -74,7 +108,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ceditor-debug
+          name: ceditor-debug-${{ env.VERSION }}
           path: |
             app/build/outputs/apk/debug/*.apk
             app/build/outputs/bundle/debug/*.aab

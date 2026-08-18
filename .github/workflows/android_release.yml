@@ -39,7 +39,21 @@ jobs:
           sed -i "s/versionName .*/versionName \"${{ github.event.inputs.version_name }}\"/" app/build.gradle
 
       - name: Decode Keystore
-        run: echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > app/release.keystore
+        run: |
+          if [ -n "${{ secrets.KEYSTORE_FILE }}" ]; then
+            echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > app/release.keystore
+          else
+            # Create a default keystore if secrets not available
+            echo "⚠️ Keystore not found in secrets, creating default..."
+            keytool -genkey -v -keystore app/release.keystore \
+              -alias carsaidev \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -storepass carsaidev \
+              -keypass carsaidev \
+              -dname "CN=CEditor, OU=CEditor, O=CEditor, L=Unknown, ST=Unknown, C=Unknown"
+          fi
 
       - name: Build Release APK
         run: gradle assembleRelease
@@ -55,6 +69,13 @@ jobs:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS || 'carsaidev' }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD || 'carsaidev' }}
 
+      - name: Create Git Tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "v${{ github.event.inputs.version_name }}" -m "Release v${{ github.event.inputs.version_name }}"
+          git push origin "v${{ github.event.inputs.version_name }}"
+
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
@@ -68,7 +89,8 @@ jobs:
             - **AAB**: [Download AAB](https://github.com/${{ github.repository }}/releases/download/v${{ github.event.inputs.version_name }}/app-release.aab)
             
             ---
-            Build generated automatically by GitHub Actions.
+            *Signed release build generated automatically by GitHub Actions.*
+          prerelease: false
           files: |
             app/build/outputs/apk/release/*.apk
             app/build/outputs/bundle/release/*.aab
@@ -78,7 +100,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ceditor-release
+          name: ceditor-release-${{ github.event.inputs.version_name }}
           path: |
             app/build/outputs/apk/release/*.apk
             app/build/outputs/bundle/release/*.aab
