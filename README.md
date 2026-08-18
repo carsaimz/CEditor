@@ -1,96 +1,106 @@
-# CEditor - Editor de Código 🚀
+# CEditor - Code Editor
 
-[![Android Build](https://github.com/carsaimz/CEditor/actions/workflows/android_build.yml/badge.svg)](https://github.com/carsaimz/CEditor/actions/workflows/android_build.yml)
-[![Android Release](https://github.com/carsaimz/CEditor/actions/workflows/android_release.yml/badge.svg)](https://github.com/carsaimz/CEditor/actions/workflows/android_release.yml)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Platform](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com)
+A modern, multi-language code editor for Android built with native Android APIs.
 
-**CEditor** é um editor de código e gerenciador de arquivos avançado para Android, projetado para oferecer uma experiência de desenvolvimento completa diretamente no seu dispositivo móvel.
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
----
+![Build Status](https://github.com/carsaimz/CEditor/actions/workflows/android_build.yml/badge.svg)
+![Release Status](https://github.com/carsaimz/CEditor/actions/workflows/android_release.yml/badge.svg)
+[![GitHub release](https://img.shields.io/github/v/release/carsaimz/CEditor?style=for-the-badge)](https://github.com/carsaimz/CEditor/releases/latest)
+[![GitHub pre-release](https://img.shields.io/github/v/release/carsaimz/CEditor?include_prereleases&style=for-the-badge&label=Pre-Release)](https://github.com/carsaimz/CEditor/releases)
 
-## ✨ Funcionalidades Principais
+## Features
 
-- 💻 **Editor de Código Potente**: Baseado no SoraEditor, com suporte a realce de sintaxe para diversas linguagens.
-- 📂 **Gerenciador de Arquivos**: Navegação completa, suporte a armazenamento interno e externo (SAF).
-- 🖼️ **Ferramentas de Mídia**: Visualizador de imagens integrado, player de áudio e editor básico de imagens.
-- 🐙 **Integração Git**: Clone repositórios diretamente para o seu dispositivo.
-- 🛠️ **Utilitários Avançados**: 
-  - 🌐 Visualizador de HTML com execução em tempo real.
-  - 🔐 Conversores de texto (Base64, Binary, HEX, Leetspeak).
-  - 🐚 Terminal integrado.
-  - 📦 Visualizador de arquivos comprimidos (zip, etc).
-  - 🔢 Cálculo de Checksum (Hash).
-- 🤖 **Assistente de IA Multiprovedor**: Assistente de IA integrado ao editor, com suporte a múltiplos provedores (gratuitos, free-tier e premium) para auxiliar na programação, refatoração, debugging e geração de código.
+- **Code Editor**: Sora Editor with syntax highlighting for Java, Kotlin, and more
+- **File Manager**: Browse, open, edit, and manage files on your device
+- **Multi-Provider AI Assistant**: Integrated AI chat with multiple provider support
+- **Language Switching**: English and Portuguese with dynamic switching in settings
+- **Dark/Light Theme**: Material Design with customizable themes
+- **Permissions Support**: Handles Android 11+ scoped storage and legacy permissions
 
----
+## AI Providers
 
-## 🤖 Assistente de IA Multiprovedor
+CEditor supports multiple AI providers with different pricing tiers:
 
-O CEditor possui um assistente de IA integrado diretamente no editor de código. Para usar:
+| Provider | Type | Free Tier | Notes |
+|----------|------|-----------|-------|
+| Gemini (Google) | Free/Free-tier | Yes (15 RPM) | Best free option |
+| OpenAI | Paid | Yes ($5 free credit) | GPT-3.5/4 |
+| Anthropic | Paid | Yes ($5 free credit) | Claude |
+| Groq | Free | Yes (30 RPM) | Fast inference |
+| Mistral | Paid | Yes (€2 free credit) | Open-source models |
+| Ollama (Local) | Free | Always free | Self-hosted, no API key needed |
 
-1. Acesse **Configurações → AI Providers** e adicione sua chave API para o provedor desejado
-2. No editor, abra o menu e selecione **"AI Assistant"**
-3. Faça perguntas sobre seu código, peça refatorações, debugging ou explicações
+### Priority Order (as configured in settings)
 
-### Provedores Suportados:
+1. **Free providers**: Groq, Ollama (Local)
+2. **Free-tier providers**: Gemini, OpenAI, Anthropic, Mistral
+3. **Paid premium**: Any provider with full API key
 
-| Provedor | Tipo | Free-Tier | API Key Necessária |
-|----------|------|-----------|--------------------|
-| **Google Gemini** | Gratuito/Premium | ✅ Sim | ✅ |
-| **Groq** | Free-Tier | ✅ Sim | ✅ |
-| **OpenAI (ChatGPT)** | Premium | ❌ Não | ✅ |
-| **Anthropic (Claude)** | Premium | ❌ Não | ✅ |
-| **Mistral AI** | Free-Tier/Premium | ✅ Sim | ✅ |
-| **Ollama** | Gratuito (Local) | ✅ Sim | ❌ Não |
+## Download
 
-O assistente envia o código atual do editor como contexto para que a IA possa fornecer respostas relevantes.
+| Type | Status | Link |
+|------|--------|------|
+| Debug APK | Auto-built | [Latest Pre-Release](https://github.com/carsaimz/CEditor/releases) |
+| Release APK | Manual trigger | [Latest Release](https://github.com/carsaimz/CEditor/releases/latest) |
 
----
+## CI/CD Pipeline
 
-## 🌍 Idiomas Suportados
+### Build Workflow (Automatic)
+- Triggers on every push to `main`
+- Auto-increments version number
+- Creates a pre-release with debug APK + AAB
+- No signing required (debug only)
 
-O CEditor agora suporta troca dinâmica de idioma nas configurações:
-- 🇺🇸 **Inglês** (Padrão)
-- 🇧🇷 **Português** (Brasil)
+### Release Workflow (Manual)
+- Manual trigger with version input
+- Creates signed release APK + AAB
+- Creates an official GitHub release with tag
 
----
+## Build Instructions
 
-## 🛠️ Tecnologias Utilizadas
+```bash
+# Debug build (unsigned)
+./gradlew assembleDebug
 
-- **Linguagem**: Java
-- **Plataforma**: Android (SDK 21+)
-- **Bibliotecas Principais**:
-  - [SoraEditor](https://github.com/Rosemoe/SoraEditor) - Núcleo do editor de código.
-  - [JGit](https://www.eclipse.org/jgit/) - Operações Git.
-  - [Glide](https://github.com/bumptech/glide) - Carregamento de imagens.
+# Release build (requires keystore secrets)
+./gradlew assembleRelease
+```
 
----
+## Project Structure
 
-## 🚀 Build e Release Automáticos
+```
+app/src/main/
+├── java/com/ceditor/
+│   ├── MainActivity.java      # File manager with RecyclerView
+│   ├── PermissionActivity.java # Permission request (launcher)
+│   ├── EditorActivity.java    # Code editor with Sora Editor
+│   ├── SettingsActivity.java  # Settings with language/theme/AI
+│   └── ai/
+│       ├── AIProviderManager.java  # Multi-provider AI management
+│       ├── AIChatHelper.java       # AI chat UI integration
+│       └── AIProvidersActivity.java # Provider configuration UI
+├── res/
+│   ├── layout/               # All XML layouts
+│   ├── values/               # English strings
+│   ├── values-pt/            # Portuguese strings
+│   ├── drawable/             # Vector drawables
+│   └── drawable-xhdpi/       # PNG icons (file types, folders)
+└── AndroidManifest.xml       # App manifest
+```
 
-O CEditor agora possui um pipeline de CI/CD **100% funcional**. O projeto foi recuperado de um estado de compilação quebrado, com a restauração de layouts ausentes e correção de dependências.
+## Technologies
 
-Este projeto utiliza **GitHub Actions** para automatizar o processo de build e release.
+- **Sora Editor 0.24.4**: Code editing with syntax highlighting
+- **OkHttp 3.14.9**: HTTP client for AI API calls
+- **Glide 4.12.0**: Image loading
+- **Gson 2.8.7**: JSON parsing
+- **Material Components 1.6.1**: UI components
+- **AndroidX**: Modern Android libraries
 
-### Workflows Disponíveis:
-- **Android Build**: Gera APK e AAB de depuração (debug), cria um **Pré-release** automático e gera um **Changelog**.
-- **Android Release**: Gera APK e AAB assinados e cria um novo Release oficial no GitHub.
+## License
 
-### 📥 Downloads
-Para baixar a versão mais recente, acesse a aba [Releases](https://github.com/carsaimz/CEditor/releases).
-
----
-
-## 🤝 Como Contribuir
-
-Adotamos o padrão **Conventional Commits**:
-- `feat`: Novas funcionalidades.
-- `fix`: Correção de bugs.
-- `docs`: Alterações na documentação.
-- `style`: Alterações de formatação (espaços, vírgulas, etc).
-- `refactor`: Refatoração de código.
-- `chore`: Atualização de tarefas de build, pacotes, etc.
-
----
-Desenvolvido com ❤️ por [carsaimz](https://github.com/carsaimz)
+MIT License - see LICENSE file for details.
