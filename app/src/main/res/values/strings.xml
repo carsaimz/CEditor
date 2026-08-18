@@ -129,4 +129,19 @@
     <string name="change_language">Change Language</string>
     <string name="english">English</string>
     <string name="portuguese">Portuguese</string>
+
+    <!-- AI Assistant -->
+    <string name="ai_assistant">AI Assistant</string>
+    <string name="ai_providers_title">AI Providers</string>
+    <string name="ai_providers_desc">Configure and manage AI providers</string>
+    <string name="ai_api_key_hint">API Key</string>
+    <string name="ai_model_hint">Model (optional)</string>
+    <string name="ai_baseurl_hint">Base URL (optional)</string>
+    <string name="ai_no_providers">No AI providers configured. Add API keys to enable AI features.</string>
+    <string name="ai_chat_title">AI Assistant</string>
+    <string name="ai_chat_hint">Ask AI about your code...</string>
+    <string name="ai_send">Send</string>
+    <string name="ai_thinking">Thinking...</string>
+    <string name="ai_free_tier">Free Tier</string>
+    <string name="ai_premium">Premium</string>
 </resources>

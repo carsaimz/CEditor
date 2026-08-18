@@ -621,13 +621,38 @@
 											android:layout_width="match_parent"
 											android:layout_height="wrap_content"
 											android:gravity="center_vertical"
-											android:text="Replace text"
-											android:textSize="16sp"
-											android:textColor="#FFFFFF"
-											android:layout_weight="1" />
-									</LinearLayout>
-								</LinearLayout>
-							</ScrollView>
+																	android:text="Replace text"
+																	android:textSize="16sp"
+																	android:textColor="#FFFFFF"
+																	android:layout_weight="1" />
+															</LinearLayout>
+															<!-- AI Assistant Option -->
+															<LinearLayout
+																android:id="@+id/m12"
+																android:layout_width="match_parent"
+																android:layout_height="50dp"
+																android:padding="8dp"
+																android:gravity="center_vertical"
+																android:orientation="horizontal">
+																<ImageView
+																	android:id="@+id/imageview_ai_menu"
+																	android:layout_width="50dp"
+																	android:layout_height="38dp"
+																	android:padding="8dp"
+																	android:src="@android:drawable/ic_menu_search"
+																	android:scaleType="fitCenter" />
+																<TextView
+																	android:id="@+id/textview_ai_menu"
+																	android:layout_width="match_parent"
+																	android:layout_height="wrap_content"
+																	android:gravity="center_vertical"
+																	android:text="@string/ai_assistant"
+																	android:textSize="16sp"
+																	android:textColor="#FFFFFF"
+																	android:layout_weight="1" />
+															</LinearLayout>
+														</LinearLayout>
+													</ScrollView>
 						</LinearLayout>
 						<LinearLayout
 							android:id="@+id/second"

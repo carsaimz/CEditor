@@ -109,6 +109,8 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 import androidx.viewpager.widget.ViewPager;
 import android.text.Editable;
+import com.ceditor.ai.AIProviderManager;
+import com.ceditor.ai.AIChatHelper;
 
 
 
@@ -144,6 +146,8 @@ public class EditorActivity extends AppCompatActivity {
 	private String responseTAG = "";
 	
 	private ArrayList<HashMap<String, Object>> binmap = new ArrayList<>();
+	private AIProviderManager aiProviderManager;
+	private AIChatHelper aiChatHelper;
 	
 	private LinearLayout toolbar1;
 	private FrameLayout baseBackground;
@@ -201,6 +205,7 @@ public class EditorActivity extends AppCompatActivity {
 	private LinearLayout m9;
 	private LinearLayout m10;
 	private LinearLayout m11;
+	private LinearLayout m12;
 	private ImageView imageview2;
 	private TextView textview38;
 	private ImageView imageview7;
@@ -358,6 +363,7 @@ public class EditorActivity extends AppCompatActivity {
 		m9 = findViewById(R.id.m9);
 		m10 = findViewById(R.id.m10);
 		m11 = findViewById(R.id.m11);
+		m12 = findViewById(R.id.m12);
 		imageview2 = findViewById(R.id.imageview2);
 		textview38 = findViewById(R.id.textview38);
 		imageview7 = findViewById(R.id.imageview7);
@@ -1182,13 +1188,29 @@ public class EditorActivity extends AppCompatActivity {
 			}
 		});
 		
-		m11.setOnClickListener(new View.OnClickListener() {
+				m11.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View _view) {
 				_showReplaceTextDialog();
 			}
 		});
-		
+		m12.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View _view) {
+				// Initialize AI if not already done
+				if (aiProviderManager == null) {
+					aiProviderManager = new AIProviderManager(EditorActivity.this);
+				}
+				if (aiChatHelper == null) {
+					aiChatHelper = new AIChatHelper(EditorActivity.this, aiProviderManager);
+				}
+				// Set current code as context
+				String currentCode = editor.getText().toString();
+				aiChatHelper.setCodeContext(currentCode);
+				aiChatHelper.showChatDialog();
+				_showMenu(false);
+			}
+		});
 		m1_2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View _view) {

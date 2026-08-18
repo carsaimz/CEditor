@@ -129,4 +129,19 @@
     <string name="change_language">Alterar Idioma</string>
     <string name="english">Inglês</string>
     <string name="portuguese">Português</string>
+
+    <!-- Assistente de IA -->
+    <string name="ai_assistant">Assistente de IA</string>
+    <string name="ai_providers_title">Provedores de IA</string>
+    <string name="ai_providers_desc">Configurar e gerenciar provedores de IA</string>
+    <string name="ai_api_key_hint">Chave de API</string>
+    <string name="ai_model_hint">Modelo (opcional)</string>
+    <string name="ai_baseurl_hint">URL Base (opcional)</string>
+    <string name="ai_no_providers">Nenhum provedor de IA configurado. Adicione chaves de API para ativar recursos de IA.</string>
+    <string name="ai_chat_title">Assistente de IA</string>
+    <string name="ai_chat_hint">Pergunte à IA sobre seu código...</string>
+    <string name="ai_send">Enviar</string>
+    <string name="ai_thinking">Pensando...</string>
+    <string name="ai_free_tier">Gratuito</string>
+    <string name="ai_premium">Premium</string>
 </resources>

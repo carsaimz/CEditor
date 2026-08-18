@@ -74,6 +74,9 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import com.ceditor.ai.AIProviderManager;
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 
 
@@ -238,6 +241,13 @@ public class SettingsActivity extends AppCompatActivity {
 	private TextView textview55;
 	private ImageView imageview23;
 	private TextView textview28;
+	// AI Providers fields
+	private LinearLayout linear_click_ai;
+	private LinearLayout linear_ai_clickable;
+	private ImageView imageview_ai;
+	private TextView textview_ai_title;
+	private TextView textview_ai_desc;
+	private AIProviderManager aiProviderManager;
 	
 	private Intent intent = new Intent();
 	private SharedPreferences data;
@@ -319,6 +329,11 @@ public class SettingsActivity extends AppCompatActivity {
 			linear_change_lang = findViewById(R.id.linear_change_lang);
 			textview_change_lang = findViewById(R.id.textview_change_lang);
 			textview_current_lang = findViewById(R.id.textview_current_lang);
+			linear_click_ai = findViewById(R.id.linear_click_ai);
+			linear_ai_clickable = findViewById(R.id.linear_ai_clickable);
+			imageview_ai = findViewById(R.id.imageview_ai);
+			textview_ai_title = findViewById(R.id.textview_ai_title);
+			textview_ai_desc = findViewById(R.id.textview_ai_desc);
 			linear15ccv = findViewById(R.id.linear15ccv);
 		linear46 = findViewById(R.id.linear46);
 		linear47 = findViewById(R.id.linear47);
@@ -1233,11 +1248,115 @@ public class SettingsActivity extends AppCompatActivity {
 		_CRadius(s_about_group, cl);
 			_CRadius(s_privacygroup, cl);
 			_CRadius(s_language_group, cl);
+			_CRadius(linear_click_ai, cl);
 			_Concave(s_dangerzone_group, cl);
 			
 			String currentLang = data.getString("app_lang", "en");
 			textview_current_lang.setText(currentLang.equals("pt") ? "Português" : "English");
+			
+			// AI Providers click handler
+			linear_ai_clickable.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View _v) {
+					showAIProvidersDialog();
+				}
+			});
 		}
+	
+	/**
+	 * Show AI Providers configuration dialog
+	 */
+	private void showAIProvidersDialog() {
+		if (aiProviderManager == null) {
+			aiProviderManager = new AIProviderManager(this);
+		}
+		
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(R.string.ai_providers_title);
+		
+		// Inflate custom view
+		View dialogView = getLayoutInflater().inflate(R.layout.settings_ai, null);
+		builder.setView(dialogView);
+		
+		final AlertDialog dialog = builder.create();
+		
+		// Close button
+		ImageView closeBtn = dialogView.findViewById(R.id.ai_close);
+		closeBtn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View _v) {
+				dialog.dismiss();
+			}
+		});
+		
+		// Populate providers
+		LinearLayout container = dialogView.findViewById(R.id.ai_providers_container);
+		
+		for (AIProviderManager.ProviderInfo providerInfo : aiProviderManager.getAvailableProviders()) {
+			View itemView = getLayoutInflater().inflate(R.layout.ai_provider_item, container, false);
+			
+			TextView nameText = itemView.findViewById(R.id.ai_provider_name);
+			TextView descText = itemView.findViewById(R.id.ai_provider_desc);
+			SwitchMaterial switchMaterial = itemView.findViewById(R.id.ai_provider_switch);
+			LinearLayout configLayout = itemView.findViewById(R.id.ai_provider_config);
+			EditText keyInput = itemView.findViewById(R.id.ai_provider_key);
+			EditText modelInput = itemView.findViewById(R.id.ai_provider_model);
+			EditText baseurlInput = itemView.findViewById(R.id.ai_provider_baseurl);
+			
+			nameText.setText(providerInfo.name);
+			descText.setText(providerInfo.description);
+			
+			// Set initial state
+			boolean isEnabled = aiProviderManager.isEnabled(providerInfo.id);
+			switchMaterial.setChecked(isEnabled);
+			configLayout.setVisibility(isEnabled ? View.VISIBLE : View.GONE);
+			
+			String currentKey = aiProviderManager.getApiKey(providerInfo.id);
+			keyInput.setText(currentKey);
+			String currentModel = aiProviderManager.getApiKey(providerInfo.id).isEmpty() ? "" : 
+				aiProviderManager.getModel(providerInfo.id);
+			modelInput.setText(currentModel);
+			
+			// Switch listener
+			switchMaterial.setOnCheckedChangeListener(new android.widget.CompoundButton.OnCheckedChangeListener() {
+				@Override
+				public void onCheckedChanged(android.widget.CompoundButton _buttonView, boolean _isChecked) {
+					aiProviderManager.setEnabled(providerInfo.id, _isChecked);
+					configLayout.setVisibility(_isChecked ? View.VISIBLE : View.GONE);
+				}
+			});
+			
+			// Key input listener
+			keyInput.addTextChangedListener(new android.text.TextWatcher() {
+				@Override
+				public void beforeTextChanged(CharSequence _s, int _start, int _count, int _after) {}
+				@Override
+				public void onTextChanged(CharSequence _s, int _start, int _before, int _count) {}
+				@Override
+				public void afterTextChanged(android.text.Editable _s) {
+					aiProviderManager.setApiKey(providerInfo.id, _s.toString());
+				}
+			});
+			
+			// Model input listener
+			modelInput.addTextChangedListener(new android.text.TextWatcher() {
+				@Override
+				public void beforeTextChanged(CharSequence _s, int _start, int _count, int _after) {}
+				@Override
+				public void onTextChanged(CharSequence _s, int _start, int _before, int _count) {}
+				@Override
+				public void afterTextChanged(android.text.Editable _s) {
+					if (!_s.toString().isEmpty()) {
+						aiProviderManager.setModel(providerInfo.id, _s.toString());
+					}
+				}
+			});
+			
+			container.addView(itemView);
+		}
+		
+		dialog.show();
+	}
 	
 	
 	public static class DatePickerFragment extends androidx.appcompat.app.AppCompatDialogFragment implements DatePickerDialog.OnDateSetListener {

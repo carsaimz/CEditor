@@ -101,6 +101,52 @@
 							</LinearLayout>
 						</LinearLayout>
 					</LinearLayout>
+					<!-- AI Providers Section -->
+					<LinearLayout
+						android:id="@+id/linear_click_ai"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="4dp"
+						android:background="#212121"
+						android:orientation="vertical"
+						android:animateLayoutChanges="true">
+						<LinearLayout
+							android:id="@+id/linear_ai_clickable"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:gravity="center_vertical"
+							android:orientation="horizontal"
+							android:clickable="true"
+							android:focusable="true">
+							<ImageView
+								android:id="@+id/imageview_ai"
+								android:layout_width="35dp"
+								android:layout_height="35dp"
+								android:padding="8dp"
+								android:src="@android:drawable/ic_menu_search"
+								android:scaleType="fitCenter" />
+							<LinearLayout
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:orientation="vertical"
+								android:padding="8dp">
+								<TextView
+									android:id="@+id/textview_ai_title"
+									android:layout_width="wrap_content"
+									android:layout_height="wrap_content"
+									android:text="@string/ai_providers_title"
+									android:textSize="16sp"
+									android:textColor="#FFFFFF" />
+								<TextView
+									android:id="@+id/textview_ai_desc"
+									android:layout_width="wrap_content"
+									android:layout_height="wrap_content"
+									android:text="@string/ai_providers_desc"
+									android:textSize="12sp"
+									android:textColor="#BDBDBD" />
+							</LinearLayout>
+						</LinearLayout>
+					</LinearLayout>
 					<TextView
 						android:id="@+id/textview11"
 						android:layout_width="match_parent"
