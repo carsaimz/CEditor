@@ -144,4 +144,50 @@
     <string name="ai_thinking">Pensando...</string>
     <string name="ai_free_tier">Gratuito</string>
     <string name="ai_premium">Premium</string>
+    <string name="active">Ativo</string>
+
+
+<!-- Added for rewrite -->
+<string name="internal_storage">Armazenamento Interno</string>
+<string name="home">Início</string>
+<string name="downloads">Downloads</string>
+<string name="documents">Documentos</string>
+<string name="pictures">Imagens</string>
+<string name="music">Música</string>
+<string name="movies">Filmes</string>
+<string name="no_items">Sem itens</string>
+<string name="items_count">%1$d itens</string>
+<string name="grant_permission">Conceder Permissão</string>
+<string name="permission_needed">Permissão de armazenamento necessária para navegar nos ficheiros</string>
+<string name="permission_granted">Permissão de armazenamento concedida!</string>
+<string name="permission_denied">Permissão negada. Por favor, conceda nas definições da aplicação.</string>
+<string name="permission_info">Se o botão não funcionar, vá a Definições > Aplicações > CEditor > Permissões e ative o armazenamento</string>
+<string name="delete_confirm">Eliminar "%1$s"?</string>
+<string name="deleted">Eliminado</string>
+<string name="copied">Copiado</string>
+<string name="new_folder">Nova Pasta</string>
+<string name="new_file">Novo Ficheiro</string>
+<string name="paste">Colar</string>
+<string name="yes">Sim</string>
+<string name="no">Não</string>
+<string name="edit_with_editor">Abrir no Editor</string>
+<string name="open_with">Abrir com</string>
+<string name="file_info">Informação do Ficheiro</string>
+<string name="error_occurred">Ocorreu um erro</string>
+<string name="cannot_read">Não é possível ler o diretório</string>
+<string name="loading">A carregar...</string>
+<string name="cancel2">Cancelar</string>
+<string name="ok">OK</string>
+<string name="enter_name">Introduzir nome</string>
+<string name="folder_name">Nome da pasta</string>
+<string name="file_name_input">Nome do ficheiro</string>
+<string name="cannot_create">Não é possível criar: %1$s</string>
+<string name="created">Criado: %1$s</string>
+<string name="paste_here">Colar aqui?</string>
+<string name="pasted">Colado com sucesso</string>
+<string name="paste_error">Erro ao colar</string>
+<string name="sort_by_name">Ordenar por nome</string>
+<string name="sort_by_date">Ordenar por data</string>
+<string name="sort_by_size">Ordenar por tamanho</string>
+<string name="show_hidden">Mostrar ficheiros ocultos</string>
 </resources>

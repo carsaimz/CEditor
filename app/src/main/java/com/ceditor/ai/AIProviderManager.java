@@ -168,6 +168,22 @@ public class AIProviderManager {
     }
 
     /**
+     * Get active provider info objects
+     */
+    public List<ProviderInfo> getActiveProviderInfos() {
+        List<ProviderInfo> active = new ArrayList<>();
+        for (ProviderInfo info : getAvailableProviders()) {
+            if (isEnabled(info.id)) {
+                String key = getApiKey(info.id);
+                if (!key.isEmpty() || info.id.equals(PROVIDER_OLLAMA_LOCAL)) {
+                    active.add(info);
+                }
+            }
+        }
+        return active;
+    }
+
+    /**
      * Send a chat completion request to the specified provider
      */
     public CompletableFuture<String> sendChatCompletion(String provider, String systemPrompt, String userMessage, String codeContext) {

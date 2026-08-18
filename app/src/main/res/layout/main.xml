@@ -2,23 +2,23 @@
 <androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/_drawer"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/_coordinator"
+        android:id="@+id/coordinator"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/_app_bar"
+            android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/_toolbar"
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
@@ -35,380 +35,83 @@
 
             <!-- Top progress bar -->
             <ProgressBar
-                android:id="@+id/prog"
+                android:id="@+id/progress_bar"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:indeterminate="true"
                 android:visibility="gone"
                 style="?android:attr/progressBarStyleHorizontal" />
 
-            <!-- Top line -->
+            <!-- Path bar -->
             <LinearLayout
-                android:id="@+id/top_line"
+                android:id="@+id/path_bar"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#474747"
-                android:orientation="horizontal" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:background="#1a1a1a">
 
-            <!-- Root frame layout -->
-            <FrameLayout
-                android:id="@+id/root_frame_layout"
+                <TextView
+                    android:id="@+id/path_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:textColor="#AAAAAA"
+                    android:singleLine="true"
+                    android:ellipsize="start" />
+
+                <ImageView
+                    android:id="@+id/btn_up"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/content_right_arrow"
+                    android:rotation="180"
+                    android:padding="2dp" />
+
+            </LinearLayout>
+
+            <!-- File list -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:clipToPadding="false" />
 
-                <!-- Main frame layout (content area) -->
-                <FrameLayout
-                    android:id="@+id/main_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <!-- Layout main (file list) -->
-                    <LinearLayout
-                        android:id="@+id/layout_main"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <!-- Toolbar inner -->
-                        <LinearLayout
-                            android:id="@+id/toolbar1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:padding="4dp"
-                            android:visibility="visible">
-
-                            <LinearLayout
-                                android:id="@+id/toolbar1_inner"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center_vertical">
-
-                                <com.robinhood.ticker.TickerView
-                                    android:id="@+id/title"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textSize="14sp"
-                                    android:textColor="#FFFFFF" />
-
-                                <TextView
-                                    android:id="@+id/subtitle"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="8dp"
-                                    android:textSize="11sp"
-                                    android:textColor="#AAAAAA"
-                                    android:singleLine="true" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/toolbar1_progressbar"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:gravity="center_vertical"
-                                android:visibility="gone">
-
-                                <ProgressBar
-                                    android:id="@+id/progbar"
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp" />
-
-                                <TextView
-                                    android:id="@+id/toolbar1_progressbar_text"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="4dp"
-                                    android:textSize="11sp"
-                                    android:textColor="#AAAAAA" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/toolbar1_info"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:gravity="center_vertical">
-
-                                <ImageView
-                                    android:id="@+id/imageview10"
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:visibility="gone" />
-
-                                <ImageView
-                                    android:id="@+id/paste"
-                                    android:layout_width="32dp"
-                                    android:layout_height="32dp"
-                                    android:padding="4dp"
-                                    android:visibility="gone" />
-
-                                <ImageView
-                                    android:id="@+id/cancel"
-                                    android:layout_width="32dp"
-                                    android:layout_height="32dp"
-                                    android:padding="4dp"
-                                    android:visibility="gone" />
-
-                                <ImageView
-                                    android:id="@+id/clear_selection"
-                                    android:layout_width="32dp"
-                                    android:layout_height="32dp"
-                                    android:padding="4dp"
-                                    android:visibility="gone" />
-
-                                <ImageView
-                                    android:id="@+id/up"
-                                    android:layout_width="32dp"
-                                    android:layout_height="32dp"
-                                    android:padding="4dp" />
-
-                                <ImageView
-                                    android:id="@+id/menu"
-                                    android:layout_width="32dp"
-                                    android:layout_height="32dp"
-                                    android:padding="4dp" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <!-- Selection bar -->
-                        <LinearLayout
-                            android:id="@+id/allow"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:padding="8dp"
-                            android:visibility="gone">
-
-                            <TextView
-                                android:id="@+id/textview4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="14sp"
-                                android:textColor="#FFFFFF" />
-
-                        </LinearLayout>
-
-                        <!-- Update available -->
-                        <ImageView
-                            android:id="@+id/update_available"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:layout_gravity="end"
-                            android:layout_margin="8dp"
-                            android:visibility="gone" />
-
-                        <!-- Info layout -->
-                        <LinearLayout
-                            android:id="@+id/layout_info"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:padding="4dp"
-                            android:visibility="gone">
-
-                            <ImageView
-                                android:id="@+id/goTop"
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
-                                android:layout_marginRight="4dp" />
-
-                            <LinearLayout
-                                android:id="@+id/linear10"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/textview3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textSize="12sp"
-                                    android:textColor="#AAAAAA" />
-
-                            </LinearLayout>
-
-                            <ImageView
-                                android:id="@+id/goBottom"
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
-                                android:layout_marginLeft="4dp" />
-
-                        </LinearLayout>
-
-                        <!-- Divider -->
-                        <LinearLayout
-                            android:id="@+id/divider"
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#333333" />
-
-                        <!-- Linear frame for list -->
-                        <FrameLayout
-                            android:id="@+id/linear4"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <!-- RecyclerView (file list) -->
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/recyclerview1"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:clipToPadding="false" />
-
-                            <!-- List view (legacy) -->
-                    <ListView
-                        android:id="@+id/listView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:visibility="gone" />
-
-                    <!-- L4 (animation target) -->
-                    <LinearLayout
-                        android:id="@+id/l4"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="gone" />
-
-                    <!-- LinearLayout14 -->
-                    <LinearLayout
-                        android:id="@+id/LinearLayout14"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="gone" />
-
-                    <!-- Alert box -->
-                    <LinearLayout
-                        android:id="@+id/alertbox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:visibility="gone" />
-
-                    <!-- No items layout -->
-                            <LinearLayout
-                                android:id="@+id/layout_no_items"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:orientation="vertical"
-                                android:gravity="center"
-                                android:visibility="gone">
-
-                                <ImageView
-                                    android:id="@+id/no_file_folder"
-                                    android:layout_width="80dp"
-                                    android:layout_height="80dp"
-                                    android:scaleType="centerInside" />
-
-                                <TextView
-                                    android:id="@+id/textview3_placeholder"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="8dp"
-                                    android:textSize="14sp"
-                                    android:textColor="#888888" />
-
-                            </LinearLayout>
-
-                            <!-- Scroll progress -->
-                            <ProgressBar
-                                android:id="@+id/scrollprogressbar"
-                                android:layout_width="match_parent"
-                                android:layout_height="3dp"
-                                android:layout_gravity="bottom"
-                                android:indeterminate="true"
-                                android:visibility="invisible"
-                                style="?android:attr/progressBarStyleHorizontal" />
-
-                        </FrameLayout>
-
-                    </LinearLayout>
-
-                    <!-- Event layout -->
-                    <LinearLayout
-                        android:id="@+id/event_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="gone" />
-
-                    <!-- Base layout -->
-                    <LinearLayout
-                        android:id="@+id/base_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="gone" />
-
-                    <!-- Info layout (secondary) -->
-                    <LinearLayout
-                        android:id="@+id/info_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="gone" />
-
-                </FrameLayout>
-
-                <!-- Container loader (loading overlay) -->
-                <FrameLayout
-                    android:id="@+id/ContainerLoader"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone">
-
-                    <LinearLayout
-                        android:id="@+id/loading"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="20dp">
-
-                        <ProgressBar
-                            android:layout_width="40dp"
-                            android:layout_height="40dp" />
-
-                        <TextView
-                            android:id="@+id/loading_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:textSize="12sp"
-                            android:textColor="#AAAAAA" />
-
-                    </LinearLayout>
-
-                </FrameLayout>
-
-            </FrameLayout>
-
-            <!-- Bottom line -->
+            <!-- Empty state -->
             <LinearLayout
-                android:id="@+id/bottom_line"
+                android:id="@+id/empty_state"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#474747" />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/empty_icon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/content_folder"
+                    android:alpha="0.3"
+                    android:scaleType="centerInside" />
+
+                <TextView
+                    android:id="@+id/empty_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="14sp"
+                    android:textColor="#888888"
+                    android:text="@string/no_items" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
         <!-- Floating action button -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/_fab"
+            android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
@@ -419,14 +122,280 @@
 
     <!-- Navigation drawer -->
     <LinearLayout
-        android:id="@+id/_nav_view"
-        android:layout_width="320dp"
+        android:id="@+id/nav_view"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:orientation="vertical"
         android:background="#131313">
 
-        <include layout="@layout/_drawer_main" />
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:background="#111111">
+
+            <ImageView
+                android:id="@+id/nav_app_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/app_logo_transparent"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:id="@+id/nav_app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="CEditor"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#474747" />
+
+        <!-- Drawer items -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Internal Storage -->
+                <LinearLayout
+                    android:id="@+id/nav_internal"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/content_device" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/internal_storage"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+                <!-- Home -->
+                <LinearLayout
+                    android:id="@+id/nav_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/folder" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/home"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+                <!-- Downloads -->
+                <LinearLayout
+                    android:id="@+id/nav_downloads"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/download_folder" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/downloads"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+                <!-- Documents -->
+                <LinearLayout
+                    android:id="@+id/nav_documents"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/documents_folder" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/documents"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+                <!-- Pictures -->
+                <LinearLayout
+                    android:id="@+id/nav_pictures"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/pictures_folder" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/pictures"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+                <!-- Music -->
+                <LinearLayout
+                    android:id="@+id/nav_music"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/music_ringtones_folder" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/music"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+                <!-- Movies -->
+                <LinearLayout
+                    android:id="@+id/nav_movies"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/movies_folder" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/movies"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#333333"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Settings -->
+                <LinearLayout
+                    android:id="@+id/nav_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/content_settings_cog" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/settings"
+                        android:textSize="14sp"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#474747" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="8dp"
+            android:text="© CEditor 2025"
+            android:textSize="10sp"
+            android:textColor="#9E9E9E" />
 
     </LinearLayout>
 
