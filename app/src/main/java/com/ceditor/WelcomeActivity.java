@@ -94,5 +94,25 @@ public class WelcomeActivity extends AppCompatActivity {
             startActivity(new Intent(this, SettingsActivity.class));
             finish();
         });
+
+        // Terminal row in GET STARTED
+        View terminalRow = findViewById(R.id.welcome_terminal_row);
+        if (terminalRow != null) {
+            terminalRow.setOnClickListener(v -> {
+                data.edit().putBoolean("welcome_shown", true).apply();
+                startActivity(new Intent(this, TerminalActivity.class));
+                finish();
+            });
+        }
+
+        // Settings row in CUSTOMIZE
+        View settingsRow = findViewById(R.id.welcome_settings_row);
+        if (settingsRow != null) {
+            settingsRow.setOnClickListener(v -> {
+                data.edit().putBoolean("welcome_shown", true).apply();
+                startActivity(new Intent(this, SettingsActivity.class));
+                finish();
+            });
+        }
     }
 }

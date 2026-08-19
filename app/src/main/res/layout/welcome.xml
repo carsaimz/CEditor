@@ -1,209 +1,354 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="?android:attr/colorBackground">
+    android:background="@color/welcomeBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        android:padding="24dp">
 
-        <!-- App Logo and Title -->
-        <ImageView
-            android:id="@+id/welcome_logo"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="48dp"
-            android:src="@drawable/app_logo_transparent"
-            android:scaleType="centerInside" />
-
-        <TextView
-            android:id="@+id/welcome_title"
-            android:layout_width="wrap_content"
+        <!-- Header with logo -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/welcome_title"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="?android:attr/textColorPrimary" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="32dp">
 
+            <ImageView
+                android:id="@+id/welcome_logo"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/app_logo_transparent"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:id="@+id/welcome_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Welcome to CEditor"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/textColorPrimary" />
+        </LinearLayout>
+
+        <!-- Subtitle -->
         <TextView
             android:id="@+id/welcome_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:text="@string/welcome_subtitle"
-            android:textSize="16sp"
-            android:textColor="?android:attr/textColorSecondary" />
+            android:textSize="14sp"
+            android:textColor="@color/textColorSecondary" />
 
         <!-- Introduction -->
         <TextView
             android:id="@+id/welcome_intro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:text="@string/welcome_intro_en"
             android:textSize="14sp"
-            android:textColor="?android:attr/textColorSecondary"
-            android:gravity="center" />
+            android:textColor="@color/textColorSecondary"
+            android:lineSpacingExtra="4dp" />
 
-        <!-- Feature Cards -->
-        <LinearLayout
+        <!-- GET STARTED section -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:orientation="vertical">
+            android:text="GET STARTED"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/welcomeAccent"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:letterSpacing="0.1" />
 
-            <!-- Tip 1: Browse Files -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp"
-                android:layout_marginBottom="8dp"
-                android:background="?android:attr/selectableItemBackground">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/welcome_tip1_title"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:layout_marginEnd="8dp" />
-                <TextView
-                    android:id="@+id/tip1_desc"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/welcome_tip1_desc_en"
-                    android:textSize="12sp"
-                    android:textColor="?android:attr/textColorSecondary" />
-            </LinearLayout>
+        <!-- New File -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
 
-            <!-- Tip 2: AI Assistant -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp"
-                android:layout_marginBottom="8dp"
-                android:background="?android:attr/selectableItemBackground">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/welcome_tip2_title"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:layout_marginEnd="8dp" />
-                <TextView
-                    android:id="@+id/tip2_desc"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/welcome_tip2_desc_en"
-                    android:textSize="12sp"
-                    android:textColor="?android:attr/textColorSecondary" />
-            </LinearLayout>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/content_file_new"
+                android:scaleType="centerInside" />
 
-            <!-- Tip 3: Terminal -->
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp"
-                android:layout_marginBottom="8dp"
-                android:background="?android:attr/selectableItemBackground">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/welcome_tip3_title"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:layout_marginEnd="8dp" />
-                <TextView
-                    android:id="@+id/tip3_desc"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/welcome_tip3_desc_en"
-                    android:textSize="12sp"
-                    android:textColor="?android:attr/textColorSecondary" />
-            </LinearLayout>
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="@string/welcome_tip1_title"
+                android:textSize="15sp"
+                android:textColor="@color/textColorPrimary" />
 
-            <!-- Tip 4: Preview -->
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp"
-                android:layout_marginBottom="8dp"
-                android:background="?android:attr/selectableItemBackground">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/welcome_tip4_title"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:layout_marginEnd="8dp" />
-                <TextView
-                    android:id="@+id/tip4_desc"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/welcome_tip4_desc_en"
-                    android:textSize="12sp"
-                    android:textColor="?android:attr/textColorSecondary" />
-            </LinearLayout>
+                android:text="Ctrl+N"
+                android:textSize="11sp"
+                android:textColor="@color/textColorSecondary" />
         </LinearLayout>
 
-        <!-- Buttons -->
+        <!-- Open Folder -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/folder"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="Open Folder"
+                android:textSize="15sp"
+                android:textColor="@color/textColorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ctrl+O"
+                android:textSize="11sp"
+                android:textColor="@color/textColorSecondary" />
+        </LinearLayout>
+
+        <!-- Terminal -->
+        <LinearLayout
+            android:id="@+id/welcome_terminal_row"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/content_terminal"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="@string/terminal"
+                android:textSize="15sp"
+                android:textColor="@color/textColorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ctrl+`"
+                android:textSize="11sp"
+                android:textColor="@color/textColorSecondary" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/welcomeBorder"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- CUSTOMIZE section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CUSTOMIZE"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/welcomeAccent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:letterSpacing="0.1" />
+
+        <!-- Settings -->
+        <LinearLayout
+            android:id="@+id/welcome_settings_row"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/content_settings_cog"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="@string/settings"
+                android:textSize="15sp"
+                android:textColor="@color/textColorPrimary" />
+        </LinearLayout>
+
+        <!-- Feature tips -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="24dp"
+            android:background="@color/cardBackground"
+            android:padding="16dp">
 
-            <Button
-                android:id="@+id/btn_start_browsing"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome_tip1_title"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/textColorPrimary" />
+            <TextView
+                android:id="@+id/tip1_desc"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:text="@string/welcome_start"
-                android:textSize="16sp"
-                android:textAllCaps="false"
-                android:backgroundTint="?attr/colorPrimary"
-                android:textColor="#FFFFFF"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/welcome_tip1_desc_en"
+                android:textSize="13sp"
+                android:textColor="@color/textColorSecondary"
+                android:lineSpacingExtra="2dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dividerColor"
+                android:layout_marginTop="12dp"
                 android:layout_marginBottom="12dp" />
 
-            <Button
-                android:id="@+id/btn_terminal"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="@string/welcome_open_terminal"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome_tip2_title"
                 android:textSize="14sp"
-                android:textAllCaps="false"
-                android:background="@android:color/transparent"
-                android:textColor="?attr/colorPrimary"
-                android:layout_marginBottom="8dp" />
+                android:textStyle="bold"
+                android:textColor="@color/textColorPrimary" />
+            <TextView
+                android:id="@+id/tip2_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/welcome_tip2_desc_en"
+                android:textSize="13sp"
+                android:textColor="@color/textColorSecondary"
+                android:lineSpacingExtra="2dp" />
 
-            <Button
-                android:id="@+id/btn_settings"
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="@string/welcome_settings"
+                android:layout_height="1dp"
+                android:background="@color/dividerColor"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome_tip3_title"
                 android:textSize="14sp"
-                android:textAllCaps="false"
-                android:background="@android:color/transparent"
-                android:textColor="?attr/colorPrimary" />
+                android:textStyle="bold"
+                android:textColor="@color/textColorPrimary" />
+            <TextView
+                android:id="@+id/tip3_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/welcome_tip3_desc_en"
+                android:textSize="13sp"
+                android:textColor="@color/textColorSecondary"
+                android:lineSpacingExtra="2dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dividerColor"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome_tip4_title"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/textColorPrimary" />
+            <TextView
+                android:id="@+id/tip4_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/welcome_tip4_desc_en"
+                android:textSize="13sp"
+                android:textColor="@color/textColorSecondary"
+                android:lineSpacingExtra="2dp" />
         </LinearLayout>
+
+        <!-- Start button -->
+        <Button
+            android:id="@+id/btn_start_browsing"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/welcome_start"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/welcomeAccent"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_terminal"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/welcome_open_terminal"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:background="@android:color/transparent"
+            android:textColor="@color/welcomeAccent" />
+
+        <Button
+            android:id="@+id/btn_settings"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/welcome_settings"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:background="@android:color/transparent"
+            android:textColor="@color/welcomeAccent" />
 
     </LinearLayout>
 </ScrollView>

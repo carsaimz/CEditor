@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Light Theme (default) - VSCode-like -->
+    <!-- Acode-inspired Light Theme (default) -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -9,17 +9,21 @@
         <item name="colorControlNormal">@color/colorControlNormal</item>
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:colorBackground">@color/backgroundColor</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
     </style>
 
-    <!-- Dark Theme -->
-    <style name="AppTheme.Dark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlHighlight">@color/colorControlHighlight</item>
-        <item name="colorControlNormal">@color/colorControlNormal</item>
-        <item name="android:windowBackground">@color/terminalBackground</item>
-        <item name="android:colorBackground">@color/terminalBackground</item>
+    <!-- Dark Theme (Acode dark style) -->
+    <style name="AppTheme.Dark" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/acodeAccent</item>
+        <item name="colorPrimaryDark">@color/darkBackground</item>
+        <item name="colorAccent">@color/acodeAccent</item>
+        <item name="colorControlHighlight">#33FFFFFF</item>
+        <item name="colorControlNormal">#8B949E</item>
+        <item name="android:windowBackground">@color/darkBackground</item>
+        <item name="android:colorBackground">@color/darkBackground</item>
+        <item name="android:textColorPrimary">@color/darkTextPrimary</item>
+        <item name="android:textColorSecondary">@color/darkTextSecondary</item>
+        <item name="android:statusBarColor">@color/darkBackground</item>
     </style>
 
     <!-- Toolbar styles -->
@@ -34,19 +38,21 @@
         <item name="android:backgroundDimAmount">0.5</item>
     </style>
 
-    <!-- Terminal Theme -->
+    <!-- Terminal Theme (Termux-like) -->
     <style name="TerminalTheme" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:windowBackground">@color/terminalBackground</item>
         <item name="android:colorBackground">@color/terminalBackground</item>
         <item name="colorPrimary">@color/terminalText</item>
         <item name="colorAccent">@color/terminalText</item>
+        <item name="android:statusBarColor">@color/terminalBar</item>
     </style>
 
-    <!-- Welcome Theme -->
+    <!-- Welcome Theme (Acode style) -->
     <style name="WelcomeTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@color/welcomeBackground</item>
         <item name="android:colorBackground">@color/welcomeBackground</item>
         <item name="colorPrimary">@color/welcomeAccent</item>
         <item name="colorAccent">@color/welcomeAccent</item>
+        <item name="android:statusBarColor">@color/welcomeAccent</item>
     </style>
 </resources>

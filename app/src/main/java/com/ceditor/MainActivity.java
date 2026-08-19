@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -45,7 +44,6 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements FileAdapter.OnFileClickListener {
 
     private DrawerLayout drawerLayout;
-    private Toolbar toolbar;
     private TextView pathText;
     private RecyclerView recyclerView;
     private LinearLayout emptyState;
@@ -99,7 +97,6 @@ public class MainActivity extends AppCompatActivity implements FileAdapter.OnFil
 
     private void initViews() {
         drawerLayout = findViewById(R.id.drawer_layout);
-        toolbar = findViewById(R.id.toolbar);
         pathText = findViewById(R.id.path_text);
         recyclerView = findViewById(R.id.recycler_view);
         emptyState = findViewById(R.id.empty_state);
@@ -109,19 +106,51 @@ public class MainActivity extends AppCompatActivity implements FileAdapter.OnFil
     }
 
     private void setupToolbar() {
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setHomeButtonEnabled(true);
-            getSupportActionBar().setTitle("CEditor");
+        // Hamburger menu button
+        View btnMenu = findViewById(R.id.btn_menu);
+        if (btnMenu != null) {
+            btnMenu.setOnClickListener(v -> {
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
+            });
         }
-        toolbar.setNavigationOnClickListener(v -> {
-            if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                drawerLayout.closeDrawer(GravityCompat.START);
-            } else {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
+
+        // Sort button
+        View btnSort = findViewById(R.id.btn_sort);
+        if (btnSort != null) {
+            btnSort.setOnClickListener(v -> {
+                sortOrder = (sortOrder + 1) % 3;
+                sortFiles();
+                fileAdapter.notifyDataSetChanged();
+                Toast.makeText(this, "Sorted", Toast.LENGTH_SHORT).show();
+            });
+        }
+
+        // Hidden files toggle
+        View btnHidden = findViewById(R.id.btn_hidden);
+        if (btnHidden != null) {
+            btnHidden.setOnClickListener(v -> {
+                showHidden = !showHidden;
+                refreshFiles();
+                Toast.makeText(this, showHidden ? "Hidden files shown" : "Hidden files hidden", Toast.LENGTH_SHORT).show();
+            });
+        }
+
+        // Go up button
+        View btnUp = findViewById(R.id.btn_up);
+        if (btnUp != null) {
+            btnUp.setOnClickListener(v -> {
+                if (currentDir != null && !currentDir.equals(Environment.getExternalStorageDirectory())) {
+                    File parent = currentDir.getParentFile();
+                    if (parent != null) {
+                        navigateTo(parent);
+                    }
+                }
+            });
+        }
     }
 
     private void setupDrawer() {
@@ -134,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements FileAdapter.OnFil
         View drawerMusic = findViewById(R.id.nav_music);
         View drawerMovies = findViewById(R.id.nav_movies);
         View drawerSettings = findViewById(R.id.nav_settings);
+        View navTerminal = findViewById(R.id.nav_terminal);
 
         if (navInternal != null) navInternal.setOnClickListener(v -> {
             navigateTo(Environment.getExternalStorageDirectory());
@@ -165,6 +195,10 @@ public class MainActivity extends AppCompatActivity implements FileAdapter.OnFil
         });
         if (drawerSettings != null) drawerSettings.setOnClickListener(v -> {
             startActivity(new Intent(this, SettingsActivity.class));
+            drawerLayout.closeDrawer(GravityCompat.START);
+        });
+        if (navTerminal != null) navTerminal.setOnClickListener(v -> {
+            startActivity(new Intent(this, TerminalActivity.class));
             drawerLayout.closeDrawer(GravityCompat.START);
         });
     }

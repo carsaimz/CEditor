@@ -4,399 +4,514 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/coordinator"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/app_bar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <LinearLayout
-            android:id="@+id/root_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <!-- Top progress bar -->
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:indeterminate="true"
-                android:visibility="gone"
-                style="?android:attr/progressBarStyleHorizontal" />
-
-            <!-- Path bar -->
-            <LinearLayout
-                android:id="@+id/path_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="8dp"
-                android:background="#1a1a1a">
-
-                <TextView
-                    android:id="@+id/path_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="12sp"
-                    android:textColor="#AAAAAA"
-                    android:singleLine="true"
-                    android:ellipsize="start" />
-
-                <ImageView
-                    android:id="@+id/btn_up"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/content_right_arrow"
-                    android:rotation="180"
-                    android:padding="2dp" />
-
-            </LinearLayout>
-
-            <!-- File list -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false" />
-
-            <!-- Empty state -->
-            <LinearLayout
-                android:id="@+id/empty_state"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:visibility="gone">
-
-                <ImageView
-                    android:id="@+id/empty_icon"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/content_folder"
-                    android:alpha="0.3"
-                    android:scaleType="centerInside" />
-
-                <TextView
-                    android:id="@+id/empty_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:textSize="14sp"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:text="@string/no_items" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- Floating action button -->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
-            app:srcCompat="@android:drawable/ic_input_add" />
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <!-- Navigation drawer -->
+    <!-- Main content -->
     <LinearLayout
-        android:id="@+id/nav_view"
-        android:layout_width="300dp"
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
         android:orientation="vertical"
-        android:background="?attr/colorSurface">
+        android:background="@color/backgroundColor">
 
-        <!-- Header -->
+        <!-- Acode-style Top Bar -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:padding="16dp"
-            android:background="?attr/colorPrimary">
+            android:paddingStart="4dp"
+            android:paddingEnd="8dp"
+            android:background="@color/backgroundColor"
+            android:elevation="2dp">
 
-            <ImageView
-                android:id="@+id/nav_app_icon"
+            <!-- Hamburger / Navigation icon -->
+            <ImageButton
+                android:id="@+id/btn_menu"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/app_logo_transparent"
-                android:scaleType="centerInside" />
+                android:src="@drawable/content_menu"
+                android:scaleType="centerInside"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Menu"
+                android:layout_marginStart="4dp" />
 
+            <!-- App logo -->
+            <ImageView
+                android:id="@+id/nav_app_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/app_logo_transparent"
+                android:scaleType="centerInside"
+                android:layout_marginStart="4dp" />
+
+            <!-- App name -->
             <TextView
                 android:id="@+id/nav_app_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
                 android:text="CEditor"
-                android:textSize="18sp"
-                android:textColor="?android:attr/textColorPrimary" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/textColorPrimary"
+                android:layout_marginStart="8dp" />
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Sort button -->
+            <ImageButton
+                android:id="@+id/btn_sort"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/content_sort"
+                android:scaleType="centerInside"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Sort" />
+
+            <!-- Hidden files toggle -->
+            <ImageButton
+                android:id="@+id/btn_hidden"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/content_hidden"
+                android:scaleType="centerInside"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Hidden files" />
         </LinearLayout>
 
+        <!-- Breadcrumb path bar (Acode style) -->
+        <LinearLayout
+            android:id="@+id/path_bar"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="48dp"
+            android:paddingEnd="8dp"
+            android:background="@color/surfaceColor">
+
+            <ImageView
+                android:id="@+id/btn_up"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/content_right_arrow"
+                android:rotation="180"
+                android:padding="2dp"
+                android:background="?attr/selectableItemBackground" />
+
+            <TextView
+                android:id="@+id/path_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="11sp"
+                android:textColor="@color/textColorSecondary"
+                android:singleLine="true"
+                android:ellipsize="start"
+                android:layout_marginStart="8dp" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:indeterminate="true"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- Divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="?attr/colorOnSurface" />
+            android:background="@color/dividerColor" />
 
-        <!-- Drawer items -->
-        <ScrollView
+        <!-- File list -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="72dp"
+            android:background="@color/backgroundColor" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Internal Storage -->
-                <LinearLayout
-                    android:id="@+id/nav_internal"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/content_device" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/internal_storage"
-                        android:textSize="14sp"
-                        android:textColor="?android:attr/textColorPrimary" />
-
-                </LinearLayout>
-
-                <!-- Home -->
-                <LinearLayout
-                    android:id="@+id/nav_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/folder" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/home"
-                        android:textSize="14sp"
-                        android:textColor="?android:attr/textColorPrimary" />
-
-                </LinearLayout>
-
-                <!-- Downloads -->
-                <LinearLayout
-                    android:id="@+id/nav_downloads"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/download_folder" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/downloads"
-                        android:textSize="14sp"
-                        android:textColor="?android:attr/textColorPrimary" />
-
-                </LinearLayout>
-
-                <!-- Documents -->
-                <LinearLayout
-                    android:id="@+id/nav_documents"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/documents_folder" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/documents"
-                        android:textSize="14sp"
-                        android:textColor="?android:attr/textColorPrimary" />
-
-                </LinearLayout>
-
-                <!-- Pictures -->
-                <LinearLayout
-                    android:id="@+id/nav_pictures"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/pictures_folder" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/pictures"
-                        android:textSize="14sp"
-                        android:textColor="?android:attr/textColorPrimary" />
-
-                </LinearLayout>
-
-                <!-- Music -->
-                <LinearLayout
-                    android:id="@+id/nav_music"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/music_ringtones_folder" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/music"
-                        android:textSize="14sp"
-                        android:textColor="?android:attr/textColorPrimary" />
-
-                </LinearLayout>
-
-                <!-- Movies -->
-                <LinearLayout
-                    android:id="@+id/nav_movies"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/movies_folder" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/movies"
-                        android:textSize="14sp"
-                        android:textColor="?android:attr/textColorPrimary" />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#333333"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp" />
-
-                <!-- Settings -->
-                <LinearLayout
-                    android:id="@+id/nav_settings"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/content_settings_cog" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/settings"
-                        android:textSize="14sp"
-                        android:textColor="?android:attr/textColorPrimary" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </ScrollView>
-
-        <View
+        <!-- Empty state -->
+        <LinearLayout
+            android:id="@+id/empty_state"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?attr/colorOnSurface" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            android:background="@color/backgroundColor">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:padding="8dp"
-            android:text="© CEditor 2025"
-            android:textSize="10sp"
-            android:textColor="#9E9E9E" />
+            <ImageView
+                android:id="@+id/empty_icon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/content_folder"
+                android:alpha="0.2"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:id="@+id/empty_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textSize="14sp"
+                android:textColor="@color/textColorSecondary"
+                android:text="@string/no_items" />
+        </LinearLayout>
 
     </LinearLayout>
 
+    <!-- Floating action button (Acode style - bottom right, teal) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/colorPrimary"
+        app:tint="#FFFFFF"
+        app:elevation="6dp" />
+
+    <!-- Navigation drawer (Acode style sidebar) -->
+    <LinearLayout
+        android:id="@+id/nav_view"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        android:background="@color/surfaceColor"
+        android:fitsSystemWindows="true">
+
+        <!-- Drawer header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/app_logo_transparent"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="CEditor"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Code Editor"
+                android:textSize="12sp"
+                android:textColor="#B0C4B0" />
+        </LinearLayout>
+
+        <!-- GET STARTED section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GET STARTED"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/textColorSecondary"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp"
+            android:letterSpacing="0.1" />
+
+        <!-- Internal Storage -->
+        <LinearLayout
+            android:id="@+id/nav_internal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/content_device"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="@string/internal_storage"
+                android:textSize="14sp"
+                android:textColor="@color/textColorPrimary" />
+        </LinearLayout>
+
+        <!-- Home -->
+        <LinearLayout
+            android:id="@+id/nav_home"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/folder"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="@string/home"
+                android:textSize="14sp"
+                android:textColor="@color/textColorPrimary" />
+        </LinearLayout>
+
+        <!-- Downloads -->
+        <LinearLayout
+            android:id="@+id/nav_downloads"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/download_folder"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="@string/downloads"
+                android:textSize="14sp"
+                android:textColor="@color/textColorPrimary" />
+        </LinearLayout>
+
+        <!-- Documents -->
+        <LinearLayout
+            android:id="@+id/nav_documents"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/documents_folder"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="@string/documents"
+                android:textSize="14sp"
+                android:textColor="@color/textColorPrimary" />
+        </LinearLayout>
+
+        <!-- Pictures -->
+        <LinearLayout
+            android:id="@+id/nav_pictures"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/pictures_folder"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="@string/pictures"
+                android:textSize="14sp"
+                android:textColor="@color/textColorPrimary" />
+        </LinearLayout>
+
+        <!-- Music -->
+        <LinearLayout
+            android:id="@+id/nav_music"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/music_ringtones_folder"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="@string/music"
+                android:textSize="14sp"
+                android:textColor="@color/textColorPrimary" />
+        </LinearLayout>
+
+        <!-- Movies -->
+        <LinearLayout
+            android:id="@+id/nav_movies"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/movies_folder"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="@string/movies"
+                android:textSize="14sp"
+                android:textColor="@color/textColorPrimary" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dividerColor"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- CUSTOMIZE section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CUSTOMIZE"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/textColorSecondary"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp"
+            android:letterSpacing="0.1" />
+
+        <!-- Settings -->
+        <LinearLayout
+            android:id="@+id/nav_settings"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/content_settings_cog"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="@string/settings"
+                android:textSize="14sp"
+                android:textColor="@color/textColorPrimary" />
+        </LinearLayout>
+
+        <!-- Terminal -->
+        <LinearLayout
+            android:id="@+id/nav_terminal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/content_terminal"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="@string/terminal"
+                android:textSize="14sp"
+                android:textColor="@color/textColorPrimary" />
+        </LinearLayout>
+
+        <!-- Footer -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="© CEditor 2025"
+            android:textSize="11sp"
+            android:textColor="@color/textColorSecondary"
+            android:gravity="center"
+            android:padding="12dp" />
+    </LinearLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

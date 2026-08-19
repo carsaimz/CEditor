@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.Toolbar;
 
 import com.ceditor.ai.AIProviderManager;
 
@@ -27,7 +26,6 @@ import java.util.Locale;
  */
 public class SettingsActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
     private ImageButton btnBack;
     private Spinner languageSpinner;
     private Spinner themeSpinner;
@@ -59,7 +57,6 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        toolbar = findViewById(R.id.toolbar);
         btnBack = findViewById(R.id.btn_back);
         languageSpinner = findViewById(R.id.language_spinner);
         themeSpinner = findViewById(R.id.theme_spinner);
@@ -68,11 +65,6 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void setupToolbar() {
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-            getSupportActionBar().setTitle(R.string.settings);
-        }
         if (btnBack != null) {
             btnBack.setOnClickListener(v -> onBackPressed());
         }

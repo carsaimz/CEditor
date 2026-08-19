@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.ceditor.ai.AIChatHelper;
 import com.ceditor.ai.AIProviderManager;
@@ -43,7 +42,8 @@ import io.github.rosemoe.sora.widget.EditorSearcher;
 public class EditorActivity extends AppCompatActivity {
 
     private CodeEditor editor;
-    private Toolbar toolbar;
+    private TextView editorFilename;
+    private View btnBack;
     private ImageView btnUndo, btnRedo, btnSave, btnSearch, btnAi, btnPreview;
     private LinearLayout aiPanel;
     private TextView aiTitle, aiResponse;
@@ -79,7 +79,8 @@ public class EditorActivity extends AppCompatActivity {
 
     private void initViews() {
         editor = findViewById(R.id.editor);
-        toolbar = findViewById(R.id.toolbar);
+        btnBack = findViewById(R.id.btn_back);
+        editorFilename = findViewById(R.id.editor_filename);
         btnUndo = findViewById(R.id.btn_undo);
         btnRedo = findViewById(R.id.btn_redo);
         btnSave = findViewById(R.id.btn_save);
@@ -95,12 +96,9 @@ public class EditorActivity extends AppCompatActivity {
     }
 
     private void setupToolbar() {
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setHomeButtonEnabled(true);
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> onBackPressed());
         }
-        toolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 
     private void setupEditorButtons() {
@@ -213,10 +211,10 @@ public class EditorActivity extends AppCompatActivity {
     }
 
     private void updateTitle() {
-        if (getSupportActionBar() != null) {
-            String title = fileName != null ? fileName : "Editor";
-            if (isModified) title += " *";
-            getSupportActionBar().setTitle(title);
+        String title = fileName != null ? fileName : "untitled";
+        if (isModified) title += " *";
+        if (editorFilename != null) {
+            editorFilename.setText(title);
         }
     }
 

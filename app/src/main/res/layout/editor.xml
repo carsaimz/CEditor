@@ -1,173 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/coordinator"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundColor">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar"
+    <!-- Acode-style Top Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="4dp"
+        android:paddingEnd="8dp"
+        android:background="@color/backgroundColor"
+        android:elevation="2dp">
+
+        <!-- Back button -->
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/content_right_arrow"
+            android:rotation="180"
+            android:scaleType="centerInside"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
+            android:layout_marginStart="4dp" />
+
+        <!-- File name (breadcrumb style) -->
+        <TextView
+            android:id="@+id/editor_filename"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/textColorPrimary"
+            android:singleLine="true"
+            android:ellipsize="middle"
+            android:layout_marginStart="8dp" />
+
+        <!-- Preview button -->
+        <ImageView
+            android:id="@+id/btn_preview"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="4dp"
+            android:src="@drawable/content_web"
+            android:scaleType="centerInside"
+            android:visibility="gone"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Preview" />
+
+        <!-- Save button -->
+        <ImageView
+            android:id="@+id/btn_save"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="4dp"
+            android:src="@drawable/content_save"
+            android:scaleType="centerInside"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Save" />
+
+        <!-- Search button -->
+        <ImageView
+            android:id="@+id/btn_search"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="4dp"
+            android:src="@drawable/content_search"
+            android:scaleType="centerInside"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Search" />
+
+        <!-- AI button -->
+        <ImageView
+            android:id="@+id/btn_ai"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="4dp"
+            android:src="@drawable/smart_toy"
+            android:scaleType="centerInside"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="AI Assistant" />
+    </LinearLayout>
+
+    <!-- Action bar (undo/redo) -->
+    <LinearLayout
+        android:id="@+id/editor_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@color/surfaceColor"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp">
+
+        <ImageView
+            android:id="@+id/btn_undo"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:padding="4dp"
+            android:src="@drawable/content_undo"
+            android:scaleType="fitCenter"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Undo" />
+
+        <ImageView
+            android:id="@+id/btn_redo"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:padding="4dp"
+            android:src="@drawable/content_redo"
+            android:scaleType="fitCenter"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Redo" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Line/column indicator -->
+        <TextView
+            android:id="@+id/editor_cursor_pos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ln 1, Col 1"
+            android:textSize="10sp"
+            android:textColor="@color/textColorSecondary"
+            android:fontFamily="monospace"
+            android:layout_marginEnd="8dp" />
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dividerColor" />
+
+    <!-- Code Editor -->
+    <io.github.rosemoe.sora.widget.CodeEditor
+        android:id="@+id/editor"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/editorBackground" />
+
+    <!-- AI Panel (Acode-style bottom panel) -->
+    <LinearLayout
+        android:id="@+id/ai_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:background="@color/surfaceColor"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:visibility="gone">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <TextView
+            android:id="@+id/ai_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ai_chat_title"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <ScrollView
+            android:id="@+id/ai_scroll"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="120dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/backgroundColor"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/ai_response"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="13sp"
+                android:lineSpacingExtra="4dp" />
+        </ScrollView>
 
         <LinearLayout
-            android:id="@+id/editor_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:background="@color/surfaceColor"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp">
-
-            <ImageView
-                android:id="@+id/btn_undo"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:padding="6dp"
-                android:src="@drawable/content_undo"
-                android:scaleType="fitCenter"
-                android:contentDescription="Undo" />
-
-            <ImageView
-                android:id="@+id/btn_redo"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:padding="6dp"
-                android:src="@drawable/content_redo"
-                android:scaleType="fitCenter"
-                android:contentDescription="Redo" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:id="@+id/btn_preview"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:padding="6dp"
-                android:src="@drawable/content_web"
-                android:scaleType="fitCenter"
-                android:visibility="gone"
-                android:contentDescription="Preview" />
-
-            <ImageView
-                android:id="@+id/btn_save"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:padding="6dp"
-                android:src="@drawable/content_save"
-                android:scaleType="fitCenter"
-                android:contentDescription="Save" />
-
-            <ImageView
-                android:id="@+id/btn_search"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:padding="6dp"
-                android:src="@drawable/content_search"
-                android:scaleType="fitCenter"
-                android:contentDescription="Search" />
-
-            <ImageView
-                android:id="@+id/btn_ai"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:padding="6dp"
-                android:src="@drawable/smart_toy"
-                android:scaleType="fitCenter"
-                android:contentDescription="AI Assistant" />
-        </LinearLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <io.github.rosemoe.sora.widget.CodeEditor
-            android:id="@+id/editor"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <!-- AI Panel (bottom sheet style) -->
-        <LinearLayout
-            android:id="@+id/ai_panel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@color/surfaceColor"
-            android:elevation="8dp"
-            android:orientation="vertical"
-            android:padding="12dp"
-            android:visibility="gone">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-            <TextView
-                android:id="@+id/ai_title"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/ai_input"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/ai_chat_title"
-                android:textColor="?android:attr/textColorPrimary"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:layout_weight="1"
+                android:hint="@string/ai_chat_hint"
+                android:textColor="@color/textColorPrimary"
+                android:textColorHint="@color/textColorSecondary"
+                android:textSize="13sp"
+                android:background="@color/dividerColor"
+                android:padding="10dp"
+                android:maxLines="3" />
 
-            <ScrollView
-                android:id="@+id/ai_scroll"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/backgroundColor"
-                android:padding="8dp">
-                <TextView
-                    android:id="@+id/ai_response"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:textSize="13sp"
-                    android:lineSpacingExtra="4dp" />
-            </ScrollView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <EditText
-                    android:id="@+id/ai_input"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/ai_chat_hint"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:textColorHint="@color/textColorSecondary"
-                    android:textSize="14sp"
-                    android:background="@color/dividerColor"
-                    android:padding="10dp"
-                    android:maxLines="3" />
-
-                <ImageButton
-                    android:id="@+id/ai_send"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/content_send"
-                    android:scaleType="fitCenter"
-                    android:background="?attr/selectableItemBackground"
-                    android:layout_marginStart="8dp"
-                    android:contentDescription="Send" />
-            </LinearLayout>
+            <ImageButton
+                android:id="@+id/ai_send"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/content_send"
+                android:scaleType="fitCenter"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_marginStart="8dp"
+                android:contentDescription="Send" />
         </LinearLayout>
-    </FrameLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
+</LinearLayout>

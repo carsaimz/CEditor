@@ -1,27 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Light Theme (default) - VSCode-like -->
-    <color name="colorPrimary">#0078D4</color>
-    <color name="colorPrimaryDark">#005A9E</color>
-    <color name="colorAccent">#0078D4</color>
-    <color name="colorControlHighlight">#1A0078D4</color>
+    <!-- Acode-inspired Light Theme (default) -->
+    <color name="colorPrimary">#1a7f5a</color>
+    <color name="colorPrimaryDark">#145d42</color>
+    <color name="colorAccent">#1a7f5a</color>
+    <color name="colorControlHighlight">#331a7f5a</color>
     <color name="colorControlNormal">#666666</color>
     <color name="backgroundColor">#FFFFFF</color>
-    <color name="surfaceColor">#F3F3F3</color>
-    <color name="textColorPrimary">#1E1E1E</color>
-    <color name="textColorSecondary">#666666</color>
+    <color name="surfaceColor">#F8F9FA</color>
+    <color name="textColorPrimary">#1a1a2e</color>
+    <color name="textColorSecondary">#6c757d</color>
     <color name="editorBackground">#FFFFFF</color>
-    <color name="editorLineNumber">#237893</color>
+    <color name="editorLineNumber">#9e9e9e</color>
     <color name="editorSelection">#ADD6FF</color>
-    <color name="editorCurrentLine">#F0F0F0</color>
-    <color name="sidebarColor">#F3F3F3</color>
+    <color name="editorCurrentLine">#F0F8FF</color>
+    <color name="sidebarColor">#F8F9FA</color>
     <color name="tabBarColor">#ECECEC</color>
-    <color name="statusBarColor">#007ACC</color>
-    <color name="dividerColor">#E0E0E0</color>
+    <color name="statusBarColor">#1a7f5a</color>
+    <color name="dividerColor">#E9ECEF</color>
     <color name="cardBackground">#FFFFFF</color>
     <color name="welcomeBackground">#F6F8FA</color>
-    <color name="welcomeAccent">#0969DA</color>
+    <color name="welcomeAccent">#1a7f5a</color>
     <color name="welcomeBorder">#D0D7DE</color>
-    <color name="terminalBackground">#1E1E1E</color>
+
+    <!-- Acode dark editor colors -->
+    <color name="acodeBg">#0D1117</color>
+    <color name="acodeSidebar">#161B22</color>
+    <color name="acodeTabBar">#1c2128</color>
+    <color name="acodeAccent">#00BCD4</color>
+    <color name="acodeFolderIcon">#7B68EE</color>
+    <color name="acodeJsIcon">#F0DB4F</color>
+    <color name="acodeCssIcon">#E44D26</color>
+    <color name="acodeHtmlIcon">#E44D26</color>
+    <color name="acodeTextIcon">#FFFFFF</color>
+    <color name="acodeLineNumber">#4B5563</color>
+    <color name="acodeActiveLine">#1E2A3A</color>
+    <color name="acodeKeyword">#C678DD</color>
+    <color name="acodeString">#98C379</color>
+    <color name="acodeFunction">#61AFEF</color>
+    <color name="acodeComment">#5C6370</color>
+    <color name="acodeNumber">#D19A66</color>
+
+    <!-- Terminal colors -->
+    <color name="terminalBackground">#0D1117</color>
     <color name="terminalText">#00FF41</color>
+    <color name="terminalPrompt">#00FF41</color>
+    <color name="terminalInput">#1E1E1E</color>
+    <color name="terminalBar">#161B22</color>
+
+    <!-- Dark theme colors -->
+    <color name="darkBackground">#0D1117</color>
+    <color name="darkSurface">#161B22</color>
+    <color name="darkTextPrimary">#E6EDF3</color>
+    <color name="darkTextSecondary">#8B949E</color>
+    <color name="darkDivider">#30363D</color>
+    <color name="darkCard">#1C2128</color>
 </resources>
